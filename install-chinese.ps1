@@ -92,12 +92,14 @@ Log-Message "正在备份原始文件"
 
 if (Test-Path $appAsarBackup) {
     Write-ColorOutput "ℹ️  原始备份文件已存在，跳过备份" $Yellow
-} else {
+}
+else {
     try {
         Copy-Item -Path $appAsarPath -Destination $appAsarBackup -Force
         Write-ColorOutput "✅ 备份完成: $appAsarBackup" $Green
         Log-Message "备份完成: $appAsarBackup"
-    } catch {
+    }
+    catch {
         Write-ColorOutput "❌ 备份失败: $_" $Red
         Log-Message "错误: 备份失败 - $_"
         exit 1
@@ -123,7 +125,8 @@ try {
     
     Write-ColorOutput "✅ 下载完成" $Green
     Log-Message "下载完成"
-} catch {
+}
+catch {
     Write-ColorOutput "❌ 下载失败: $_" $Red
     Write-ColorOutput "请手动访问: $repoUrl" $Yellow
     Log-Message "错误: 下载失败 - $_"
@@ -139,7 +142,8 @@ try {
     [System.IO.Compression.ZipFile]::ExtractToDirectory($zipPath, ".", $true)
     Write-ColorOutput "✅ 解压完成" $Green
     Log-Message "解压完成"
-} catch {
+}
+catch {
     Write-ColorOutput "❌ 解压失败: $_" $Red
     Log-Message "错误: 解压失败 - $_"
     exit 1
@@ -157,14 +161,16 @@ if (Test-Path $patchScript) {
         & $patchScript -AppAsarPath $appAsarPath
         Write-ColorOutput "✅ 汉化应用完成" $Green
         Log-Message "汉化应用完成"
-    } catch {
+    }
+    catch {
         Write-ColorOutput "❌ 汉化应用失败: $_" $Red
         Write-ColorOutput "正在恢复原始文件..." $Yellow
         Copy-Item -Path $appAsarBackup -Destination $appAsarPath -Force
         Log-Message "错误: 汉化应用失败，已恢复原始文件 - $_"
         exit 1
     }
-} else {
+}
+else {
     # 备用方案：手动替换资源
     Write-ColorOutput "⚠️  未找到 patch.ps1，尝试备用方案..." $Yellow
     
@@ -174,12 +180,14 @@ if (Test-Path $patchScript) {
             Copy-Item -Path $langPath -Destination (Join-Path $foundPath "language") -Recurse -Force
             Write-ColorOutput "✅ 汉化资源已应用" $Green
             Log-Message "汉化资源已应用（备用方案）"
-        } catch {
+        }
+        catch {
             Write-ColorOutput "❌ 应用资源失败: $_" $Red
             Log-Message "错误: 应用资源失败 - $_"
             exit 1
         }
-    } else {
+    }
+    else {
         Write-ColorOutput "⚠️  未找到汉化资源，请手动访问: $repoUrl" $Yellow
         Log-Message "警告: 未找到汉化资源"
     }
@@ -194,7 +202,8 @@ try {
     Remove-Item -Path $extractPath -Recurse -Force -ErrorAction SilentlyContinue
     Write-ColorOutput "✅ 清理完成" $Green
     Log-Message "清理完成"
-} catch {
+}
+catch {
     Write-ColorOutput "⚠️  清理失败（非关键）: $_" $Yellow
     Log-Message "警告: 清理失败 - $_"
 }
