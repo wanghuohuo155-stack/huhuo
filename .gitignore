@@ -1,0 +1,21 @@
+# Logs
+logs/
+*.log
+
+# Temporary files
+github-desktop-chinese.zip
+github-desktop-chinese-main/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if needed)
+node_modules/
+npm-debug.log
