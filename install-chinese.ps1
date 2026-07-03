@@ -1,173 +1,179 @@
-# GitHub Desktop 中文汉化安装脚本 (Windows)
-# 使用方法: 右键点击此文件选择"用 PowerShell 运行"
-# 或在 PowerShell 中执行: Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force; .\install-chinese.ps1
-
-param()
+# GitHub Desktop Chinese Installation Script for Windows
+# Usage: Right-click this file and select "Run with PowerShell"
+# Or execute: Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force; .\install-chinese.ps1
 
 $ErrorActionPreference = "Stop"
 $WarningPreference = "SilentlyContinue"
 
-# 颜色定义
-$Green = [System.ConsoleColor]::Green
-$Red = [System.ConsoleColor]::Red
-$Yellow = [System.ConsoleColor]::Yellow
-$Cyan = [System.ConsoleColor]::Cyan
+# Colors
+$Green = "Green"
+$Red = "Red"
+$Yellow = "Yellow"
+$Cyan = "Cyan"
 
-function Write-ColorOutput($Message, $Color = "White") {
-    Write-Host $Message -ForegroundColor $Color
-}
-
-function Log-Message($Message) {
-    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    Add-Content -Path "logs/install.log" -Value "[$timestamp] $Message"
+function Log-Message($msg) {
+    $ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    Add-Content -Path "logs/install.log" -Value "[$ts] $msg"
 }
 
 if (-not (Test-Path "logs")) {
     New-Item -ItemType Directory -Path "logs" -Force | Out-Null
 }
 
-Write-ColorOutput "`n========================================" $Cyan
-Write-ColorOutput "   GitHub Desktop 中文汉化安装器" $Cyan
-Write-ColorOutput "========================================`n" $Cyan
+Write-Host ""
+Write-Host "========================================"  -ForegroundColor $Cyan
+Write-Host "  GitHub Desktop Chinese Installer"  -ForegroundColor $Cyan
+Write-Host "========================================"  -ForegroundColor $Cyan
+Write-Host ""
 
-Log-Message "开始安装过程"
+Log-Message "Installation started"
 
-# 检查管理员权限
+# Check admin rights
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 if (-not $isAdmin) {
-    Write-ColorOutput "⚠️  需要管理员权限来运行此脚本" $Yellow
-    Write-ColorOutput "请以管理员身份运行 PowerShell 后重试" $Yellow
-    Log-Message "错误: 缺少管理员权限"
-    Read-Host "按 Enter 退出"
+    Write-Host "WARNING: This script requires administrator privileges" -ForegroundColor $Yellow
+    Write-Host "Please run PowerShell as Administrator" -ForegroundColor $Yellow
+    Log-Message "ERROR: Administrator privileges required"
+    Read-Host "Press Enter to exit"
     exit 1
 }
 
-# 检测 GitHub Desktop 安装路径
-Write-ColorOutput "🔍 检测 GitHub Desktop 安装路径..." $Cyan
-Log-Message "正在检测 GitHub Desktop 安装路径"
+# Detect GitHub Desktop installation path
+Write-Host "Detecting GitHub Desktop installation path..." -ForegroundColor $Cyan
+Log-Message "Detecting GitHub Desktop installation path"
 
-$githubDesktopPaths = @(
+$paths = @(
     "$env:LOCALAPPDATA\GitHubDesktop\app-*\resources",
     "$env:ProgramFiles\GitHub Desktop\resources",
     "C:\Users\$env:USERNAME\AppData\Local\GitHubDesktop\app-*\resources"
 )
 
 $foundPath = $null
-foreach ($pattern in $githubDesktopPaths) {
-    $paths = Get-Item -Path $pattern -ErrorAction SilentlyContinue
-    if ($paths) {
-        $foundPath = $paths[0].FullName
+foreach ($pattern in $paths) {
+    $results = Get-Item -Path $pattern -ErrorAction SilentlyContinue
+    if ($results) {
+        $foundPath = $results[0].FullName
         break
     }
 }
 
 if (-not $foundPath) {
-    Write-ColorOutput "❌ 未找到 GitHub Desktop 安装路径" $Red
-    Write-ColorOutput "请确保已安装 GitHub Desktop: https://desktop.github.com/" $Red
-    Log-Message "错误: 未找到 GitHub Desktop 安装路径"
-    Read-Host "按 Enter 退出"
+    Write-Host "ERROR: GitHub Desktop installation not found" -ForegroundColor $Red
+    Write-Host "Please install GitHub Desktop from https://desktop.github.com/" -ForegroundColor $Red
+    Log-Message "ERROR: GitHub Desktop installation not found"
+    Read-Host "Press Enter to exit"
     exit 1
 }
 
-Write-ColorOutput "✅ 找到 GitHub Desktop: $foundPath" $Green
-Log-Message "找到 GitHub Desktop: $foundPath"
+Write-Host "Found GitHub Desktop: $foundPath" -ForegroundColor $Green
+Log-Message "Found GitHub Desktop: $foundPath"
 
 $appAsarPath = Join-Path $foundPath "app.asar"
 $appAsarBackup = Join-Path $foundPath "app.asar.backup"
 
 if (-not (Test-Path $appAsarPath)) {
-    Write-ColorOutput "❌ 未找到 app.asar 文件" $Red
-    Log-Message "错误: 未找到 app.asar 文件"
-    Read-Host "按 Enter 退出"
+    Write-Host "ERROR: app.asar file not found" -ForegroundColor $Red
+    Log-Message "ERROR: app.asar file not found"
+    Read-Host "Press Enter to exit"
     exit 1
 }
 
-Write-ColorOutput "✅ 找到 app.asar 文件" $Green
+Write-Host "Found app.asar file" -ForegroundColor $Green
 
-# 备份原始文件
-Write-ColorOutput "`n💾 备份原始文件..." $Cyan
-Log-Message "正在备份原始文件"
+# Backup original file
+Write-Host ""
+Write-Host "Backing up original file..." -ForegroundColor $Cyan
+Log-Message "Backing up original file"
 
 if (Test-Path $appAsarBackup) {
-    Write-ColorOutput "ℹ️  原始备份文件已存在，跳过备份" $Yellow
+    Write-Host "Backup already exists, skipping" -ForegroundColor $Yellow
 }
 else {
     Copy-Item -Path $appAsarPath -Destination $appAsarBackup -Force
-    Write-ColorOutput "✅ 备份完成: $appAsarBackup" $Green
-    Log-Message "备份完成: $appAsarBackup"
+    Write-Host "Backup completed: $appAsarBackup" -ForegroundColor $Green
+    Log-Message "Backup completed: $appAsarBackup"
 }
 
-# 下载汉化补丁
-Write-ColorOutput "`n⬇️  下载汉化补丁..." $Cyan
-Log-Message "正在下载汉化补丁"
+# Download patch
+Write-Host ""
+Write-Host "Downloading Chinese localization patch..." -ForegroundColor $Cyan
+Log-Message "Downloading Chinese localization patch"
 
 $repoUrl = "https://github.com/SkymAu/github-desktop-chinese"
 $downloadUrl = "https://github.com/SkymAu/github-desktop-chinese/archive/refs/heads/main.zip"
 $zipPath = "github-desktop-chinese.zip"
 $extractPath = "github-desktop-chinese-main"
 
-Write-ColorOutput "正在从 $repoUrl 下载..." $Cyan
+Write-Host "Downloading from $repoUrl..." -ForegroundColor $Cyan
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $client = New-Object System.Net.WebClient
 $client.DownloadFile($downloadUrl, $zipPath)
 
-Write-ColorOutput "✅ 下载完成" $Green
-Log-Message "下载完成"
+Write-Host "Download completed" -ForegroundColor $Green
+Log-Message "Download completed"
 
-# 解压文件
-Write-ColorOutput "`n📦 解压文件..." $Cyan
-Log-Message "正在解压文件"
+# Extract files
+Write-Host ""
+Write-Host "Extracting files..." -ForegroundColor $Cyan
+Log-Message "Extracting files"
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 [System.IO.Compression.ZipFile]::ExtractToDirectory($zipPath, ".", $true)
 
-Write-ColorOutput "✅ 解压完成" $Green
-Log-Message "解压完成"
+Write-Host "Extraction completed" -ForegroundColor $Green
+Log-Message "Extraction completed"
 
-# 应用汉化
-Write-ColorOutput "`n🔧 应用汉化补丁..." $Cyan
-Log-Message "正在应用汉化补丁"
+# Apply localization
+Write-Host ""
+Write-Host "Applying Chinese localization..." -ForegroundColor $Cyan
+Log-Message "Applying Chinese localization"
 
 $patchScript = Join-Path $extractPath "patch.ps1"
 $langPath = Join-Path $extractPath "app\resources\language"
 
 if (Test-Path $patchScript) {
     & $patchScript -AppAsarPath $appAsarPath
-    Write-ColorOutput "✅ 汉化应用完成" $Green
-    Log-Message "汉化应用完成"
+    Write-Host "Localization applied successfully" -ForegroundColor $Green
+    Log-Message "Localization applied successfully"
 }
 elseif (Test-Path $langPath) {
     Copy-Item -Path $langPath -Destination (Join-Path $foundPath "language") -Recurse -Force
-    Write-ColorOutput "✅ 汉化资源已应用" $Green
-    Log-Message "汉化资源已应用（备用方案）"
+    Write-Host "Localization resources applied (fallback method)" -ForegroundColor $Green
+    Log-Message "Localization resources applied (fallback method)"
 }
 else {
-    Write-ColorOutput "⚠️  未找到汉化资源，请手动访问: $repoUrl" $Yellow
-    Log-Message "警告: 未找到汉化资源"
+    Write-Host "WARNING: Localization resources not found" -ForegroundColor $Yellow
+    Write-Host "Please visit: $repoUrl" -ForegroundColor $Yellow
+    Log-Message "WARNING: Localization resources not found"
 }
 
-# 清理下载文件
-Write-ColorOutput "`n🧹 清理临时文件..." $Cyan
-Log-Message "正在清理临时文件"
+# Cleanup
+Write-Host ""
+Write-Host "Cleaning up temporary files..." -ForegroundColor $Cyan
+Log-Message "Cleaning up temporary files"
 
 Remove-Item -Path $zipPath -Force -ErrorAction SilentlyContinue
 Remove-Item -Path $extractPath -Recurse -Force -ErrorAction SilentlyContinue
 
-Write-ColorOutput "✅ 清理完成" $Green
-Log-Message "清理完成"
+Write-Host "Cleanup completed" -ForegroundColor $Green
+Log-Message "Cleanup completed"
 
-# 完成
-Write-ColorOutput "`n========================================" $Green
-Write-ColorOutput "✅ 汉化安装完成！" $Green
-Write-ColorOutput "========================================" $Green
-Write-ColorOutput "`n💡 下一步:" $Cyan
-Write-ColorOutput "1. 完全关闭 GitHub Desktop（包括后台进程）" $Cyan
-Write-ColorOutput "2. 重新启动 GitHub Desktop" $Cyan
-Write-ColorOutput "3. 检查界面是否已变为中文" $Cyan
-Write-ColorOutput "`n恢复原始版本: 运行 restore-original.ps1`n" $Yellow
+# Complete
+Write-Host ""
+Write-Host "========================================"  -ForegroundColor $Green
+Write-Host "Installation completed successfully!"  -ForegroundColor $Green
+Write-Host "========================================"  -ForegroundColor $Green
+Write-Host ""
+Write-Host "Next steps:" -ForegroundColor $Cyan
+Write-Host "1. Close GitHub Desktop completely"  -ForegroundColor $Cyan
+Write-Host "2. Restart GitHub Desktop"  -ForegroundColor $Cyan
+Write-Host "3. Verify that the interface is now in Chinese"  -ForegroundColor $Cyan
+Write-Host ""
+Write-Host "To restore original version: Run restore-original.ps1" -ForegroundColor $Yellow
+Write-Host ""
 
-Log-Message "安装过程完成"
-Write-ColorOutput "日志已保存到: logs/install.log" $Cyan
+Log-Message "Installation process completed"
+Write-Host "Log saved to: logs/install.log" -ForegroundColor $Cyan
 
-Read-Host "按 Enter 完成"
+Read-Host "Press Enter to finish"
