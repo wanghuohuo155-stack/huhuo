@@ -68,30 +68,42 @@ if (-not $foundPath) {
 Write-Host "Found GitHub Desktop: $foundPath" -ForegroundColor $Green
 Log-Message "Found GitHub Desktop: $foundPath"
 
+# Check for app folder (new unpacked format) or app.asar (old packed format)
+$appPath = Join-Path $foundPath "app"
 $appAsarPath = Join-Path $foundPath "app.asar"
 $appAsarBackup = Join-Path $foundPath "app.asar.backup"
 
-if (-not (Test-Path $appAsarPath)) {
-    Write-Host "ERROR: app.asar file not found" -ForegroundColor $Red
-    Log-Message "ERROR: app.asar file not found"
+$isUnpacked = Test-Path $appPath -PathType Container
+$isPacked = Test-Path $appAsarPath -PathType Leaf
+
+if (-not $isUnpacked -and -not $isPacked) {
+    Write-Host "ERROR: GitHub Desktop app not found (neither app folder nor app.asar)" -ForegroundColor $Red
+    Log-Message "ERROR: GitHub Desktop app not found"
     Read-Host "Press Enter to exit"
     exit 1
 }
 
-Write-Host "Found app.asar file" -ForegroundColor $Green
-
-# Backup original file
-Write-Host ""
-Write-Host "Backing up original file..." -ForegroundColor $Cyan
-Log-Message "Backing up original file"
-
-if (Test-Path $appAsarBackup) {
-    Write-Host "Backup already exists, skipping" -ForegroundColor $Yellow
+if ($isPacked) {
+    Write-Host "Found packed app.asar format" -ForegroundColor $Green
 }
 else {
-    Copy-Item -Path $appAsarPath -Destination $appAsarBackup -Force
-    Write-Host "Backup completed: $appAsarBackup" -ForegroundColor $Green
-    Log-Message "Backup completed: $appAsarBackup"
+    Write-Host "Found unpacked app folder format" -ForegroundColor $Green
+}
+
+# Backup for packed format
+if ($isPacked) {
+    Write-Host ""
+    Write-Host "Backing up original file..." -ForegroundColor $Cyan
+    Log-Message "Backing up original file"
+
+    if (Test-Path $appAsarBackup) {
+        Write-Host "Backup already exists, skipping" -ForegroundColor $Yellow
+    }
+    else {
+        Copy-Item -Path $appAsarPath -Destination $appAsarBackup -Force
+        Write-Host "Backup completed: $appAsarBackup" -ForegroundColor $Green
+        Log-Message "Backup completed: $appAsarBackup"
+    }
 }
 
 # Download patch
@@ -132,13 +144,31 @@ Log-Message "Applying Chinese localization"
 $patchScript = Join-Path $extractPath "patch.ps1"
 $langPath = Join-Path $extractPath "app\resources\language"
 
-if (Test-Path $patchScript) {
+if ($isPacked -and (Test-Path $patchScript)) {
     & $patchScript -AppAsarPath $appAsarPath
     Write-Host "Localization applied successfully" -ForegroundColor $Green
     Log-Message "Localization applied successfully"
 }
+elseif ($isUnpacked -and (Test-Path $langPath)) {
+    # For unpacked format, copy language files directly
+    $targetLangPath = Join-Path $appPath "resources\language"
+    
+    # Remove old language folder if exists
+    if (Test-Path $targetLangPath) {
+        Remove-Item -Path $targetLangPath -Recurse -Force -ErrorAction SilentlyContinue
+    }
+    
+    Copy-Item -Path $langPath -Destination $targetLangPath -Recurse -Force
+    Write-Host "Localization files copied successfully" -ForegroundColor $Green
+    Log-Message "Localization files copied successfully"
+}
 elseif (Test-Path $langPath) {
-    Copy-Item -Path $langPath -Destination (Join-Path $foundPath "language") -Recurse -Force
+    # Fallback: try to copy language resources
+    $targetPath = Join-Path $foundPath "language"
+    if (Test-Path $targetPath) {
+        Remove-Item -Path $targetPath -Recurse -Force -ErrorAction SilentlyContinue
+    }
+    Copy-Item -Path $langPath -Destination $targetPath -Recurse -Force
     Write-Host "Localization resources applied (fallback method)" -ForegroundColor $Green
     Log-Message "Localization resources applied (fallback method)"
 }
