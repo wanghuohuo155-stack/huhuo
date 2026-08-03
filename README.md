@@ -49,6 +49,12 @@ python rushi-skill/scripts/rushi-cli.py gate    --pack packs/demo-pack
 python rushi-skill/scripts/rushi-cli.py evolve --project . --pack packs/demo-pack --telemetry examples/telemetry.jsonl
 ```
 
+## 使用说明（小人书式图文版）
+
+- [使用说明-花拳绣腿.html](docs/使用说明-花拳绣腿.html)（当前版本，浏览器直接打开即可阅读）
+- [使用说明.html](docs/使用说明.html)（《你的名字》日式动漫版）
+- 在线渲染版（GitHub Pages）：<https://wanghuohuo155-stack.github.io/huhuo/使用说明-花拳绣腿.html>
+
 ## 与仓颉的关键差异
 
 | 维度 | 仓颉（cangjie-skill） | 入世（rushi-skill） |
