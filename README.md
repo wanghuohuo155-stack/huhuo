@@ -31,6 +31,42 @@ rushi-skill/
 └── .github/workflows/ci.yml    # 单测 + 端到端冒烟 + 发布闸门
 ```
 
+## 环境要求
+
+- Python 3.11+（仅标准库，无第三方依赖）
+
+## 配置 LLM 钥匙
+
+入世的 S1/S2/S4/S5 等阶段需要调用大模型，先配好钥匙（二选一）：
+
+**方式 A：OpenAI**
+
+```powershell
+$env:OPENAI_API_KEY='你的钥匙'   # PowerShell
+```
+
+```bash
+export OPENAI_API_KEY='你的钥匙'  # Linux / macOS
+```
+
+**方式 B：DeepSeek（国内用户推荐）**
+
+```powershell
+$env:DEEPSEEK_API_KEY='你的钥匙'
+$env:RUSHI_BASE_URL='https://api.deepseek.com'
+$env:RUSHI_MODEL='deepseek-chat'
+$env:RUSHI_API_KEY_ENV='DEEPSEEK_API_KEY'
+$env:RUSHI_JSON_MODE='1'
+```
+
+```bash
+export DEEPSEEK_API_KEY='你的钥匙'                    # Linux / macOS
+export RUSHI_BASE_URL='https://api.deepseek.com'
+export RUSHI_MODEL='deepseek-chat'
+export RUSHI_API_KEY_ENV='DEEPSEEK_API_KEY'
+export RUSHI_JSON_MODE='1'
+```
+
 ## 快速开始
 
 ```bash
