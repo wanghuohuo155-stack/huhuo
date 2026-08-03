@@ -3,312 +3,407 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="入世使用说明书：12 岁也能看懂的图文小人书式操作指南，S0 到 S10 全流程逐条命令实测。">
-<title>入世使用说明书（花拳绣腿版）</title>
+<meta name="description" content="入世使用说明书：从一本书到一套可发布技能包，S0 到 S10 全流程逐条命令实测，照着敲就能跑通。">
+<title>入世使用说明书 · 从一本书到一套技能</title>
 <style>
 
 :root {
-  --paper: #fffdf7;
-  --ink: #33475b;
-  --ink-strong: #1f2c3f;
-  --sky-deep: #0e4fae;
-  --sky-mid: #3b82d8;
-  --sky-soft: #8fc4ef;
-  --sky-pale: #d8ecff;
-  --sun: #ffd166;
-  --sun-ink: #2b4a78;
-  --line: #8fb9e8;
-  --cmd-bg: #1f3a5f;
-  --cmd-ink: #e8f4ff;
-  --ok-bg: #d9f2e0;
-  --ok-line: #4caf7d;
-  --ok-ink: #1e6b43;
-  --err-bg: #ffe0e0;
-  --err-line: #ef6c6c;
-  --err-ink: #a12424;
-  --tip-bg: #fff3d6;
-  --tip-line: #e8b84b;
-  --tip-ink: #7a5b00;
-  --arrow: #ef8f5a;
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
-  --shadow-card: 0 6px 14px rgba(40, 80, 140, .22), 0 2px 4px rgba(40, 80, 140, .12);
-  --shadow-hover: 0 10px 22px rgba(40, 80, 140, .28), 0 4px 8px rgba(40, 80, 140, .14);
-  --dur: 200ms;
-  --ease: cubic-bezier(.22, .61, .36, 1);
+  /* 深墨编辑体：单一暖金主色 + 语义三色，其余全部靠明度层级 */
+  --ink-900: #070A0F;
+  --surface: #131A24;
+  --surface-2: #0A0E15;
+  --hair: rgba(255, 255, 255, .09);
+  --hair-strong: rgba(255, 255, 255, .16);
+  --text: #E9EEF5;
+  --text-2: #C3CDDA;
+  --text-3: #8D9BAC;
+  --gold: #E7B341;
+  --gold-2: #F2CE7A;
+  --jade: #6FDCAB;
+  --jade-ink: #ADEBCE;
+  --coral: #FF8E7E;
+  --coral-ink: #FFC0B6;
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --dur: 180ms;
+  --ease: cubic-bezier(.2, .7, .3, 1);
+  --shell: 1320px;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  padding: 24px 16px 56px;
-  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans JP", "Noto Sans SC", sans-serif;
-  color: var(--ink);
-  line-height: 1.6;
+  padding: 0 0 72px;
+  background: var(--ink-900);
+  color: var(--text-2);
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ——— 背景：极缓慢的极光 + 细网格，唯一的环境动效 ——— */
+.bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--ink-900); }
+.bg i {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(88px);
+  opacity: .62;
+}
+.bg .b1 { width: 780px; height: 780px; top: -280px; left: -160px; background: radial-gradient(circle, rgba(231,179,65,.28), transparent 68%); animation: drift1 46s ease-in-out infinite; }
+.bg .b2 { width: 720px; height: 720px; top: 12%; right: -240px; background: radial-gradient(circle, rgba(90,140,255,.26), transparent 68%); animation: drift2 58s ease-in-out infinite; }
+.bg .b3 { width: 640px; height: 640px; bottom: -220px; left: 28%; background: radial-gradient(circle, rgba(80,210,160,.18), transparent 70%); animation: drift3 66s ease-in-out infinite; }
+.bg .grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--hair) 1px, transparent 1px), linear-gradient(90deg, var(--hair) 1px, transparent 1px);
+  background-size: 96px 96px;
+  opacity: .35;
+  -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 20%, transparent 78%);
+}
+.bg .veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,10,15,.42), rgba(7,10,15,.8) 60%, var(--ink-900)); }
+
+@keyframes drift1 { 50% { transform: translate3d(90px, 60px, 0) scale(1.12); } }
+@keyframes drift2 { 50% { transform: translate3d(-110px, 70px, 0) scale(1.08); } }
+@keyframes drift3 { 50% { transform: translate3d(70px, -60px, 0) scale(1.14); } }
+
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  z-index: 60;
+  background: linear-gradient(90deg, var(--gold), var(--gold-2));
+  box-shadow: 0 0 12px rgba(231, 179, 65, .55);
 }
 
 .skip {
   position: absolute;
   left: -9999px;
-  top: 8px;
-  z-index: 50;
+  top: 12px;
+  z-index: 70;
   padding: 10px 18px;
-  background: var(--sun);
-  color: var(--sun-ink);
+  background: var(--gold);
+  color: #17202B;
   font-weight: 700;
-  border-radius: var(--radius-sm);
+  border-radius: var(--r-sm);
   text-decoration: none;
 }
-.skip:focus { left: 8px; }
+.skip:focus { left: 16px; }
 
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
+.shell { max-width: var(--shell); margin: 0 auto; padding: 0 32px; }
+
+/* ——— Hero ——— */
+.hero { padding: 96px 0 56px; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .22em;
+  color: var(--gold);
+  margin: 0 0 22px;
 }
-.bg svg { width: 100%; height: 100%; display: block; }
-.bg::after {
+.eyebrow::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(216, 236, 255, .48), rgba(255, 255, 255, .30) 42%, rgba(216, 236, 255, .55));
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
 }
-
-.hero { text-align: center; margin: 6px auto 26px; max-width: 1100px; }
 .hero h1 {
-  margin: 0 0 4px;
-  font-size: clamp(30px, 5vw, 44px);
-  line-height: 1.25;
-  color: #123c74;
-  text-shadow: 0 2px 6px rgba(255, 255, 255, .9), 0 0 22px rgba(255, 255, 255, .6);
-  letter-spacing: .02em;
-}
-.hero .subtitle {
-  margin: 0 0 20px;
-  font-size: clamp(16px, 2.4vw, 20px);
-  color: var(--sun-ink);
-  text-shadow: 0 1px 4px rgba(255, 255, 255, .85);
+  margin: 0;
+  font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 1.18;
+  letter-spacing: .005em;
   font-weight: 600;
+  color: var(--text);
 }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero .lead {
+  margin: 24px 0 0;
+  max-width: 40em;
+  font-size: clamp(15.5px, 1.4vw, 18px);
+  color: var(--text-2);
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 34px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--hair);
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12.5px;
+  color: var(--text-3);
+  letter-spacing: .04em;
+}
+.meta b { color: var(--text); font-weight: 600; }
 
+/* ——— S0→S10 流程条 ——— */
 .flow {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
-  margin: 0 auto 34px;
-  max-width: 1120px;
-  padding: 16px;
-  background: rgba(255, 253, 247, .88);
-  border: 4px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+  margin: 40px 0 0;
 }
 .flow .node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 82px;
-  padding: 8px 10px;
-  border: 3px solid var(--line);
-  border-radius: var(--radius-md);
-  background: #fff;
-  color: var(--sun-ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .028);
+  color: var(--text-2);
   text-decoration: none;
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
-.flow .node b { font-size: 17px; color: var(--ink-strong); }
-.flow .node span { font-size: 13px; white-space: nowrap; }
-.flow .node:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
-  background: #f0f8ff;
+.flow .node b {
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--gold);
 }
-.flow .node:active { transform: translateY(0) scale(.97); }
-.flow .node:focus-visible {
-  outline: 3px solid var(--sun);
-  outline-offset: 2px;
-}
-.f-arrow { color: var(--arrow); font-size: 20px; font-weight: 700; line-height: 1; }
-.f-arrow i { font-style: normal; }
-.f-arrow .down { display: none; }
+.flow .node span { font-size: 13.5px; white-space: nowrap; }
+.flow .node:hover { border-color: var(--gold); background: rgba(231, 179, 65, .09); transform: translateY(-2px); }
+.flow .node:active { transform: translateY(0); }
+.flow .node:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
+/* ——— 卡片 ——— */
 .pages {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 660px));
-  gap: 30px;
-  justify-content: center;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: 26px;
+  padding: 56px 0 0;
 }
 
 .page {
-  background: var(--paper);
-  border: 5px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  padding: 22px 24px 24px;
+  position: relative;
+  padding: 28px 30px 30px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .012) 42%), var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-lg);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .42);
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .5s var(--ease), transform .5s var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  transform: translateY(22px);
+  transition: opacity .62s var(--ease), transform .62s var(--ease),
+              border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.page::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  bottom: 30px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--gold), rgba(231, 179, 65, 0));
+  opacity: .55;
+  transition: opacity var(--dur) var(--ease);
 }
 .page.in { opacity: 1; transform: none; }
 .page:hover {
-  box-shadow: var(--shadow-hover);
-  border-color: #7faeeb;
+  border-color: var(--hair-strong);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .5);
 }
+.page:hover::before { opacity: 1; }
 
 .page-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 12px;
-  padding: 10px 14px;
-  background: var(--sun);
-  border: 3px solid var(--line);
-  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--hair);
 }
-.page-top .emoji { font-size: 30px; line-height: 1; }
+.page-top .num {
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--gold);
+  opacity: .82;
+  font-variant-numeric: tabular-nums;
+  padding-top: 4px;
+}
+.page-head { min-width: 0; }
+.kicker {
+  display: block;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 11.5px;
+  letter-spacing: .18em;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
 .page-top h2 {
   margin: 0;
-  font-size: 21px;
-  font-weight: 700;
-  color: var(--sun-ink);
-  line-height: 1.35;
+  font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+  letter-spacing: .01em;
 }
 
-.body p { margin: 0 0 8px; font-size: 17px; }
+.body p { margin: 0 0 5px; font-size: 16px; color: var(--text-2); }
 .body p:last-child { margin-bottom: 0; }
 
+/* ——— 命令窗 ——— */
 .cmd {
-  position: relative;
-  margin: 16px 0 0;
-  background: var(--cmd-bg);
-  border: 3px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 14px 14px 50px;
+  margin-top: 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-md);
+  overflow: hidden;
 }
+.cmd-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 9px 12px;
+  background: rgba(255, 255, 255, .035);
+  border-bottom: 1px solid var(--hair);
+}
+.cmd-label {
+  margin-right: auto;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  color: var(--text-3);
+}
+.copy-status { font-size: 12.5px; color: var(--gold-2); }
+.cmd .copy {
+  flex: 0 0 auto;
+  padding: 5px 14px;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .08em;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.cmd .copy:hover { background: var(--gold); border-color: var(--gold); color: #17202B; }
+.cmd .copy:active { background: var(--gold-2); }
+.cmd .copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .cmd pre {
   margin: 0;
+  padding: 15px 16px;
   white-space: pre-wrap;
   word-break: break-all;
   overflow-wrap: anywhere;
-  font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--cmd-ink);
-}
-.cmd .copy {
-  position: absolute;
-  right: 12px;
-  bottom: 10px;
-  padding: 7px 14px;
-  font-size: 14px;
-  font-family: inherit;
-  font-weight: 600;
-  color: var(--sun-ink);
-  background: #fff;
-  border: 2px solid var(--line);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .18);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
-}
-.cmd .copy:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0, 0, 0, .24); background: #f0f8ff; }
-.cmd .copy:active { transform: translateY(0) scale(.97); }
-.cmd .copy:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
-.cmd .copy-status {
-  position: absolute;
-  left: 14px;
-  bottom: 16px;
-  font-size: 13px;
-  color: #bcd8f5;
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: 13.5px;
+  line-height: 1.72;
+  color: #D6E2F2;
 }
 
-.bubbles { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+/* ——— 结果 / 报错 / 提示 ——— */
+.bubbles { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
 .bubble {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   min-width: 0;
-  padding: 10px 14px;
-  border: 3px solid;
-  border-radius: var(--radius-md);
-  font-size: 15.5px;
-  line-height: 1.55;
+  padding: 10px 13px;
+  border: 1px solid;
+  border-radius: 12px;
+  font-size: 14.5px;
+  line-height: 1.65;
 }
-.bubble .mark { flex: 0 0 auto; line-height: 1.35; }
+.bubble .mark {
+  flex: 0 0 auto;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  line-height: 1.75;
+}
 .bubble span:last-child { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
-.bubble.ok { background: var(--ok-bg); border-color: var(--ok-line); color: var(--ok-ink); }
-.bubble.err { background: var(--err-bg); border-color: var(--err-line); color: var(--err-ink); }
-.bubble.tip { background: var(--tip-bg); border-color: var(--tip-line); color: var(--tip-ink); }
+.bubble.ok { background: rgba(111, 220, 171, .07); border-color: rgba(111, 220, 171, .26); color: var(--jade-ink); }
+.bubble.ok .mark { background: rgba(111, 220, 171, .16); color: var(--jade); }
+.bubble.err { background: rgba(255, 142, 126, .07); border-color: rgba(255, 142, 126, .26); color: var(--coral-ink); }
+.bubble.err .mark { background: rgba(255, 142, 126, .16); color: var(--coral); }
+.bubble.tip { background: rgba(231, 179, 65, .07); border-color: rgba(231, 179, 65, .24); color: #EFD9A4; }
+.bubble.tip .mark { background: rgba(231, 179, 65, .16); color: var(--gold-2); }
+
+/* ——— 页脚与回顶 ——— */
+footer {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1px solid var(--hair);
+  font-size: 14px;
+  color: var(--text-3);
+}
+footer p { margin: 0 0 8px; }
+footer b { color: var(--text-2); font-weight: 600; }
+footer a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(231, 179, 65, .4); }
+footer a:hover { color: var(--gold-2); }
+footer a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 .back-top {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 40;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 3px solid var(--line);
-  background: var(--sun);
-  color: var(--sun-ink);
-  font-size: 24px;
-  text-decoration: none;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-card);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  border-radius: 50%;
+  border: 1px solid var(--hair-strong);
+  background: var(--surface);
+  color: var(--gold);
+  font-size: 18px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
 }
-.back-top:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-.back-top:active { transform: translateY(0) scale(.95); }
-.back-top:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
+.back-top:hover { transform: translateY(-3px); border-color: var(--gold); background: rgba(231, 179, 65, .12); }
+.back-top:active { transform: translateY(0); }
+.back-top:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
-footer {
-  margin: 42px auto 0;
-  max-width: 1100px;
-  text-align: center;
-  font-size: 15px;
-  color: var(--sun-ink);
-  text-shadow: 0 1px 4px rgba(255, 255, 255, .85);
+@media (max-width: 1023px) {
+  .shell { padding: 0 24px; }
+  .pages { grid-template-columns: minmax(0, 1fr); gap: 22px; }
 }
-footer a { color: var(--sun-ink); font-weight: 700; }
 
 @media (max-width: 767px) {
-  body { padding: 16px 10px 64px; }
-  .pages { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-  .page { padding: 16px 14px 18px; }
-  .page-top h2 { font-size: 18px; }
-  .body p { font-size: 16px; }
-  .cmd pre { font-size: 13px; }
-  .cmd .copy { position: static; display: block; width: 100%; margin-top: 12px; text-align: center; }
-  .cmd .copy-status { position: static; display: block; margin-top: 8px; text-align: left; }
-  .cmd { padding: 14px; }
-  .flow { gap: 6px; padding: 12px; }
-  .flow .node { min-width: 0; flex: 1 1 88px; }
-  .f-arrow .right { display: none; }
-  .f-arrow .down { display: inline; }
+  .shell { padding: 0 16px; }
+  .hero { padding: 56px 0 36px; }
+  .hero h1 { font-size: clamp(26px, 7.6vw, 34px); }
+  .meta { gap: 8px 20px; }
+  .pages { padding-top: 40px; }
+  .page { padding: 22px 18px 22px 20px; border-radius: 18px; }
+  .page-top { gap: 12px; padding-bottom: 14px; margin-bottom: 16px; }
+  .page-top .num { font-size: 24px; }
+  .page-top h2 { font-size: 19.5px; }
+  .body p { font-size: 15.5px; }
+  .cmd pre { font-size: 12.5px; padding: 13px 14px; }
+  .bubble { font-size: 14px; }
+  .flow .node { flex: 1 1 auto; justify-content: center; }
+  .back-top { right: 14px; bottom: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .page { opacity: 1; transform: none; transition: none; }
-  .flow .node, .cmd .copy, .back-top { transition: none; }
+  .bg i { animation: none; }
+  .flow .node, .cmd .copy, .back-top, .page::before { transition: none; }
   .flow .node:hover, .back-top:hover { transform: none; }
 }
 
@@ -316,617 +411,129 @@ footer a { color: var(--sun-ink); font-weight: 700; }
 </head>
 <body>
 <a class="skip" href="#main">跳到主要内容</a>
-<div class="bg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-<defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#0e4fae"/>
-<stop offset=".45" stop-color="#3b82d8"/>
-<stop offset=".78" stop-color="#8fc4ef"/>
-<stop offset="1" stop-color="#d8ecff"/>
-</linearGradient>
-<filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
-<filter id="soft2"><feGaussianBlur stdDeviation="9"/></filter>
-</defs>
-<rect x="0" y="0" width="1440" height="900" fill="url(#sky)"/>
-<circle cx="1110" cy="150" r="130" fill="#fff7d6" opacity=".5" filter="url(#soft2)"/>
-<circle cx="1110" cy="150" r="64" fill="#fffbe8" opacity=".85"/>
-<line x1="1248" y1="125" x2="1445" y2="143" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity="0.43"/>
-<line x1="944" y1="226" x2="1155" y2="244" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" opacity="0.55"/>
-<line x1="265" y1="103" x2="502" y2="121" stroke="#ffffff" stroke-width="3.7" stroke-linecap="round" opacity="0.50"/>
-<line x1="1274" y1="297" x2="1521" y2="315" stroke="#ffffff" stroke-width="4.8" stroke-linecap="round" opacity="0.52"/>
-<line x1="157" y1="168" x2="337" y2="186" stroke="#ffffff" stroke-width="4.7" stroke-linecap="round" opacity="0.54"/>
-<line x1="904" y1="87" x2="1155" y2="105" stroke="#ffffff" stroke-width="5.0" stroke-linecap="round" opacity="0.46"/>
-<line x1="775" y1="223" x2="893" y2="241" stroke="#ffffff" stroke-width="4.1" stroke-linecap="round" opacity="0.50"/>
-<line x1="88" y1="202" x2="294" y2="220" stroke="#ffffff" stroke-width="4.7" stroke-linecap="round" opacity="0.41"/>
-<line x1="106" y1="102" x2="280" y2="120" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" opacity="0.54"/>
-<ellipse cx="584" cy="347" rx="132" ry="36" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="680" cy="349" rx="47" ry="33" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="567" cy="303" rx="47" ry="36" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="625" cy="330" rx="47" ry="29" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="556" cy="321" rx="79" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="662" cy="336" rx="49" ry="43" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="533" cy="308" rx="78" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="593" cy="329" rx="48" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="567" cy="323" rx="42" ry="18" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="625" cy="345" rx="42" ry="15" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="556" cy="343" rx="71" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="517" cy="360" rx="93" ry="25" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="567" cy="332" rx="38" ry="29" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="547" cy="336" rx="45" ry="31" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="524" cy="356" rx="58" ry="27" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="453" cy="335" rx="49" ry="24" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="460" cy="342" rx="52" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="568" cy="362" rx="36" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="533" cy="331" rx="48" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="547" cy="353" rx="41" ry="16" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="524" cy="371" rx="53" ry="14" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="453" cy="348" rx="44" ry="12" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="230" cy="294" rx="126" ry="35" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="175" cy="283" rx="77" ry="36" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="183" cy="268" rx="70" ry="40" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="248" cy="287" rx="75" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="286" cy="268" rx="44" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="271" cy="282" rx="61" ry="31" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="183" cy="290" rx="63" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="248" cy="308" rx="67" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="286" cy="289" rx="39" ry="19" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="1308" cy="390" rx="115" ry="32" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="1329" cy="391" rx="72" ry="37" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1392" cy="393" rx="42" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1239" cy="367" rx="64" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1236" cy="364" rx="53" ry="26" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1362" cy="352" rx="59" ry="29" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1306" cy="360" rx="59" ry="38" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1260" cy="394" rx="72" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="1392" cy="411" rx="38" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="1239" cy="385" rx="58" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="1236" cy="378" rx="48" ry="13" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="122" cy="441" rx="77" ry="21" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="171" cy="433" rx="35" ry="17" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="178" cy="434" rx="34" ry="25" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="128" cy="422" rx="38" ry="19" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="177" cy="433" rx="34" ry="22" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="76" cy="432" rx="48" ry="18" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="68" cy="440" rx="31" ry="17" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="76" cy="432" rx="47" ry="19" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="178" cy="448" rx="30" ry="12" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="128" cy="433" rx="35" ry="9" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="177" cy="445" rx="30" ry="11" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="753" cy="325" rx="132" ry="36" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="802" cy="320" rx="70" ry="35" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="777" cy="290" rx="49" ry="32" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="785" cy="301" rx="63" ry="40" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="751" cy="329" rx="82" ry="35" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="732" cy="294" rx="61" ry="37" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="777" cy="307" rx="44" ry="16" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="785" cy="323" rx="57" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="751" cy="349" rx="74" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="567" cy="379" rx="141" ry="39" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
-<ellipse cx="550" cy="336" rx="68" ry="44" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="612" cy="335" rx="65" ry="40" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="655" cy="384" rx="62" ry="47" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="556" cy="381" rx="75" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="622" cy="373" rx="86" ry="36" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="469" cy="358" rx="64" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="464" cy="369" rx="69" ry="45" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
-<ellipse cx="612" cy="357" rx="58" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="655" cy="410" rx="56" ry="24" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<ellipse cx="556" cy="399" rx="67" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
-<path d="M0,500 Q180,442 360,500 T720,470 T1080,500 T1440,470 L1440,560 L0,560 Z" fill="#9db8dc" opacity=".9"/><path d="M0,560 Q240,500 520,560 T1000,530 T1440,560 L1440,660 L0,660 Z" fill="#6f8fc0" opacity=".95"/>
-<rect x="-10" y="527" width="51" height="133" fill="#5d7090"/>
-<rect x="25" y="564" width="3" height="5" fill="#ffe9c9" opacity="0.44"/>
-<rect x="32" y="643" width="3" height="5" fill="#ffd9a0" opacity="0.70"/>
-<rect x="33" y="649" width="3" height="5" fill="#ffe9c9" opacity="0.73"/>
-<rect x="-6" y="538" width="3" height="5" fill="#cfe8ff" opacity="0.67"/>
-<rect x="20" y="582" width="3" height="5" fill="#cfe8ff" opacity="0.48"/>
-<rect x="31" y="572" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
-<rect x="-2" y="618" width="3" height="5" fill="#cfe8ff" opacity="0.49"/>
-<rect x="13" y="603" width="3" height="5" fill="#ffd9a0" opacity="0.62"/>
-<rect x="2" y="561" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
-<rect x="44" y="465" width="54" height="195" fill="#5d7090"/>
-<rect x="71" y="632" width="3" height="5" fill="#cfe8ff" opacity="0.71"/>
-<rect x="74" y="474" width="3" height="5" fill="#cfe8ff" opacity="0.62"/>
-<rect x="50" y="475" width="3" height="5" fill="#ffe9c9" opacity="0.61"/>
-<rect x="71" y="632" width="3" height="5" fill="#cfe8ff" opacity="0.38"/>
-<rect x="61" y="515" width="3" height="5" fill="#cfe8ff" opacity="0.51"/>
-<rect x="88" y="581" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
-<rect x="86" y="493" width="3" height="5" fill="#cfe8ff" opacity="0.45"/>
-<rect x="63" y="524" width="3" height="5" fill="#cfe8ff" opacity="0.58"/>
-<rect x="65" y="520" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
-<rect x="63" y="566" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
-<rect x="53" y="474" width="3" height="5" fill="#ffe9c9" opacity="0.52"/>
-<rect x="75" y="629" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="50" y="632" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
-<rect x="77" y="496" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
-<rect x="57" y="566" width="3" height="5" fill="#ffe9c9" opacity="0.67"/>
-<rect x="99" y="458" width="79" height="202" fill="#5d7090"/>
-<rect x="121" y="523" width="3" height="5" fill="#ffd9a0" opacity="0.66"/>
-<rect x="166" y="618" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
-<rect x="169" y="622" width="3" height="5" fill="#ffd9a0" opacity="0.59"/>
-<rect x="118" y="649" width="3" height="5" fill="#cfe8ff" opacity="0.67"/>
-<rect x="159" y="574" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
-<rect x="146" y="535" width="3" height="5" fill="#cfe8ff" opacity="0.45"/>
-<rect x="105" y="626" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
-<rect x="133" y="602" width="3" height="5" fill="#ffd9a0" opacity="0.69"/>
-<rect x="110" y="640" width="3" height="5" fill="#ffe9c9" opacity="0.59"/>
-<rect x="143" y="612" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
-<rect x="136" y="556" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
-<rect x="134" y="497" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
-<rect x="107" y="649" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="112" y="572" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
-<rect x="162" y="601" width="3" height="5" fill="#ffe9c9" opacity="0.52"/>
-<rect x="164" y="551" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="112" y="560" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
-<rect x="170" y="482" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="170" y="553" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
-<rect x="147" y="621" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
-<rect x="133" y="612" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
-<rect x="149" y="517" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
-<rect x="180" y="503" width="61" height="157" fill="#5d7090"/>
-<rect x="222" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.53"/>
-<rect x="215" y="527" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
-<rect x="201" y="602" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
-<rect x="221" y="646" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
-<rect x="191" y="591" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
-<rect x="190" y="532" width="3" height="5" fill="#ffe9c9" opacity="0.52"/>
-<rect x="207" y="616" width="3" height="5" fill="#ffe9c9" opacity="0.44"/>
-<rect x="197" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
-<rect x="230" y="596" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
-<rect x="217" y="598" width="3" height="5" fill="#ffe9c9" opacity="0.66"/>
-<rect x="207" y="590" width="3" height="5" fill="#ffd9a0" opacity="0.65"/>
-<rect x="227" y="542" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
-<rect x="203" y="560" width="3" height="5" fill="#ffd9a0" opacity="0.73"/>
-<rect x="242" y="533" width="67" height="127" fill="#5d7090"/>
-<rect x="289" y="580" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
-<rect x="289" y="639" width="3" height="5" fill="#cfe8ff" opacity="0.55"/>
-<rect x="248" y="577" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="252" y="609" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
-<rect x="265" y="623" width="3" height="5" fill="#cfe8ff" opacity="0.36"/>
-<rect x="256" y="547" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="286" y="540" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
-<rect x="258" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
-<rect x="284" y="607" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="246" y="644" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
-<rect x="268" y="548" width="3" height="5" fill="#ffd9a0" opacity="0.73"/>
-<rect x="283" y="602" width="3" height="5" fill="#ffe9c9" opacity="0.72"/>
-<rect x="310" y="472" width="59" height="188" fill="#5d7090"/>
-<rect x="344" y="567" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
-<rect x="316" y="481" width="3" height="5" fill="#ffe9c9" opacity="0.66"/>
-<rect x="318" y="481" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
-<rect x="323" y="507" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
-<rect x="341" y="490" width="3" height="5" fill="#cfe8ff" opacity="0.51"/>
-<rect x="320" y="528" width="3" height="5" fill="#ffe9c9" opacity="0.60"/>
-<rect x="348" y="531" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
-<rect x="320" y="588" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
-<rect x="345" y="590" width="3" height="5" fill="#ffe9c9" opacity="0.36"/>
-<rect x="335" y="591" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
-<rect x="357" y="563" width="3" height="5" fill="#ffe9c9" opacity="0.36"/>
-<rect x="342" y="543" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
-<rect x="347" y="597" width="3" height="5" fill="#cfe8ff" opacity="0.41"/>
-<rect x="320" y="608" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
-<rect x="330" y="578" width="3" height="5" fill="#ffe9c9" opacity="0.70"/>
-<rect x="369" y="506" width="67" height="154" fill="#5d7090"/>
-<rect x="399" y="643" width="3" height="5" fill="#ffe9c9" opacity="0.68"/>
-<rect x="426" y="630" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
-<rect x="401" y="602" width="3" height="5" fill="#ffd9a0" opacity="0.59"/>
-<rect x="421" y="510" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="389" y="552" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
-<rect x="406" y="538" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
-<rect x="374" y="593" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
-<rect x="421" y="590" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
-<rect x="408" y="612" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
-<rect x="412" y="639" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
-<rect x="414" y="543" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
-<rect x="409" y="548" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
-<rect x="402" y="521" width="3" height="5" fill="#cfe8ff" opacity="0.69"/>
-<rect x="396" y="555" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
-<rect x="442" y="533" width="52" height="127" fill="#5d7090"/>
-<rect x="467" y="581" width="3" height="5" fill="#ffe9c9" opacity="0.39"/>
-<rect x="486" y="541" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
-<rect x="463" y="608" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
-<rect x="483" y="624" width="3" height="5" fill="#ffd9a0" opacity="0.55"/>
-<rect x="466" y="613" width="3" height="5" fill="#cfe8ff" opacity="0.60"/>
-<rect x="451" y="544" width="3" height="5" fill="#ffd9a0" opacity="0.43"/>
-<rect x="453" y="634" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
-<rect x="462" y="605" width="3" height="5" fill="#ffd9a0" opacity="0.48"/>
-<rect x="486" y="581" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
-<rect x="494" y="535" width="70" height="125" fill="#5d7090"/>
-<rect x="527" y="573" width="3" height="5" fill="#ffd9a0" opacity="0.35"/>
-<rect x="535" y="565" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
-<rect x="543" y="591" width="3" height="5" fill="#ffd9a0" opacity="0.51"/>
-<rect x="550" y="571" width="3" height="5" fill="#ffd9a0" opacity="0.74"/>
-<rect x="524" y="614" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
-<rect x="517" y="605" width="3" height="5" fill="#cfe8ff" opacity="0.46"/>
-<rect x="523" y="578" width="3" height="5" fill="#ffe9c9" opacity="0.61"/>
-<rect x="537" y="595" width="3" height="5" fill="#ffe9c9" opacity="0.42"/>
-<rect x="498" y="595" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="550" y="587" width="3" height="5" fill="#ffe9c9" opacity="0.59"/>
-<rect x="540" y="564" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
-<rect x="508" y="598" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
-<rect x="567" y="480" width="76" height="180" fill="#5d7090"/>
-<rect x="633" y="538" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="623" y="607" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
-<rect x="604" y="544" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
-<rect x="618" y="494" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="626" y="585" width="3" height="5" fill="#ffd9a0" opacity="0.43"/>
-<rect x="614" y="606" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
-<rect x="592" y="636" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
-<rect x="571" y="511" width="3" height="5" fill="#ffe9c9" opacity="0.44"/>
-<rect x="595" y="650" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
-<rect x="603" y="580" width="3" height="5" fill="#cfe8ff" opacity="0.57"/>
-<rect x="604" y="507" width="3" height="5" fill="#cfe8ff" opacity="0.48"/>
-<rect x="623" y="526" width="3" height="5" fill="#ffe9c9" opacity="0.59"/>
-<rect x="617" y="493" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
-<rect x="599" y="630" width="3" height="5" fill="#ffd9a0" opacity="0.50"/>
-<rect x="611" y="613" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
-<rect x="635" y="509" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
-<rect x="601" y="629" width="3" height="5" fill="#cfe8ff" opacity="0.68"/>
-<rect x="632" y="597" width="3" height="5" fill="#cfe8ff" opacity="0.68"/>
-<rect x="626" y="644" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
-<rect x="645" y="525" width="68" height="135" fill="#5d7090"/>
-<rect x="670" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.69"/>
-<rect x="698" y="562" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
-<rect x="681" y="591" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
-<rect x="705" y="640" width="3" height="5" fill="#ffd9a0" opacity="0.53"/>
-<rect x="652" y="565" width="3" height="5" fill="#ffd9a0" opacity="0.46"/>
-<rect x="705" y="606" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
-<rect x="655" y="540" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
-<rect x="667" y="573" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
-<rect x="673" y="586" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
-<rect x="700" y="630" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="705" y="644" width="3" height="5" fill="#ffe9c9" opacity="0.66"/>
-<rect x="699" y="595" width="3" height="5" fill="#ffd9a0" opacity="0.62"/>
-<rect x="672" y="570" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
-<rect x="713" y="449" width="82" height="211" fill="#5d7090"/>
-<rect x="736" y="506" width="3" height="5" fill="#ffe9c9" opacity="0.72"/>
-<rect x="779" y="503" width="3" height="5" fill="#ffd9a0" opacity="0.55"/>
-<rect x="779" y="469" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
-<rect x="742" y="640" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
-<rect x="734" y="458" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
-<rect x="785" y="587" width="3" height="5" fill="#ffe9c9" opacity="0.65"/>
-<rect x="784" y="558" width="3" height="5" fill="#ffd9a0" opacity="0.69"/>
-<rect x="744" y="599" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
-<rect x="752" y="526" width="3" height="5" fill="#ffe9c9" opacity="0.75"/>
-<rect x="771" y="493" width="3" height="5" fill="#cfe8ff" opacity="0.55"/>
-<rect x="786" y="496" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="750" y="466" width="3" height="5" fill="#ffd9a0" opacity="0.55"/>
-<rect x="755" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
-<rect x="735" y="535" width="3" height="5" fill="#ffe9c9" opacity="0.60"/>
-<rect x="772" y="562" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
-<rect x="772" y="556" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
-<rect x="784" y="634" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="772" y="495" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
-<rect x="757" y="535" width="3" height="5" fill="#cfe8ff" opacity="0.75"/>
-<rect x="785" y="564" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="739" y="523" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
-<rect x="763" y="496" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="749" y="506" width="3" height="5" fill="#ffe9c9" opacity="0.71"/>
-<rect x="760" y="605" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
-<rect x="801" y="429" width="77" height="231" fill="#5d7090"/>
-<rect x="838" y="463" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
-<rect x="870" y="570" width="3" height="5" fill="#ffe9c9" opacity="0.65"/>
-<rect x="858" y="501" width="3" height="5" fill="#ffd9a0" opacity="0.50"/>
-<rect x="858" y="585" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
-<rect x="868" y="503" width="3" height="5" fill="#cfe8ff" opacity="0.66"/>
-<rect x="806" y="563" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
-<rect x="860" y="508" width="3" height="5" fill="#cfe8ff" opacity="0.58"/>
-<rect x="837" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
-<rect x="810" y="638" width="3" height="5" fill="#ffe9c9" opacity="0.35"/>
-<rect x="856" y="586" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
-<rect x="819" y="593" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
-<rect x="809" y="594" width="3" height="5" fill="#ffd9a0" opacity="0.36"/>
-<rect x="846" y="536" width="3" height="5" fill="#cfe8ff" opacity="0.52"/>
-<rect x="831" y="556" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
-<rect x="841" y="569" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
-<rect x="824" y="504" width="3" height="5" fill="#cfe8ff" opacity="0.46"/>
-<rect x="820" y="641" width="3" height="5" fill="#cfe8ff" opacity="0.71"/>
-<rect x="867" y="609" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
-<rect x="808" y="488" width="3" height="5" fill="#ffe9c9" opacity="0.35"/>
-<rect x="852" y="589" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
-<rect x="845" y="621" width="3" height="5" fill="#ffe9c9" opacity="0.61"/>
-<rect x="837" y="628" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
-<rect x="846" y="458" width="3" height="5" fill="#cfe8ff" opacity="0.64"/>
-<rect x="808" y="526" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
-<rect x="816" y="561" width="3" height="5" fill="#ffe9c9" opacity="0.51"/>
-<rect x="881" y="485" width="62" height="175" fill="#5d7090"/>
-<rect x="886" y="527" width="3" height="5" fill="#ffe9c9" opacity="0.55"/>
-<rect x="926" y="531" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
-<rect x="930" y="573" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
-<rect x="932" y="525" width="3" height="5" fill="#ffd9a0" opacity="0.41"/>
-<rect x="932" y="646" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
-<rect x="917" y="589" width="3" height="5" fill="#cfe8ff" opacity="0.38"/>
-<rect x="918" y="636" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
-<rect x="920" y="539" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
-<rect x="900" y="502" width="3" height="5" fill="#cfe8ff" opacity="0.60"/>
-<rect x="923" y="563" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
-<rect x="925" y="528" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
-<rect x="918" y="607" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
-<rect x="898" y="546" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
-<rect x="931" y="549" width="3" height="5" fill="#ffd9a0" opacity="0.58"/>
-<rect x="885" y="503" width="3" height="5" fill="#ffd9a0" opacity="0.54"/>
-<rect x="948" y="471" width="76" height="189" fill="#5d7090"/>
-<rect x="1001" y="571" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
-<rect x="964" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.41"/>
-<rect x="972" y="586" width="3" height="5" fill="#cfe8ff" opacity="0.54"/>
-<rect x="1003" y="618" width="3" height="5" fill="#ffd9a0" opacity="0.50"/>
-<rect x="963" y="532" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
-<rect x="984" y="600" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
-<rect x="993" y="632" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
-<rect x="957" y="628" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
-<rect x="990" y="630" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="955" y="644" width="3" height="5" fill="#ffd9a0" opacity="0.46"/>
-<rect x="981" y="636" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
-<rect x="982" y="627" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
-<rect x="1006" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
-<rect x="997" y="521" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
-<rect x="996" y="639" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="991" y="558" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
-<rect x="1015" y="510" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
-<rect x="995" y="483" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
-<rect x="973" y="477" width="3" height="5" fill="#ffd9a0" opacity="0.62"/>
-<rect x="992" y="487" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
-<rect x="1024" y="502" width="62" height="158" fill="#5d7090"/>
-<rect x="1048" y="631" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
-<rect x="1062" y="608" width="3" height="5" fill="#ffd9a0" opacity="0.56"/>
-<rect x="1042" y="541" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
-<rect x="1058" y="559" width="3" height="5" fill="#ffe9c9" opacity="0.39"/>
-<rect x="1028" y="554" width="3" height="5" fill="#ffe9c9" opacity="0.55"/>
-<rect x="1049" y="538" width="3" height="5" fill="#cfe8ff" opacity="0.45"/>
-<rect x="1047" y="551" width="3" height="5" fill="#ffe9c9" opacity="0.70"/>
-<rect x="1051" y="548" width="3" height="5" fill="#cfe8ff" opacity="0.66"/>
-<rect x="1063" y="512" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
-<rect x="1028" y="589" width="3" height="5" fill="#cfe8ff" opacity="0.43"/>
-<rect x="1060" y="575" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
-<rect x="1054" y="629" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="1045" y="533" width="3" height="5" fill="#ffd9a0" opacity="0.51"/>
-<rect x="1092" y="438" width="80" height="222" fill="#5d7090"/>
-<rect x="1144" y="609" width="3" height="5" fill="#ffe9c9" opacity="0.75"/>
-<rect x="1122" y="538" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
-<rect x="1137" y="488" width="3" height="5" fill="#ffe9c9" opacity="0.75"/>
-<rect x="1140" y="508" width="3" height="5" fill="#ffd9a0" opacity="0.38"/>
-<rect x="1154" y="600" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
-<rect x="1158" y="517" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
-<rect x="1158" y="473" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
-<rect x="1100" y="494" width="3" height="5" fill="#ffd9a0" opacity="0.41"/>
-<rect x="1153" y="535" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="1134" y="558" width="3" height="5" fill="#ffd9a0" opacity="0.51"/>
-<rect x="1149" y="583" width="3" height="5" fill="#ffd9a0" opacity="0.70"/>
-<rect x="1146" y="548" width="3" height="5" fill="#ffe9c9" opacity="0.67"/>
-<rect x="1114" y="461" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
-<rect x="1137" y="464" width="3" height="5" fill="#ffd9a0" opacity="0.73"/>
-<rect x="1132" y="619" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="1155" y="537" width="3" height="5" fill="#ffe9c9" opacity="0.56"/>
-<rect x="1149" y="504" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="1140" y="499" width="3" height="5" fill="#ffd9a0" opacity="0.38"/>
-<rect x="1152" y="558" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
-<rect x="1141" y="598" width="3" height="5" fill="#cfe8ff" opacity="0.38"/>
-<rect x="1139" y="613" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
-<rect x="1155" y="488" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
-<rect x="1164" y="495" width="3" height="5" fill="#ffd9a0" opacity="0.46"/>
-<rect x="1126" y="513" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
-<rect x="1147" y="485" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
-<rect x="1174" y="538" width="80" height="122" fill="#5d7090"/>
-<rect x="1196" y="605" width="3" height="5" fill="#ffe9c9" opacity="0.60"/>
-<rect x="1218" y="574" width="3" height="5" fill="#ffe9c9" opacity="0.67"/>
-<rect x="1185" y="620" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
-<rect x="1240" y="613" width="3" height="5" fill="#ffe9c9" opacity="0.74"/>
-<rect x="1207" y="579" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
-<rect x="1180" y="644" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
-<rect x="1245" y="627" width="3" height="5" fill="#ffe9c9" opacity="0.68"/>
-<rect x="1209" y="641" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
-<rect x="1242" y="557" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
-<rect x="1213" y="637" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
-<rect x="1218" y="555" width="3" height="5" fill="#ffe9c9" opacity="0.72"/>
-<rect x="1193" y="572" width="3" height="5" fill="#ffd9a0" opacity="0.69"/>
-<rect x="1211" y="586" width="3" height="5" fill="#cfe8ff" opacity="0.52"/>
-<rect x="1258" y="499" width="79" height="161" fill="#5d7090"/>
-<rect x="1295" y="560" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
-<rect x="1311" y="546" width="3" height="5" fill="#ffe9c9" opacity="0.56"/>
-<rect x="1289" y="632" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
-<rect x="1312" y="647" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
-<rect x="1266" y="575" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
-<rect x="1263" y="650" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
-<rect x="1309" y="573" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
-<rect x="1302" y="639" width="3" height="5" fill="#ffe9c9" opacity="0.56"/>
-<rect x="1295" y="627" width="3" height="5" fill="#cfe8ff" opacity="0.71"/>
-<rect x="1318" y="589" width="3" height="5" fill="#ffd9a0" opacity="0.58"/>
-<rect x="1267" y="644" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="1272" y="556" width="3" height="5" fill="#ffd9a0" opacity="0.41"/>
-<rect x="1279" y="586" width="3" height="5" fill="#ffe9c9" opacity="0.53"/>
-<rect x="1269" y="542" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
-<rect x="1278" y="505" width="3" height="5" fill="#cfe8ff" opacity="0.40"/>
-<rect x="1281" y="504" width="3" height="5" fill="#ffe9c9" opacity="0.35"/>
-<rect x="1292" y="511" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
-<rect x="1278" y="614" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
-<rect x="1341" y="416" width="62" height="244" fill="#5d7090"/>
-<rect x="1395" y="432" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
-<rect x="1347" y="511" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
-<rect x="1366" y="532" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
-<rect x="1385" y="518" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="1363" y="626" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
-<rect x="1357" y="567" width="3" height="5" fill="#ffe9c9" opacity="0.42"/>
-<rect x="1360" y="543" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="1355" y="482" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
-<rect x="1347" y="581" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
-<rect x="1356" y="551" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
-<rect x="1365" y="557" width="3" height="5" fill="#cfe8ff" opacity="0.62"/>
-<rect x="1359" y="522" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="1389" y="516" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
-<rect x="1363" y="461" width="3" height="5" fill="#ffd9a0" opacity="0.53"/>
-<rect x="1371" y="620" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
-<rect x="1385" y="580" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="1356" y="486" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
-<rect x="1393" y="458" width="3" height="5" fill="#ffe9c9" opacity="0.36"/>
-<rect x="1380" y="641" width="3" height="5" fill="#ffd9a0" opacity="0.74"/>
-<rect x="1378" y="624" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
-<rect x="1351" y="438" width="3" height="5" fill="#cfe8ff" opacity="0.74"/>
-<rect x="1407" y="531" width="63" height="129" fill="#5d7090"/>
-<rect x="1460" y="582" width="3" height="5" fill="#ffd9a0" opacity="0.61"/>
-<rect x="1462" y="614" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
-<rect x="1446" y="650" width="3" height="5" fill="#ffe9c9" opacity="0.51"/>
-<rect x="1414" y="600" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
-<rect x="1423" y="584" width="3" height="5" fill="#ffe9c9" opacity="0.53"/>
-<rect x="1411" y="590" width="3" height="5" fill="#cfe8ff" opacity="0.43"/>
-<rect x="1454" y="547" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
-<rect x="1433" y="550" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
-<rect x="1462" y="623" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
-<rect x="1433" y="550" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
-<rect x="1412" y="582" width="3" height="5" fill="#ffd9a0" opacity="0.56"/>
-<rect x="380" y="360" width="42" height="300" fill="#57688c"/><rect x="1018" y="330" width="54" height="330" fill="#54668c"/><line x1="1045" y1="330" x2="1045" y2="280" stroke="#54668c" stroke-width="4"/><line x1="1045" y1="280" x2="1062" y2="260" stroke="#54668c" stroke-width="4"/><rect x="730" y="420" width="34" height="240" fill="#5a6c92"/>
-<rect x="0" y="588" width="1440" height="86" fill="#d8ecff" opacity=".55"/>
-<path d="M0,760 Q300,690 640,760 T1440,730 L1440,900 L0,900 Z" fill="#8fce8f"/><path d="M0,820 Q360,740 760,820 T1440,800 L1440,900 L0,900 Z" fill="#6db96f"/><path d="M0,900 Q500,820 1000,900 L1440,900 Z" fill="#4e9a5a"/>
-<ellipse cx="240" cy="856" rx="150" ry="26" fill="#5da263"/>
-<ellipse cx="240" cy="850" rx="170" ry="34" fill="#8fc4ef" opacity=".97"/>
-<ellipse cx="285" cy="840" rx="26" ry="4" fill="#ffffff" opacity=".55"/>
-<ellipse cx="164" cy="857" rx="20" ry="4" fill="#ffffff" opacity=".55"/>
-<ellipse cx="174" cy="855" rx="17" ry="4" fill="#ffffff" opacity=".55"/>
-<ellipse cx="346" cy="845" rx="18" ry="4" fill="#ffffff" opacity=".55"/>
-<ellipse cx="114" cy="853" rx="10" ry="4" fill="#ffffff" opacity=".55"/>
-<ellipse cx="331" cy="853" rx="17" ry="4" fill="#ffffff" opacity=".55"/>
-<rect x="90" y="760" width="8" height="24" fill="#6b4a2f"/>
-<circle cx="94" cy="744" r="37" fill="#3f7f52"/>
-<circle cx="76" cy="754" r="24" fill="#356e46"/>
-<circle cx="112" cy="752" r="22" fill="#4a8f5c"/>
-<rect x="700" y="780" width="8" height="24" fill="#6b4a2f"/>
-<circle cx="704" cy="764" r="34" fill="#3f7f52"/>
-<circle cx="686" cy="774" r="22" fill="#356e46"/>
-<circle cx="722" cy="772" r="20" fill="#4a8f5c"/>
-<rect x="1010" y="800" width="8" height="24" fill="#6b4a2f"/>
-<circle cx="1014" cy="784" r="31" fill="#3f7f52"/>
-<circle cx="996" cy="794" r="20" fill="#356e46"/>
-<circle cx="1032" cy="792" r="18" fill="#4a8f5c"/>
-<rect x="1340" y="770" width="8" height="24" fill="#6b4a2f"/>
-<circle cx="1344" cy="754" r="39" fill="#3f7f52"/>
-<circle cx="1326" cy="764" r="25" fill="#356e46"/>
-<circle cx="1362" cy="762" r="23" fill="#4a8f5c"/>
-<rect x="470" y="800" width="8" height="24" fill="#6b4a2f"/>
-<circle cx="474" cy="784" r="29" fill="#3f7f52"/>
-<circle cx="456" cy="794" r="19" fill="#356e46"/>
-<circle cx="492" cy="792" r="17" fill="#4a8f5c"/>
-<rect x="1176" y="782" width="16" height="76" rx="4" fill="#d8452f"/><rect x="1242" y="782" width="16" height="76" rx="4" fill="#d8452f"/><rect x="1164" y="770" width="106" height="14" rx="6" fill="#d8452f"/><rect x="1172" y="792" width="90" height="9" rx="4" fill="#d8452f"/><rect x="1204" y="780" width="26" height="14" rx="3" fill="#d8452f"/>
-<path d="M195,241 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
-<path d="M712,289 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
-<path d="M265,267 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
-<path d="M223,306 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
-<path d="M871,260 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
-</svg></div>
+<div class="progress" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true">
+  <i class="b1"></i><i class="b2"></i><i class="b3"></i>
+  <div class="grid"></div><div class="veil"></div>
+</div>
+<div class="shell">
 <header class="hero">
-  <h1>📚 入世使用说明书</h1>
-  <p class="subtitle">把一本书，变成一套能干的技能工具箱 —— 小人书式一步一步走</p>
+  <p class="eyebrow">RUSHI · 入世 · 操作手册</p>
+  <h1>把一本书，<br>炼成一套<em>能干活的技能</em>。</h1>
+  <p class="lead">从放进一本 txt，到产出一个证据齐全、通过安检的技能包。20 张卡片，一步一张，照着敲就行——每条命令都已实测跑通。</p>
+  <p class="meta"><span><b>20</b> 张卡片</span><span><b>20</b> 条实测命令</span><span><b>S0 → S10</b> 全流程</span><span>最后实测 <b>2026-08-03</b></span></p>
   <nav class="flow" aria-label="S0 到 S10 流程导航">
 <a class="node" href="#step-ingest"><b>S0</b><span>放入书本</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s1"><b>S1</b><span>读懂全书</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s2"><b>S2</b><span>五路提取</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s3"><b>S3</b><span>引文检查</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s4s5"><b>S4</b><span>外部验证</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s4s5"><b>S5</b><span>构造技能</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s6s7"><b>S6</b><span>连线成图</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-s6s7"><b>S7</b><span>考题考试</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-package"><b>S8</b><span>打包</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-package"><b>S9</b><span>安检放行</span></a>
-<span class="f-arrow" aria-hidden="true"><i class="right">→</i><i class="down">↓</i></span>
 <a class="node" href="#step-evolve"><b>S10</b><span>进化</span></a>
 </nav>
 </header>
 <main id="main" class="pages">
-<article class="page" id="cover" data-index="0"><div class="page-top"><span class="emoji" aria-hidden="true">📚</span><h2>入世使用说明书</h2></div><div class="body"><p>把一本书，变成 一套能干的技能工具箱！</p>
+<article class="page" id="cover" data-index="0"><div class="page-top"><span class="num" aria-hidden="true">01</span><div class="page-head"><span class="kicker">序章</span><h2>入世使用说明书</h2></div></div><div class="body"><p>把一本书，变成 一套能干的技能工具箱！</p>
 <p>跟着本说明书一步一步走，</p>
-<p>就像看小人书一样简单。</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py doctor</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>看到全部 ✅，说明电脑准备好啦</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>每张图都要照着做哦</span></div></div></article>
-<article class="page" id="prep-python" data-index="1"><div class="page-top"><span class="emoji" aria-hidden="true">🐍</span><h2>准备 1：确认有 Python</h2></div><div class="body"><p>Python 是让入世跑起来的引擎。</p>
+<p>就像看小人书一样简单。</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py doctor</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>看到全部 ✅，说明电脑准备好啦</span></div><div class="bubble tip"><span class="mark">提示</span><span>每张图都要照着做哦</span></div></div></article>
+<article class="page" id="prep-python" data-index="1"><div class="page-top"><span class="num" aria-hidden="true">02</span><div class="page-head"><span class="kicker">准备 1</span><h2>确认有 Python</h2></div></div><div class="body"><p>Python 是让入世跑起来的引擎。</p>
 <p>① 按键盘【Win】键，输入 powershell，回车</p>
-<p>② 在黑框框里输入下面这行，回车</p></div><div class="cmd"><pre><code>python --version</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python --version">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>看到 python 3.11 或更高，OK！</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>提示找不到 python，去 python.org 下载并勾选 Add to PATH</span></div></div></article>
-<article class="page" id="prep-codex" data-index="2"><div class="page-top"><span class="emoji" aria-hidden="true">🤖</span><h2>准备 2：把入世装进 Codex</h2></div><div class="body"><p>把整个 rushi-skill 文件夹，放进技能的家里：</p>
-<p>（也可以直接对 Codex 说：帮我安装入世）</p></div><div class="cmd"><pre><code>Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cli\skills&#x27; -Recurse -Force</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cli\skills&#x27; -Recurse -Force">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>skills\rushi-skill\SKILL.md 存在，OK！</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>权限被拒绝，让家长或 Codex 帮你执行</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>装好后，新开一个 Codex 对话才会生效</span></div></div></article>
-<article class="page" id="prep-key" data-index="3"><div class="page-top"><span class="emoji" aria-hidden="true">🗝️</span><h2>准备 3：给入世配一把钥匙</h2></div><div class="body"><p>入世要请大模型帮忙，需要一把钥匙。</p>
-<p>用 DeepSeek（推荐）就输入这 4 行：</p></div><div class="cmd"><pre><code>$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUSHI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI_JSON_MODE=&#x27;1&#x27;</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUSHI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI_JSON_MODE=&#x27;1&#x27;">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>没有报错 = 设置成功</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>提示找不到 DEEPSEEK_API_KEY，先去 platform 申请钥匙并设置</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>用 OpenAI 也可以：设 $env:OPENAI_API_KEY=&#x27;你的钥匙&#x27;</span></div></div></article>
-<article class="page" id="step-cd" data-index="4"><div class="page-top"><span class="emoji" aria-hidden="true">🚶</span><h2>第 1 步：走到项目家门口</h2></div><div class="body"><p>先让黑框框进入入世项目目录：</p></div><div class="cmd"><pre><code>cd D:\rushi-skill</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="cd D:\rushi-skill">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>提示符变成 D:\rushi-skill 开头</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>没有这个文件夹，先复制项目过来</span></div></div></article>
-<article class="page" id="step-doctor" data-index="5"><div class="page-top"><span class="emoji" aria-hidden="true">🩺</span><h2>第 2 步：给入世体检</h2></div><div class="body"><p>每次开工前先体检，确认一切正常：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>看到全部 ✅（含 配置可读）</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>有 ❌，看红字提示是哪一项，修好再继续</span></div></div></article>
-<article class="page" id="step-init" data-index="6"><div class="page-top"><span class="emoji" aria-hidden="true">🏗️</span><h2>第 3 步：建一个空项目</h2></div><div class="body"><p>入世需要一个工作台，一条命令建好：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py init --project D:\rushi-skill</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py init --project D:\rushi-skill">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>看到 项目已初始化：D:\rushi-skill</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>提示路径错误，检查 --project 拼写</span></div></div></article>
-<article class="page" id="step-ingest" data-index="7"><div class="page-top"><span class="emoji" aria-hidden="true">📥</span><h2>第 4 步：把书放进工作台</h2></div><div class="body"><p>准备一个纯文本文件（书名.txt），放进 D:\ 下，</p>
-<p>然后告诉入世：这本书叫什么、作者是谁：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py ingest --project D:\rushi-skill --slug mybook --source D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; --year &quot;2026&quot; --kind book</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py ingest --project D:\rushi-skill --slug mybook --source D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; --year &quot;2026&quot; --kind book">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>看到 S0 完成，books\mybook 出现</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>源文件为空/不存在，检查 --source 路径</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>slug 只能用小写字母和数字，比如 mybook</span></div></div></article>
-<article class="page" id="step-s1" data-index="8"><div class="page-top"><span class="emoji" aria-hidden="true">📖</span><h2>第 5 步：让入世先通读全书</h2></div><div class="body"><p>入世会用 Adler 方法把整本书读懂，</p>
-<p>然后写出一张《整书理解》地图：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S1 --project D:\rushi-skill --mode provider</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S1 --project D:\rushi-skill --mode provider">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S1 -&gt; done，books\mybook\BOOK_OVERVIEW.md 生成</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>S1 -&gt; needs-provider：钥匙没配好；failed：输出不是合法 JSON（会自动重试一次）</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>这一步要花十几秒到几分钟，耐心等</span></div></div></article>
-<article class="page" id="step-s2" data-index="9"><div class="page-top"><span class="emoji" aria-hidden="true">🔍</span><h2>第 6 步：派 5 个小分队去找方法</h2></div><div class="body"><p>5 个提取器（框架/原则/案例/反例/术语）</p>
-<p>同时从书里挑出最有用的方法：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S2 --project D:\rushi-skill --mode provider</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S2 --project D:\rushi-skill --mode provider">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S2 -&gt; done，candidates 里有 5 个 json</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>某一路 failed：正常会重试；连续失败就重跑一次 S2</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>书很长时，每一路最多挑 20 条，引文 ≤80 字</span></div></div></article>
-<article class="page" id="step-claims" data-index="10"><div class="page-top"><span class="emoji" aria-hidden="true">📝</span><h2>第 7 步：把候选变成正式清单</h2></div><div class="body"><p>把 candidates 里最好的候选，写成 claims.jsonl。</p>
-<p>这一步由 Codex 智能体自动做；格式长这样：</p></div><div class="cmd"><pre><code>{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;kind&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;kind&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>books\mybook\claims.jsonl 存在且每行都是 JSON</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>引文不是原话，后面 S3 会打回来</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>source_quote 必须和书里一模一样，不能改写！</span></div></div></article>
-<article class="page" id="step-s3" data-index="11"><div class="page-top"><span class="emoji" aria-hidden="true">🕵️</span><h2>第 8 步：引文真假大检查</h2></div><div class="body"><p>S3 会把每条引文拿去书里核对位置，</p>
-<p>假话、拼接、改写的引文都会被揪出来：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S3 --project D:\rushi-skill --mode provider</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S3 --project D:\rushi-skill --mode provider">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S3 -&gt; done，fidelity=100%</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>有 unverified：把这条引文改回书里的原话，再重跑 S3</span></div></div></article>
-<article class="page" id="step-s4s5" data-index="12"><div class="page-top"><span class="emoji" aria-hidden="true">🧱</span><h2>第 9 步：外部验证 + 构造技能</h2></div><div class="body"><p>S4 检查方法在外面世界有没有佐证；</p>
-<p>S5 把通过的方法组装成完整 SKILL.md：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S4 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S5 --project D:\rushi-skill --mode provider</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S4 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S5 --project D:\rushi-skill --mode provider">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S4 -&gt; done 和 S5 -&gt; done，skills\ 里有 SKILL.md</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>S5 failed：失败原因在 s5-review 文件夹里，修好重跑</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>偶发失败正常：原样重跑一次，多数会通过</span></div></div></article>
-<article class="page" id="step-trigger" data-index="13"><div class="page-top"><span class="emoji" aria-hidden="true">🎯</span><h2>第 10 步：给技能出考题</h2></div><div class="body"><p>每个技能要有 tests\trigger.json 考题：</p>
+<p>② 在黑框框里输入下面这行，回车</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python --version">复制</button></div><pre><code>python --version</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>看到 python 3.11 或更高，OK！</span></div><div class="bubble err"><span class="mark">报错</span><span>提示找不到 python，去 python.org 下载并勾选 Add to PATH</span></div></div></article>
+<article class="page" id="prep-codex" data-index="2"><div class="page-top"><span class="num" aria-hidden="true">03</span><div class="page-head"><span class="kicker">准备 2</span><h2>把入世装进 Codex</h2></div></div><div class="body"><p>把整个 rushi-skill 文件夹，放进技能的家里：</p>
+<p>（也可以直接对 Codex 说：帮我安装入世）</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cli\skills&#x27; -Recurse -Force">复制</button></div><pre><code>Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cli\skills&#x27; -Recurse -Force</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>skills\rushi-skill\SKILL.md 存在，OK！</span></div><div class="bubble err"><span class="mark">报错</span><span>权限被拒绝，让家长或 Codex 帮你执行</span></div><div class="bubble tip"><span class="mark">提示</span><span>装好后，新开一个 Codex 对话才会生效</span></div></div></article>
+<article class="page" id="prep-key" data-index="3"><div class="page-top"><span class="num" aria-hidden="true">04</span><div class="page-head"><span class="kicker">准备 3</span><h2>给入世配一把钥匙</h2></div></div><div class="body"><p>入世要请大模型帮忙，需要一把钥匙。</p>
+<p>用 DeepSeek（推荐）就输入这 4 行：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUSHI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI_JSON_MODE=&#x27;1&#x27;">复制</button></div><pre><code>$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUSHI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI_JSON_MODE=&#x27;1&#x27;</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>没有报错 = 设置成功</span></div><div class="bubble err"><span class="mark">报错</span><span>提示找不到 DEEPSEEK_API_KEY，先去 platform 申请钥匙并设置</span></div><div class="bubble tip"><span class="mark">提示</span><span>用 OpenAI 也可以：设 $env:OPENAI_API_KEY=&#x27;你的钥匙&#x27;</span></div></div></article>
+<article class="page" id="step-cd" data-index="4"><div class="page-top"><span class="num" aria-hidden="true">05</span><div class="page-head"><span class="kicker">第 1 步</span><h2>走到项目家门口</h2></div></div><div class="body"><p>先让黑框框进入入世项目目录：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="cd D:\rushi-skill">复制</button></div><pre><code>cd D:\rushi-skill</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>提示符变成 D:\rushi-skill 开头</span></div><div class="bubble err"><span class="mark">报错</span><span>没有这个文件夹，先复制项目过来</span></div></div></article>
+<article class="page" id="step-doctor" data-index="5"><div class="page-top"><span class="num" aria-hidden="true">06</span><div class="page-head"><span class="kicker">第 2 步</span><h2>给入世体检</h2></div></div><div class="body"><p>每次开工前先体检，确认一切正常：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>看到全部 ✅（含 配置可读）</span></div><div class="bubble err"><span class="mark">报错</span><span>有 ❌，看红字提示是哪一项，修好再继续</span></div></div></article>
+<article class="page" id="step-init" data-index="6"><div class="page-top"><span class="num" aria-hidden="true">07</span><div class="page-head"><span class="kicker">第 3 步</span><h2>建一个空项目</h2></div></div><div class="body"><p>入世需要一个工作台，一条命令建好：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py init --project D:\rushi-skill">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py init --project D:\rushi-skill</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>看到 项目已初始化：D:\rushi-skill</span></div><div class="bubble err"><span class="mark">报错</span><span>提示路径错误，检查 --project 拼写</span></div></div></article>
+<article class="page" id="step-ingest" data-index="7"><div class="page-top"><span class="num" aria-hidden="true">08</span><div class="page-head"><span class="kicker">第 4 步</span><h2>把书放进工作台</h2></div></div><div class="body"><p>准备一个纯文本文件（书名.txt），放进 D:\ 下，</p>
+<p>然后告诉入世：这本书叫什么、作者是谁：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py ingest --project D:\rushi-skill --slug mybook --source D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; --year &quot;2026&quot; --kind book">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py ingest --project D:\rushi-skill --slug mybook --source D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; --year &quot;2026&quot; --kind book</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>看到 S0 完成，books\mybook 出现</span></div><div class="bubble err"><span class="mark">报错</span><span>源文件为空/不存在，检查 --source 路径</span></div><div class="bubble tip"><span class="mark">提示</span><span>slug 只能用小写字母和数字，比如 mybook</span></div></div></article>
+<article class="page" id="step-s1" data-index="8"><div class="page-top"><span class="num" aria-hidden="true">09</span><div class="page-head"><span class="kicker">第 5 步</span><h2>让入世先通读全书</h2></div></div><div class="body"><p>入世会用 Adler 方法把整本书读懂，</p>
+<p>然后写出一张《整书理解》地图：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S1 --project D:\rushi-skill --mode provider">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S1 --project D:\rushi-skill --mode provider</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S1 -&gt; done，books\mybook\BOOK_OVERVIEW.md 生成</span></div><div class="bubble err"><span class="mark">报错</span><span>S1 -&gt; needs-provider：钥匙没配好；failed：输出不是合法 JSON（会自动重试一次）</span></div><div class="bubble tip"><span class="mark">提示</span><span>这一步要花十几秒到几分钟，耐心等</span></div></div></article>
+<article class="page" id="step-s2" data-index="9"><div class="page-top"><span class="num" aria-hidden="true">10</span><div class="page-head"><span class="kicker">第 6 步</span><h2>派 5 个小分队去找方法</h2></div></div><div class="body"><p>5 个提取器（框架/原则/案例/反例/术语）</p>
+<p>同时从书里挑出最有用的方法：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S2 --project D:\rushi-skill --mode provider">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S2 --project D:\rushi-skill --mode provider</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S2 -&gt; done，candidates 里有 5 个 json</span></div><div class="bubble err"><span class="mark">报错</span><span>某一路 failed：正常会重试；连续失败就重跑一次 S2</span></div><div class="bubble tip"><span class="mark">提示</span><span>书很长时，每一路最多挑 20 条，引文 ≤80 字</span></div></div></article>
+<article class="page" id="step-claims" data-index="10"><div class="page-top"><span class="num" aria-hidden="true">11</span><div class="page-head"><span class="kicker">第 7 步</span><h2>把候选变成正式清单</h2></div></div><div class="body"><p>把 candidates 里最好的候选，写成 claims.jsonl。</p>
+<p>这一步由 Codex 智能体自动做；格式长这样：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">claims.jsonl · 每行一条 JSON</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;kind&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}">复制</button></div><pre><code>{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;kind&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>books\mybook\claims.jsonl 存在且每行都是 JSON</span></div><div class="bubble err"><span class="mark">报错</span><span>引文不是原话，后面 S3 会打回来</span></div><div class="bubble tip"><span class="mark">提示</span><span>source_quote 必须和书里一模一样，不能改写！</span></div></div></article>
+<article class="page" id="step-s3" data-index="11"><div class="page-top"><span class="num" aria-hidden="true">12</span><div class="page-head"><span class="kicker">第 8 步</span><h2>引文真假大检查</h2></div></div><div class="body"><p>S3 会把每条引文拿去书里核对位置，</p>
+<p>假话、拼接、改写的引文都会被揪出来：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S3 --project D:\rushi-skill --mode provider">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S3 --project D:\rushi-skill --mode provider</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S3 -&gt; done，fidelity=100%</span></div><div class="bubble err"><span class="mark">报错</span><span>有 unverified：把这条引文改回书里的原话，再重跑 S3</span></div></div></article>
+<article class="page" id="step-s4s5" data-index="12"><div class="page-top"><span class="num" aria-hidden="true">13</span><div class="page-head"><span class="kicker">第 9 步</span><h2>外部验证 + 构造技能</h2></div></div><div class="body"><p>S4 检查方法在外面世界有没有佐证；</p>
+<p>S5 把通过的方法组装成完整 SKILL.md：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S4 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S5 --project D:\rushi-skill --mode provider">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S4 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S5 --project D:\rushi-skill --mode provider</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S4 -&gt; done 和 S5 -&gt; done，skills\ 里有 SKILL.md</span></div><div class="bubble err"><span class="mark">报错</span><span>S5 failed：失败原因在 s5-review 文件夹里，修好重跑</span></div><div class="bubble tip"><span class="mark">提示</span><span>偶发失败正常：原样重跑一次，多数会通过</span></div></div></article>
+<article class="page" id="step-trigger" data-index="13"><div class="page-top"><span class="num" aria-hidden="true">14</span><div class="page-head"><span class="kicker">第 10 步</span><h2>给技能出考题</h2></div></div><div class="body"><p>每个技能要有 tests\trigger.json 考题：</p>
 <p>3 道该触发 + 2 道不该触发（诱饵）+ 1 道边界</p>
-<p>智能体按 assets\templates\trigger.json.template 生成</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py check --build D:\rushi-skill\books\mybook --project D:\rushi-skill</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py check --build D:\rushi-skill\books\mybook --project D:\rushi-skill">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S5 构造校验: 通过</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>提示缺 trigger.json 或缺某一段，补齐再继续</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>诱饵里必须有 1 道是&#x27;该触发另一个技能&#x27;的场景</span></div></div></article>
-<article class="page" id="step-s6s7" data-index="14"><div class="page-top"><span class="emoji" aria-hidden="true">🧩</span><h2>第 11 步：连线 + 考试</h2></div><div class="body"><p>S6 把技能之间的关系画成地图（INDEX.md）；</p>
-<p>S7 用考题考试，诱饵错 1 道就 FAIL：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S6 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S7 --project D:\rushi-skill --mode provider</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S6 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S7 --project D:\rushi-skill --mode provider">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S6 -&gt; done；S7 -&gt; done（通过率与诱饵结果看 TEST_REPORT.md）</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>S7 failed：看 TEST_REPORT.md 哪道题答错，改 description 或考题</span></div></div></article>
-<article class="page" id="step-package" data-index="15"><div class="page-top"><span class="emoji" aria-hidden="true">📦</span><h2>第 12 步：打包 + 过安检</h2></div><div class="body"><p>把技能装进一个漂亮盒子（pack），</p>
-<p>然后过 S9 安检——缺一份证据都不放行：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py package --build D:\rushi-skill\books\mybook --project D:\rushi-skill --name my-pack --version 0.1.0; python rushi-skill\scripts\rushi-cli.py gate --pack D:\rushi-skill\packs\my-pack</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py package --build D:\rushi-skill\books\mybook --project D:\rushi-skill --name my-pack --version 0.1.0; python rushi-skill\scripts\rushi-cli.py gate --pack D:\rushi-skill\packs\my-pack">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S8 打包成功 + S9 发布闸门: 通过</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>闸门列出缺哪份证据（PROVENANCE/TEST_REPORT/GLOSSARY/INDEX），补好再打包</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>TEST_REPORT 必须 PASS 才能打包</span></div></div></article>
-<article class="page" id="step-install" data-index="16"><div class="page-top"><span class="emoji" aria-hidden="true">🚀</span><h2>第 13 步：安装进 Codex</h2></div><div class="body"><p>先 dry-run 预习一下会装到哪里，</p>
-<p>确认无误再去掉 --dry-run 真装：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py install --pack D:\rushi-skill\packs\my-pack --host codex --scope user --dry-run</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py install --pack D:\rushi-skill\packs\my-pack --host codex --scope user --dry-run">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>列出 → 目标路径\skill 名（dry-run）</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>拒绝安装到 pack 自身目录，换 --target 路径</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>host 可以是 codex / claude / cursor</span></div></div></article>
-<article class="page" id="step-evolve" data-index="17"><div class="page-top"><span class="emoji" aria-hidden="true">🌱</span><h2>第 14 步：让技能越用越聪明</h2></div><div class="body"><p>把使用记录（telemetry.jsonl）喂给入世，</p>
-<p>它会自动写出改进提案，等人类审批：</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py evolve --project D:\rushi-skill --pack D:\rushi-skill\packs\my-pack --telemetry D:\rushi-skill\telemetry.jsonl --out D:\rushi-skill\proposals</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py evolve --project D:\rushi-skill --pack D:\rushi-skill\packs\my-pack --telemetry D:\rushi-skill\telemetry.jsonl --out D:\rushi-skill\proposals">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>S10 进化: 生成 N 条提案（待人类审批）</span></div><div class="bubble err"><span class="mark" aria-hidden="true">⚠️</span><span>未指定 --telemetry 且无遥测库：先准备 telemetry.jsonl</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>提案要人类审批后才改技能，不能自己乱改</span></div></div></article>
-<article class="page" id="help-errors" data-index="18"><div class="page-top"><span class="emoji" aria-hidden="true">🚑</span><h2>急救卡：出错别慌</h2></div><div class="body"><p>① 不认识命令 → 粘贴回原样，检查空格和引号</p>
+<p>智能体按 assets\templates\trigger.json.template 生成</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py check --build D:\rushi-skill\books\mybook --project D:\rushi-skill">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py check --build D:\rushi-skill\books\mybook --project D:\rushi-skill</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S5 构造校验: 通过</span></div><div class="bubble err"><span class="mark">报错</span><span>提示缺 trigger.json 或缺某一段，补齐再继续</span></div><div class="bubble tip"><span class="mark">提示</span><span>诱饵里必须有 1 道是&#x27;该触发另一个技能&#x27;的场景</span></div></div></article>
+<article class="page" id="step-s6s7" data-index="14"><div class="page-top"><span class="num" aria-hidden="true">15</span><div class="page-head"><span class="kicker">第 11 步</span><h2>连线 + 考试</h2></div></div><div class="body"><p>S6 把技能之间的关系画成地图（INDEX.md）；</p>
+<p>S7 用考题考试，诱饵错 1 道就 FAIL：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S6 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S7 --project D:\rushi-skill --mode provider">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S6 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S7 --project D:\rushi-skill --mode provider</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S6 -&gt; done；S7 -&gt; done（通过率与诱饵结果看 TEST_REPORT.md）</span></div><div class="bubble err"><span class="mark">报错</span><span>S7 failed：看 TEST_REPORT.md 哪道题答错，改 description 或考题</span></div></div></article>
+<article class="page" id="step-package" data-index="15"><div class="page-top"><span class="num" aria-hidden="true">16</span><div class="page-head"><span class="kicker">第 12 步</span><h2>打包 + 过安检</h2></div></div><div class="body"><p>把技能装进一个漂亮盒子（pack），</p>
+<p>然后过 S9 安检——缺一份证据都不放行：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py package --build D:\rushi-skill\books\mybook --project D:\rushi-skill --name my-pack --version 0.1.0; python rushi-skill\scripts\rushi-cli.py gate --pack D:\rushi-skill\packs\my-pack">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py package --build D:\rushi-skill\books\mybook --project D:\rushi-skill --name my-pack --version 0.1.0; python rushi-skill\scripts\rushi-cli.py gate --pack D:\rushi-skill\packs\my-pack</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S8 打包成功 + S9 发布闸门: 通过</span></div><div class="bubble err"><span class="mark">报错</span><span>闸门列出缺哪份证据（PROVENANCE/TEST_REPORT/GLOSSARY/INDEX），补好再打包</span></div><div class="bubble tip"><span class="mark">提示</span><span>TEST_REPORT 必须 PASS 才能打包</span></div></div></article>
+<article class="page" id="step-install" data-index="16"><div class="page-top"><span class="num" aria-hidden="true">17</span><div class="page-head"><span class="kicker">第 13 步</span><h2>安装进 Codex</h2></div></div><div class="body"><p>先 dry-run 预习一下会装到哪里，</p>
+<p>确认无误再去掉 --dry-run 真装：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py install --pack D:\rushi-skill\packs\my-pack --host codex --scope user --dry-run">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py install --pack D:\rushi-skill\packs\my-pack --host codex --scope user --dry-run</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>列出 → 目标路径\skill 名（dry-run）</span></div><div class="bubble err"><span class="mark">报错</span><span>拒绝安装到 pack 自身目录，换 --target 路径</span></div><div class="bubble tip"><span class="mark">提示</span><span>host 可以是 codex / claude / cursor</span></div></div></article>
+<article class="page" id="step-evolve" data-index="17"><div class="page-top"><span class="num" aria-hidden="true">18</span><div class="page-head"><span class="kicker">第 14 步</span><h2>让技能越用越聪明</h2></div></div><div class="body"><p>把使用记录（telemetry.jsonl）喂给入世，</p>
+<p>它会自动写出改进提案，等人类审批：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py evolve --project D:\rushi-skill --pack D:\rushi-skill\packs\my-pack --telemetry D:\rushi-skill\telemetry.jsonl --out D:\rushi-skill\proposals">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py evolve --project D:\rushi-skill --pack D:\rushi-skill\packs\my-pack --telemetry D:\rushi-skill\telemetry.jsonl --out D:\rushi-skill\proposals</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>S10 进化: 生成 N 条提案（待人类审批）</span></div><div class="bubble err"><span class="mark">报错</span><span>未指定 --telemetry 且无遥测库：先准备 telemetry.jsonl</span></div><div class="bubble tip"><span class="mark">提示</span><span>提案要人类审批后才改技能，不能自己乱改</span></div></div></article>
+<article class="page" id="help-errors" data-index="18"><div class="page-top"><span class="num" aria-hidden="true">19</span><div class="page-head"><span class="kicker">急救卡</span><h2>出错别慌</h2></div></div><div class="body"><p>① 不认识命令 → 粘贴回原样，检查空格和引号</p>
 <p>② 钥匙没配对 → 重新执行准备 3 的 4 行</p>
 <p>③ S1/S2 显示 needs-provider → 钥匙没生效</p>
 <p>④ 引文打回 → 打开书复制原句，别自己写</p>
-<p>⑤ 还想不明白 → 把红字原样发给 Codex 问</p></div><div class="cmd"><pre><code>python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>红字消失 = 修复完成</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>错误信息第一行最重要，先读它</span></div></div></article>
-<article class="page" id="end" data-index="19"><div class="page-top"><span class="emoji" aria-hidden="true">🎉</span><h2>恭喜！你学会了入世</h2></div><div class="body"><p>从一本书 → 一个证据齐全的技能包，</p>
+<p>⑤ 还想不明白 → 把红字原样发给 Codex 问</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">PowerShell</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill">复制</button></div><pre><code>python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>红字消失 = 修复完成</span></div><div class="bubble tip"><span class="mark">提示</span><span>错误信息第一行最重要，先读它</span></div></div></article>
+<article class="page" id="end" data-index="19"><div class="page-top"><span class="num" aria-hidden="true">20</span><div class="page-head"><span class="kicker">终章</span><h2>恭喜！你学会了入世</h2></div></div><div class="body"><p>从一本书 → 一个证据齐全的技能包，</p>
 <p>每一步都有检查、有证据、能进化。</p>
-<p>现在，去新开一个 Codex 对话，对它说：</p></div><div class="cmd"><pre><code>使用入世 skill，把 D:\rushi-skill\books\mybook 蒸馏成可发布的 skill 包</code></pre><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="使用入世 skill，把 D:\rushi-skill\books\mybook 蒸馏成可发布的 skill 包">📋 复制命令</button></div><div class="bubbles"><div class="bubble ok"><span class="mark" aria-hidden="true">✅</span><span>它自己会跑完整个流程！</span></div><div class="bubble tip"><span class="mark" aria-hidden="true">💡</span><span>记住：没文本不拆书，引文必须逐字</span></div></div></article>
+<p>现在，去新开一个 Codex 对话，对它说：</p></div><div class="cmd"><div class="cmd-bar"><span class="cmd-label">对 Codex 直接说这句话</span><span class="copy-status" role="status" aria-live="polite"></span><button class="copy" type="button" data-cmd="使用入世 skill，把 D:\rushi-skill\books\mybook 蒸馏成可发布的 skill 包">复制</button></div><pre><code>使用入世 skill，把 D:\rushi-skill\books\mybook 蒸馏成可发布的 skill 包</code></pre></div><div class="bubbles"><div class="bubble ok"><span class="mark">成功</span><span>它自己会跑完整个流程！</span></div><div class="bubble tip"><span class="mark">提示</span><span>记住：没文本不拆书，引文必须逐字</span></div></div></article>
 </main>
 <footer>
-  本说明书中的每一条命令都按原样实测通过（2026-08-03，Python 3.14 + DeepSeek deepseek-chat，全新项目 mybook 全流程 S0→S10）。<br>
-  遇到问题先看「急救卡」，再问 Codex。<a href="#cover">回到顶部 ↑</a>
+  <p>本手册每一条命令都按原样实测通过：<b>2026-08-03 · Python 3.14 · DeepSeek deepseek-chat</b>，全新项目 mybook 走完 S0→S10。</p>
+  <p>卡壳了先翻「急救卡」，还不行就把红字原样发给 Codex。<a href="#cover">回到开头 ↑</a></p>
 </footer>
+</div>
 <a class="back-top" href="#cover" aria-label="回到顶部">↑</a>
 <script>
 
 (function () {
   var pages = document.querySelectorAll('.page');
-  if ('IntersectionObserver' in window) {
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    pages.forEach(function (p) { p.classList.add('in'); });
+  } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var el = entry.target;
-          var idx = Number(el.dataset.index || 0);
-          el.style.transitionDelay = ((idx % 6) * 45) + 'ms';
-          el.classList.add('in');
-          io.unobserve(el);
-        }
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var idx = Number(el.dataset.index || 0);
+        el.style.transitionDelay = ((idx % 4) * 60) + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.06 });
     pages.forEach(function (p) { io.observe(p); });
-  } else {
-    pages.forEach(function (p) { p.classList.add('in'); });
   }
 
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) {
-    pages.forEach(function (p) { p.classList.add('in'); });
+  var bar = document.querySelector('.progress');
+  if (bar) {
+    var tick = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(1, window.scrollY / h) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
   }
 
   document.querySelectorAll('.copy').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var status = btn.parentNode.querySelector('.copy-status');
       var done = function () {
-        btn.textContent = '✅ 已复制';
-        if (status) status.textContent = '复制成功，去黑框框里粘贴吧';
+        btn.textContent = '已复制';
+        if (status) status.textContent = '去 PowerShell 里粘贴';
         setTimeout(function () {
-          btn.textContent = '📋 复制命令';
+          btn.textContent = '复制';
           if (status) status.textContent = '';
         }, 1800);
       };
       var fail = function () {
-        if (status) status.textContent = '复制失败，请手动选择命令文字复制';
+        if (status) status.textContent = '复制失败，请手动选中命令文字';
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(btn.dataset.cmd).then(done, function () {
