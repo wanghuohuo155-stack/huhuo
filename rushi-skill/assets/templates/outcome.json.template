@@ -1,0 +1,19 @@
+{
+  "skill": "{{skill-slug}}",
+  "version": "0.1.0",
+  "tasks": [
+    {
+      "id": "outcome-01",
+      "task": "{{真实任务描述}}",
+      "context": "{{任务背景/输入}}",
+      "rubric": [
+        "{{评分维度 1：如'是否包含方法 X 的核心检查项'}}",
+        "{{评分维度 2}}",
+        "{{评分维度 3}}"
+      ],
+      "baseline_expected": "{{不用 skill 时的典型表现}}"
+    }
+  ],
+  "evaluation_protocol": "专家盲评 A/B：同一任务分别以'带包/不带包'执行，rubric 打分，比较增量。"
+}
+

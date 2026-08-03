@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="496" viewBox="0 0 660 496">
+<rect x="6" y="6" width="648" height="496-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 4 步：把书放进工作台</text><text x="604" y="66" font-size="38">📥</text>
+<text x="40" y="118" font-size="22" fill="#33475b">准备一个纯文本文件（书名.txt），放进 D:\ </text>
+<text x="40" y="149" font-size="22" fill="#33475b">下，</text>
+<text x="40" y="180" font-size="22" fill="#33475b">然后告诉入世：这本书叫什么、作者是谁：</text>
+<rect x="40" y="193" width="580" height="126" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py inges</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">t --project D:\rushi-skill --slug mybook --so</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">urce D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; -</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">-year &quot;2026&quot; --kind book</text>
+<rect x="40" y="329" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="354" font-size="18" fill="#1e6b43">看到 S0 完成，books\mybook 出现</text>
+<rect x="40" y="380" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="405" font-size="18" fill="#a12424">源文件为空/不存在，检查 --source 路径</text>
+<rect x="40" y="431" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="456" font-size="18" fill="#7a5b00">slug 只能用小写字母和数字，比如 mybook</text>

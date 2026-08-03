@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="548" viewBox="0 0 660 548">
+<rect x="6" y="6" width="648" height="548-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 14 步：让技能越用越聪明</text><text x="604" y="66" font-size="38">🌱</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把使用记录（telemetry.jsonl）喂给入</text>
+<text x="40" y="149" font-size="22" fill="#33475b">世，</text>
+<text x="40" y="180" font-size="22" fill="#33475b">它会自动写出改进提案，等人类审批：</text>
+<rect x="40" y="193" width="580" height="153" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py evolv</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">e --project D:\rushi-skill --pack D:\rushi-sk</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ill\packs\my-pack --telemetry D:\rushi-skill\</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">telemetry.jsonl --out D:\rushi-skill\proposal</text>
+<text x="56" y="328" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">s</text>
+<rect x="40" y="356" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="381" font-size="18" fill="#1e6b43">S10 进化: 生成 N 条提案（待人类审批）</text>
+<rect x="40" y="407" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="432" font-size="18" fill="#a12424">未指定 --telemetry 且无遥测库：先准备 tele</text>
+<text x="58" y="457" font-size="18" fill="#a12424">metry.jsonl</text>
+<rect x="40" y="483" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="508" font-size="18" fill="#7a5b00">提案要人类审批后才改技能，不能自己乱改</text>

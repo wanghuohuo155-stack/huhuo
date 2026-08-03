@@ -1,0 +1,11 @@
+# TEST_REPORT.md — 评测报告
+
+- 模式: {{mock/provider}}（fallback 结果，可信度低于独立盲测）
+- 总通过率: {{rate}}（{{passed}}/{{total}}）
+- 诱饵失败: {{bait_failures}}（容错 0）
+- 整体判定: {{PASS/FAIL}}
+
+## 明细
+
+{{由 rushi-evaluator 生成}}
+

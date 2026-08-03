@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="569" viewBox="0 0 660 569">
+<rect x="6" y="6" width="648" height="569-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 9 步：外部验证 + 构造技能</text><text x="604" y="66" font-size="38">🧱</text>
+<text x="40" y="118" font-size="22" fill="#33475b">S4 检查方法在外面世界有没有佐证；</text>
+<text x="40" y="149" font-size="22" fill="#33475b">S5 把通过的方法组装成完整 SKILL.md：</text>
+<rect x="40" y="162" width="580" height="180" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S4 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider; python r</text>
+<text x="56" y="270" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ushi-skill\scripts\rushi-cli.py stage --build</text>
+<text x="56" y="297" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> D:\rushi-skill\books\mybook S5 --project D:\</text>
+<text x="56" y="324" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">rushi-skill --mode provider</text>
+<rect x="40" y="352" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="377" font-size="18" fill="#1e6b43">S4 -&gt; done 和 S5 -&gt; done，skills</text>
+<text x="58" y="402" font-size="18" fill="#1e6b43">\ 里有 SKILL.md</text>
+<rect x="40" y="428" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="453" font-size="18" fill="#a12424">S5 failed：失败原因在 s5-review 文件夹里</text>
+<text x="58" y="478" font-size="18" fill="#a12424">，修好重跑</text>
+<rect x="40" y="504" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="529" font-size="18" fill="#7a5b00">偶发失败正常：原样重跑一次，多数会通过</text>

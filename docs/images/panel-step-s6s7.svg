@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="549" viewBox="0 0 660 549">
+<rect x="6" y="6" width="648" height="549-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 11 步：连线 + 考试</text><text x="604" y="66" font-size="38">🧩</text>
+<text x="40" y="118" font-size="22" fill="#33475b">S6 把技能之间的关系画成地图（INDEX.md）</text>
+<text x="40" y="149" font-size="22" fill="#33475b">；</text>
+<text x="40" y="180" font-size="22" fill="#33475b">S7 用考题考试，诱饵错 1 道就 FAIL：</text>
+<rect x="40" y="193" width="580" height="180" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S6 --pro</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider; python r</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ushi-skill\scripts\rushi-cli.py stage --build</text>
+<text x="56" y="328" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> D:\rushi-skill\books\mybook S7 --project D:\</text>
+<text x="56" y="355" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">rushi-skill --mode provider</text>
+<rect x="40" y="383" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="408" font-size="18" fill="#1e6b43">S6 -&gt; done；S7 -&gt; done（通过率与诱饵结果</text>
+<text x="58" y="433" font-size="18" fill="#1e6b43">看 TEST_REPORT.md）</text>
+<rect x="40" y="459" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="484" font-size="18" fill="#a12424">S7 failed：看 TEST_REPORT.md 哪道题</text>
+<text x="58" y="509" font-size="18" fill="#a12424">答错，改 description 或考题</text>

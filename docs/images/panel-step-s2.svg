@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="463" viewBox="0 0 660 463">
+<rect x="6" y="6" width="648" height="463-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 6 步：派 5 个小分队去找方法</text><text x="604" y="66" font-size="38">🔍</text>
+<text x="40" y="118" font-size="22" fill="#33475b">5 个提取器（框架/原则/案例/反例/术语）</text>
+<text x="40" y="149" font-size="22" fill="#33475b">同时从书里挑出最有用的方法：</text>
+<rect x="40" y="162" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S2 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider</text>
+<rect x="40" y="271" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="296" font-size="18" fill="#1e6b43">S2 -&gt; done，candidates 里有 5 个 j</text>
+<text x="58" y="321" font-size="18" fill="#1e6b43">son</text>
+<rect x="40" y="347" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="372" font-size="18" fill="#a12424">某一路 failed：正常会重试；连续失败就重跑一次 S2</text>
+<rect x="40" y="398" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="423" font-size="18" fill="#7a5b00">书很长时，每一路最多挑 20 条，引文 ≤80 字</text>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>入世使用说明书（日式动漫小人书版）</title>
+<style>
+  body {
+    margin:0; padding:28px;
+    font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+    color:#33475b;
+    background-color:#bfe0ff;
+  }
+  .bg { position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; overflow:hidden; }
+  .bg svg { width:100%; height:100%; display:block; }
+  h1, .flow, .pages, footer { position:relative; z-index:1; }
+  h1 {
+    text-align:center; font-size:40px; margin:8px 0 22px 0; color:#123c74;
+    text-shadow:0 2px 6px rgba(255,255,255,.85), 0 0 22px rgba(255,255,255,.55);
+  }
+  .flow { display:block; margin:0 auto 30px auto; max-width:1120px;
+           filter:drop-shadow(0 6px 14px rgba(40,80,140,.22)); }
+  .pages { max-width:1400px; margin:0 auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+  .page { flex:0 1 680px; }
+  .page svg { width:100%; height:auto; display:block;
+               filter:drop-shadow(0 6px 14px rgba(40,80,140,.22)); }
+  .copy {
+    display:block; margin:10px auto 0 auto; padding:8px 18px;
+    font-size:16px; font-family:inherit; cursor:pointer;
+    color:#2b4a78; background:#ffffff;
+    border:2px solid #8fb9e8; border-radius:12px;
+    box-shadow:0 3px 8px rgba(40,80,140,.18);
+  }
+  .copy:hover { background:#f0f8ff; }
+  footer { text-align:center; color:#2b4a78; margin-top:36px; font-size:16px;
+            text-shadow:0 1px 4px rgba(255,255,255,.8); }
+</style>
+</head>
+<body>
+<div class="bg"><svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#0e4fae"/>
+<stop offset=".45" stop-color="#3b82d8"/>
+<stop offset=".78" stop-color="#8fc4ef"/>
+<stop offset="1" stop-color="#d8ecff"/>
+</linearGradient>
+<filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+<filter id="soft2"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect x="0" y="0" width="1440" height="900" fill="url(#sky)"/>
+<circle cx="1110" cy="150" r="130" fill="#fff7d6" opacity=".5" filter="url(#soft2)"/>
+<circle cx="1110" cy="150" r="64" fill="#fffbe8" opacity=".85"/>
+<line x1="1248" y1="125" x2="1445" y2="143" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity="0.43"/>
+<line x1="944" y1="226" x2="1155" y2="244" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" opacity="0.55"/>
+<line x1="265" y1="103" x2="502" y2="121" stroke="#ffffff" stroke-width="3.7" stroke-linecap="round" opacity="0.50"/>
+<line x1="1274" y1="297" x2="1521" y2="315" stroke="#ffffff" stroke-width="4.8" stroke-linecap="round" opacity="0.52"/>
+<line x1="157" y1="168" x2="337" y2="186" stroke="#ffffff" stroke-width="4.7" stroke-linecap="round" opacity="0.54"/>
+<line x1="904" y1="87" x2="1155" y2="105" stroke="#ffffff" stroke-width="5.0" stroke-linecap="round" opacity="0.46"/>
+<line x1="775" y1="223" x2="893" y2="241" stroke="#ffffff" stroke-width="4.1" stroke-linecap="round" opacity="0.50"/>
+<line x1="88" y1="202" x2="294" y2="220" stroke="#ffffff" stroke-width="4.7" stroke-linecap="round" opacity="0.41"/>
+<line x1="106" y1="102" x2="280" y2="120" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" opacity="0.54"/>
+<ellipse cx="584" cy="347" rx="132" ry="36" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="680" cy="349" rx="47" ry="33" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="567" cy="303" rx="47" ry="36" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="625" cy="330" rx="47" ry="29" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="556" cy="321" rx="79" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="662" cy="336" rx="49" ry="43" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="533" cy="308" rx="78" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="593" cy="329" rx="48" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="567" cy="323" rx="42" ry="18" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="625" cy="345" rx="42" ry="15" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="556" cy="343" rx="71" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="517" cy="360" rx="93" ry="25" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="567" cy="332" rx="38" ry="29" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="547" cy="336" rx="45" ry="31" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="524" cy="356" rx="58" ry="27" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="453" cy="335" rx="49" ry="24" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="460" cy="342" rx="52" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="568" cy="362" rx="36" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="533" cy="331" rx="48" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="547" cy="353" rx="41" ry="16" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="524" cy="371" rx="53" ry="14" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="453" cy="348" rx="44" ry="12" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="230" cy="294" rx="126" ry="35" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="175" cy="283" rx="77" ry="36" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="183" cy="268" rx="70" ry="40" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="248" cy="287" rx="75" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="286" cy="268" rx="44" ry="39" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="271" cy="282" rx="61" ry="31" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="183" cy="290" rx="63" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="248" cy="308" rx="67" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="286" cy="289" rx="39" ry="19" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="1308" cy="390" rx="115" ry="32" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="1329" cy="391" rx="72" ry="37" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1392" cy="393" rx="42" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1239" cy="367" rx="64" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1236" cy="364" rx="53" ry="26" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1362" cy="352" rx="59" ry="29" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1306" cy="360" rx="59" ry="38" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1260" cy="394" rx="72" ry="28" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="1392" cy="411" rx="38" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="1239" cy="385" rx="58" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="1236" cy="378" rx="48" ry="13" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="122" cy="441" rx="77" ry="21" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="171" cy="433" rx="35" ry="17" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="178" cy="434" rx="34" ry="25" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="128" cy="422" rx="38" ry="19" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="177" cy="433" rx="34" ry="22" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="76" cy="432" rx="48" ry="18" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="68" cy="440" rx="31" ry="17" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="76" cy="432" rx="47" ry="19" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="178" cy="448" rx="30" ry="12" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="128" cy="433" rx="35" ry="9" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="177" cy="445" rx="30" ry="11" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="753" cy="325" rx="132" ry="36" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="802" cy="320" rx="70" ry="35" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="777" cy="290" rx="49" ry="32" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="785" cy="301" rx="63" ry="40" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="751" cy="329" rx="82" ry="35" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="732" cy="294" rx="61" ry="37" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="777" cy="307" rx="44" ry="16" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="785" cy="323" rx="57" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="751" cy="349" rx="74" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="567" cy="379" rx="141" ry="39" fill="#ffffff" opacity=".95" filter="url(#soft)"/>
+<ellipse cx="550" cy="336" rx="68" ry="44" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="612" cy="335" rx="65" ry="40" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="655" cy="384" rx="62" ry="47" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="556" cy="381" rx="75" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="622" cy="373" rx="86" ry="36" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="469" cy="358" rx="64" ry="34" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="464" cy="369" rx="69" ry="45" fill="#ffffff" opacity=".98" filter="url(#soft)"/>
+<ellipse cx="612" cy="357" rx="58" ry="20" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="655" cy="410" rx="56" ry="24" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<ellipse cx="556" cy="399" rx="67" ry="17" fill="#cfe6ff" opacity=".85" filter="url(#soft)"/>
+<path d="M0,500 Q180,442 360,500 T720,470 T1080,500 T1440,470 L1440,560 L0,560 Z" fill="#9db8dc" opacity=".9"/><path d="M0,560 Q240,500 520,560 T1000,530 T1440,560 L1440,660 L0,660 Z" fill="#6f8fc0" opacity=".95"/>
+<rect x="-10" y="527" width="51" height="133" fill="#5d7090"/>
+<rect x="25" y="564" width="3" height="5" fill="#ffe9c9" opacity="0.44"/>
+<rect x="32" y="643" width="3" height="5" fill="#ffd9a0" opacity="0.70"/>
+<rect x="33" y="649" width="3" height="5" fill="#ffe9c9" opacity="0.73"/>
+<rect x="-6" y="538" width="3" height="5" fill="#cfe8ff" opacity="0.67"/>
+<rect x="20" y="582" width="3" height="5" fill="#cfe8ff" opacity="0.48"/>
+<rect x="31" y="572" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
+<rect x="-2" y="618" width="3" height="5" fill="#cfe8ff" opacity="0.49"/>
+<rect x="13" y="603" width="3" height="5" fill="#ffd9a0" opacity="0.62"/>
+<rect x="2" y="561" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
+<rect x="44" y="465" width="54" height="195" fill="#5d7090"/>
+<rect x="71" y="632" width="3" height="5" fill="#cfe8ff" opacity="0.71"/>
+<rect x="74" y="474" width="3" height="5" fill="#cfe8ff" opacity="0.62"/>
+<rect x="50" y="475" width="3" height="5" fill="#ffe9c9" opacity="0.61"/>
+<rect x="71" y="632" width="3" height="5" fill="#cfe8ff" opacity="0.38"/>
+<rect x="61" y="515" width="3" height="5" fill="#cfe8ff" opacity="0.51"/>
+<rect x="88" y="581" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
+<rect x="86" y="493" width="3" height="5" fill="#cfe8ff" opacity="0.45"/>
+<rect x="63" y="524" width="3" height="5" fill="#cfe8ff" opacity="0.58"/>
+<rect x="65" y="520" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
+<rect x="63" y="566" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
+<rect x="53" y="474" width="3" height="5" fill="#ffe9c9" opacity="0.52"/>
+<rect x="75" y="629" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="50" y="632" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
+<rect x="77" y="496" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
+<rect x="57" y="566" width="3" height="5" fill="#ffe9c9" opacity="0.67"/>
+<rect x="99" y="458" width="79" height="202" fill="#5d7090"/>
+<rect x="121" y="523" width="3" height="5" fill="#ffd9a0" opacity="0.66"/>
+<rect x="166" y="618" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
+<rect x="169" y="622" width="3" height="5" fill="#ffd9a0" opacity="0.59"/>
+<rect x="118" y="649" width="3" height="5" fill="#cfe8ff" opacity="0.67"/>
+<rect x="159" y="574" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
+<rect x="146" y="535" width="3" height="5" fill="#cfe8ff" opacity="0.45"/>
+<rect x="105" y="626" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
+<rect x="133" y="602" width="3" height="5" fill="#ffd9a0" opacity="0.69"/>
+<rect x="110" y="640" width="3" height="5" fill="#ffe9c9" opacity="0.59"/>
+<rect x="143" y="612" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
+<rect x="136" y="556" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
+<rect x="134" y="497" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
+<rect x="107" y="649" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="112" y="572" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
+<rect x="162" y="601" width="3" height="5" fill="#ffe9c9" opacity="0.52"/>
+<rect x="164" y="551" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="112" y="560" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
+<rect x="170" y="482" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="170" y="553" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
+<rect x="147" y="621" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
+<rect x="133" y="612" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
+<rect x="149" y="517" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
+<rect x="180" y="503" width="61" height="157" fill="#5d7090"/>
+<rect x="222" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.53"/>
+<rect x="215" y="527" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
+<rect x="201" y="602" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
+<rect x="221" y="646" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
+<rect x="191" y="591" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
+<rect x="190" y="532" width="3" height="5" fill="#ffe9c9" opacity="0.52"/>
+<rect x="207" y="616" width="3" height="5" fill="#ffe9c9" opacity="0.44"/>
+<rect x="197" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
+<rect x="230" y="596" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
+<rect x="217" y="598" width="3" height="5" fill="#ffe9c9" opacity="0.66"/>
+<rect x="207" y="590" width="3" height="5" fill="#ffd9a0" opacity="0.65"/>
+<rect x="227" y="542" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
+<rect x="203" y="560" width="3" height="5" fill="#ffd9a0" opacity="0.73"/>
+<rect x="242" y="533" width="67" height="127" fill="#5d7090"/>
+<rect x="289" y="580" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
+<rect x="289" y="639" width="3" height="5" fill="#cfe8ff" opacity="0.55"/>
+<rect x="248" y="577" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="252" y="609" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
+<rect x="265" y="623" width="3" height="5" fill="#cfe8ff" opacity="0.36"/>
+<rect x="256" y="547" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="286" y="540" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
+<rect x="258" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
+<rect x="284" y="607" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="246" y="644" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
+<rect x="268" y="548" width="3" height="5" fill="#ffd9a0" opacity="0.73"/>
+<rect x="283" y="602" width="3" height="5" fill="#ffe9c9" opacity="0.72"/>
+<rect x="310" y="472" width="59" height="188" fill="#5d7090"/>
+<rect x="344" y="567" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
+<rect x="316" y="481" width="3" height="5" fill="#ffe9c9" opacity="0.66"/>
+<rect x="318" y="481" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
+<rect x="323" y="507" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
+<rect x="341" y="490" width="3" height="5" fill="#cfe8ff" opacity="0.51"/>
+<rect x="320" y="528" width="3" height="5" fill="#ffe9c9" opacity="0.60"/>
+<rect x="348" y="531" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
+<rect x="320" y="588" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
+<rect x="345" y="590" width="3" height="5" fill="#ffe9c9" opacity="0.36"/>
+<rect x="335" y="591" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
+<rect x="357" y="563" width="3" height="5" fill="#ffe9c9" opacity="0.36"/>
+<rect x="342" y="543" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
+<rect x="347" y="597" width="3" height="5" fill="#cfe8ff" opacity="0.41"/>
+<rect x="320" y="608" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
+<rect x="330" y="578" width="3" height="5" fill="#ffe9c9" opacity="0.70"/>
+<rect x="369" y="506" width="67" height="154" fill="#5d7090"/>
+<rect x="399" y="643" width="3" height="5" fill="#ffe9c9" opacity="0.68"/>
+<rect x="426" y="630" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
+<rect x="401" y="602" width="3" height="5" fill="#ffd9a0" opacity="0.59"/>
+<rect x="421" y="510" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="389" y="552" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
+<rect x="406" y="538" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
+<rect x="374" y="593" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
+<rect x="421" y="590" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
+<rect x="408" y="612" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
+<rect x="412" y="639" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
+<rect x="414" y="543" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
+<rect x="409" y="548" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
+<rect x="402" y="521" width="3" height="5" fill="#cfe8ff" opacity="0.69"/>
+<rect x="396" y="555" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
+<rect x="442" y="533" width="52" height="127" fill="#5d7090"/>
+<rect x="467" y="581" width="3" height="5" fill="#ffe9c9" opacity="0.39"/>
+<rect x="486" y="541" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
+<rect x="463" y="608" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
+<rect x="483" y="624" width="3" height="5" fill="#ffd9a0" opacity="0.55"/>
+<rect x="466" y="613" width="3" height="5" fill="#cfe8ff" opacity="0.60"/>
+<rect x="451" y="544" width="3" height="5" fill="#ffd9a0" opacity="0.43"/>
+<rect x="453" y="634" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
+<rect x="462" y="605" width="3" height="5" fill="#ffd9a0" opacity="0.48"/>
+<rect x="486" y="581" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
+<rect x="494" y="535" width="70" height="125" fill="#5d7090"/>
+<rect x="527" y="573" width="3" height="5" fill="#ffd9a0" opacity="0.35"/>
+<rect x="535" y="565" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
+<rect x="543" y="591" width="3" height="5" fill="#ffd9a0" opacity="0.51"/>
+<rect x="550" y="571" width="3" height="5" fill="#ffd9a0" opacity="0.74"/>
+<rect x="524" y="614" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
+<rect x="517" y="605" width="3" height="5" fill="#cfe8ff" opacity="0.46"/>
+<rect x="523" y="578" width="3" height="5" fill="#ffe9c9" opacity="0.61"/>
+<rect x="537" y="595" width="3" height="5" fill="#ffe9c9" opacity="0.42"/>
+<rect x="498" y="595" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="550" y="587" width="3" height="5" fill="#ffe9c9" opacity="0.59"/>
+<rect x="540" y="564" width="3" height="5" fill="#cfe8ff" opacity="0.63"/>
+<rect x="508" y="598" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
+<rect x="567" y="480" width="76" height="180" fill="#5d7090"/>
+<rect x="633" y="538" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="623" y="607" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
+<rect x="604" y="544" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
+<rect x="618" y="494" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="626" y="585" width="3" height="5" fill="#ffd9a0" opacity="0.43"/>
+<rect x="614" y="606" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
+<rect x="592" y="636" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
+<rect x="571" y="511" width="3" height="5" fill="#ffe9c9" opacity="0.44"/>
+<rect x="595" y="650" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
+<rect x="603" y="580" width="3" height="5" fill="#cfe8ff" opacity="0.57"/>
+<rect x="604" y="507" width="3" height="5" fill="#cfe8ff" opacity="0.48"/>
+<rect x="623" y="526" width="3" height="5" fill="#ffe9c9" opacity="0.59"/>
+<rect x="617" y="493" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
+<rect x="599" y="630" width="3" height="5" fill="#ffd9a0" opacity="0.50"/>
+<rect x="611" y="613" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
+<rect x="635" y="509" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
+<rect x="601" y="629" width="3" height="5" fill="#cfe8ff" opacity="0.68"/>
+<rect x="632" y="597" width="3" height="5" fill="#cfe8ff" opacity="0.68"/>
+<rect x="626" y="644" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
+<rect x="645" y="525" width="68" height="135" fill="#5d7090"/>
+<rect x="670" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.69"/>
+<rect x="698" y="562" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
+<rect x="681" y="591" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
+<rect x="705" y="640" width="3" height="5" fill="#ffd9a0" opacity="0.53"/>
+<rect x="652" y="565" width="3" height="5" fill="#ffd9a0" opacity="0.46"/>
+<rect x="705" y="606" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
+<rect x="655" y="540" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
+<rect x="667" y="573" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
+<rect x="673" y="586" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
+<rect x="700" y="630" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="705" y="644" width="3" height="5" fill="#ffe9c9" opacity="0.66"/>
+<rect x="699" y="595" width="3" height="5" fill="#ffd9a0" opacity="0.62"/>
+<rect x="672" y="570" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
+<rect x="713" y="449" width="82" height="211" fill="#5d7090"/>
+<rect x="736" y="506" width="3" height="5" fill="#ffe9c9" opacity="0.72"/>
+<rect x="779" y="503" width="3" height="5" fill="#ffd9a0" opacity="0.55"/>
+<rect x="779" y="469" width="3" height="5" fill="#cfe8ff" opacity="0.53"/>
+<rect x="742" y="640" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
+<rect x="734" y="458" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
+<rect x="785" y="587" width="3" height="5" fill="#ffe9c9" opacity="0.65"/>
+<rect x="784" y="558" width="3" height="5" fill="#ffd9a0" opacity="0.69"/>
+<rect x="744" y="599" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
+<rect x="752" y="526" width="3" height="5" fill="#ffe9c9" opacity="0.75"/>
+<rect x="771" y="493" width="3" height="5" fill="#cfe8ff" opacity="0.55"/>
+<rect x="786" y="496" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="750" y="466" width="3" height="5" fill="#ffd9a0" opacity="0.55"/>
+<rect x="755" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
+<rect x="735" y="535" width="3" height="5" fill="#ffe9c9" opacity="0.60"/>
+<rect x="772" y="562" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
+<rect x="772" y="556" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
+<rect x="784" y="634" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="772" y="495" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
+<rect x="757" y="535" width="3" height="5" fill="#cfe8ff" opacity="0.75"/>
+<rect x="785" y="564" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="739" y="523" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
+<rect x="763" y="496" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="749" y="506" width="3" height="5" fill="#ffe9c9" opacity="0.71"/>
+<rect x="760" y="605" width="3" height="5" fill="#ffd9a0" opacity="0.71"/>
+<rect x="801" y="429" width="77" height="231" fill="#5d7090"/>
+<rect x="838" y="463" width="3" height="5" fill="#ffd9a0" opacity="0.44"/>
+<rect x="870" y="570" width="3" height="5" fill="#ffe9c9" opacity="0.65"/>
+<rect x="858" y="501" width="3" height="5" fill="#ffd9a0" opacity="0.50"/>
+<rect x="858" y="585" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
+<rect x="868" y="503" width="3" height="5" fill="#cfe8ff" opacity="0.66"/>
+<rect x="806" y="563" width="3" height="5" fill="#ffe9c9" opacity="0.48"/>
+<rect x="860" y="508" width="3" height="5" fill="#cfe8ff" opacity="0.58"/>
+<rect x="837" y="581" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
+<rect x="810" y="638" width="3" height="5" fill="#ffe9c9" opacity="0.35"/>
+<rect x="856" y="586" width="3" height="5" fill="#ffd9a0" opacity="0.42"/>
+<rect x="819" y="593" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
+<rect x="809" y="594" width="3" height="5" fill="#ffd9a0" opacity="0.36"/>
+<rect x="846" y="536" width="3" height="5" fill="#cfe8ff" opacity="0.52"/>
+<rect x="831" y="556" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
+<rect x="841" y="569" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
+<rect x="824" y="504" width="3" height="5" fill="#cfe8ff" opacity="0.46"/>
+<rect x="820" y="641" width="3" height="5" fill="#cfe8ff" opacity="0.71"/>
+<rect x="867" y="609" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
+<rect x="808" y="488" width="3" height="5" fill="#ffe9c9" opacity="0.35"/>
+<rect x="852" y="589" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
+<rect x="845" y="621" width="3" height="5" fill="#ffe9c9" opacity="0.61"/>
+<rect x="837" y="628" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
+<rect x="846" y="458" width="3" height="5" fill="#cfe8ff" opacity="0.64"/>
+<rect x="808" y="526" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
+<rect x="816" y="561" width="3" height="5" fill="#ffe9c9" opacity="0.51"/>
+<rect x="881" y="485" width="62" height="175" fill="#5d7090"/>
+<rect x="886" y="527" width="3" height="5" fill="#ffe9c9" opacity="0.55"/>
+<rect x="926" y="531" width="3" height="5" fill="#ffe9c9" opacity="0.45"/>
+<rect x="930" y="573" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
+<rect x="932" y="525" width="3" height="5" fill="#ffd9a0" opacity="0.41"/>
+<rect x="932" y="646" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
+<rect x="917" y="589" width="3" height="5" fill="#cfe8ff" opacity="0.38"/>
+<rect x="918" y="636" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
+<rect x="920" y="539" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
+<rect x="900" y="502" width="3" height="5" fill="#cfe8ff" opacity="0.60"/>
+<rect x="923" y="563" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
+<rect x="925" y="528" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
+<rect x="918" y="607" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
+<rect x="898" y="546" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
+<rect x="931" y="549" width="3" height="5" fill="#ffd9a0" opacity="0.58"/>
+<rect x="885" y="503" width="3" height="5" fill="#ffd9a0" opacity="0.54"/>
+<rect x="948" y="471" width="76" height="189" fill="#5d7090"/>
+<rect x="1001" y="571" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
+<rect x="964" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.41"/>
+<rect x="972" y="586" width="3" height="5" fill="#cfe8ff" opacity="0.54"/>
+<rect x="1003" y="618" width="3" height="5" fill="#ffd9a0" opacity="0.50"/>
+<rect x="963" y="532" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
+<rect x="984" y="600" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
+<rect x="993" y="632" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
+<rect x="957" y="628" width="3" height="5" fill="#cfe8ff" opacity="0.73"/>
+<rect x="990" y="630" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="955" y="644" width="3" height="5" fill="#ffd9a0" opacity="0.46"/>
+<rect x="981" y="636" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
+<rect x="982" y="627" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
+<rect x="1006" y="592" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
+<rect x="997" y="521" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
+<rect x="996" y="639" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="991" y="558" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
+<rect x="1015" y="510" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
+<rect x="995" y="483" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
+<rect x="973" y="477" width="3" height="5" fill="#ffd9a0" opacity="0.62"/>
+<rect x="992" y="487" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
+<rect x="1024" y="502" width="62" height="158" fill="#5d7090"/>
+<rect x="1048" y="631" width="3" height="5" fill="#ffe9c9" opacity="0.46"/>
+<rect x="1062" y="608" width="3" height="5" fill="#ffd9a0" opacity="0.56"/>
+<rect x="1042" y="541" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
+<rect x="1058" y="559" width="3" height="5" fill="#ffe9c9" opacity="0.39"/>
+<rect x="1028" y="554" width="3" height="5" fill="#ffe9c9" opacity="0.55"/>
+<rect x="1049" y="538" width="3" height="5" fill="#cfe8ff" opacity="0.45"/>
+<rect x="1047" y="551" width="3" height="5" fill="#ffe9c9" opacity="0.70"/>
+<rect x="1051" y="548" width="3" height="5" fill="#cfe8ff" opacity="0.66"/>
+<rect x="1063" y="512" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
+<rect x="1028" y="589" width="3" height="5" fill="#cfe8ff" opacity="0.43"/>
+<rect x="1060" y="575" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
+<rect x="1054" y="629" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="1045" y="533" width="3" height="5" fill="#ffd9a0" opacity="0.51"/>
+<rect x="1092" y="438" width="80" height="222" fill="#5d7090"/>
+<rect x="1144" y="609" width="3" height="5" fill="#ffe9c9" opacity="0.75"/>
+<rect x="1122" y="538" width="3" height="5" fill="#ffd9a0" opacity="0.52"/>
+<rect x="1137" y="488" width="3" height="5" fill="#ffe9c9" opacity="0.75"/>
+<rect x="1140" y="508" width="3" height="5" fill="#ffd9a0" opacity="0.38"/>
+<rect x="1154" y="600" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
+<rect x="1158" y="517" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
+<rect x="1158" y="473" width="3" height="5" fill="#ffe9c9" opacity="0.43"/>
+<rect x="1100" y="494" width="3" height="5" fill="#ffd9a0" opacity="0.41"/>
+<rect x="1153" y="535" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="1134" y="558" width="3" height="5" fill="#ffd9a0" opacity="0.51"/>
+<rect x="1149" y="583" width="3" height="5" fill="#ffd9a0" opacity="0.70"/>
+<rect x="1146" y="548" width="3" height="5" fill="#ffe9c9" opacity="0.67"/>
+<rect x="1114" y="461" width="3" height="5" fill="#ffd9a0" opacity="0.45"/>
+<rect x="1137" y="464" width="3" height="5" fill="#ffd9a0" opacity="0.73"/>
+<rect x="1132" y="619" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="1155" y="537" width="3" height="5" fill="#ffe9c9" opacity="0.56"/>
+<rect x="1149" y="504" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="1140" y="499" width="3" height="5" fill="#ffd9a0" opacity="0.38"/>
+<rect x="1152" y="558" width="3" height="5" fill="#ffd9a0" opacity="0.60"/>
+<rect x="1141" y="598" width="3" height="5" fill="#cfe8ff" opacity="0.38"/>
+<rect x="1139" y="613" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
+<rect x="1155" y="488" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
+<rect x="1164" y="495" width="3" height="5" fill="#ffd9a0" opacity="0.46"/>
+<rect x="1126" y="513" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
+<rect x="1147" y="485" width="3" height="5" fill="#ffe9c9" opacity="0.40"/>
+<rect x="1174" y="538" width="80" height="122" fill="#5d7090"/>
+<rect x="1196" y="605" width="3" height="5" fill="#ffe9c9" opacity="0.60"/>
+<rect x="1218" y="574" width="3" height="5" fill="#ffe9c9" opacity="0.67"/>
+<rect x="1185" y="620" width="3" height="5" fill="#ffe9c9" opacity="0.54"/>
+<rect x="1240" y="613" width="3" height="5" fill="#ffe9c9" opacity="0.74"/>
+<rect x="1207" y="579" width="3" height="5" fill="#ffd9a0" opacity="0.39"/>
+<rect x="1180" y="644" width="3" height="5" fill="#cfe8ff" opacity="0.61"/>
+<rect x="1245" y="627" width="3" height="5" fill="#ffe9c9" opacity="0.68"/>
+<rect x="1209" y="641" width="3" height="5" fill="#cfe8ff" opacity="0.72"/>
+<rect x="1242" y="557" width="3" height="5" fill="#ffe9c9" opacity="0.63"/>
+<rect x="1213" y="637" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
+<rect x="1218" y="555" width="3" height="5" fill="#ffe9c9" opacity="0.72"/>
+<rect x="1193" y="572" width="3" height="5" fill="#ffd9a0" opacity="0.69"/>
+<rect x="1211" y="586" width="3" height="5" fill="#cfe8ff" opacity="0.52"/>
+<rect x="1258" y="499" width="79" height="161" fill="#5d7090"/>
+<rect x="1295" y="560" width="3" height="5" fill="#cfe8ff" opacity="0.37"/>
+<rect x="1311" y="546" width="3" height="5" fill="#ffe9c9" opacity="0.56"/>
+<rect x="1289" y="632" width="3" height="5" fill="#ffe9c9" opacity="0.47"/>
+<rect x="1312" y="647" width="3" height="5" fill="#cfe8ff" opacity="0.50"/>
+<rect x="1266" y="575" width="3" height="5" fill="#ffd9a0" opacity="0.63"/>
+<rect x="1263" y="650" width="3" height="5" fill="#cfe8ff" opacity="0.44"/>
+<rect x="1309" y="573" width="3" height="5" fill="#ffe9c9" opacity="0.50"/>
+<rect x="1302" y="639" width="3" height="5" fill="#ffe9c9" opacity="0.56"/>
+<rect x="1295" y="627" width="3" height="5" fill="#cfe8ff" opacity="0.71"/>
+<rect x="1318" y="589" width="3" height="5" fill="#ffd9a0" opacity="0.58"/>
+<rect x="1267" y="644" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="1272" y="556" width="3" height="5" fill="#ffd9a0" opacity="0.41"/>
+<rect x="1279" y="586" width="3" height="5" fill="#ffe9c9" opacity="0.53"/>
+<rect x="1269" y="542" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
+<rect x="1278" y="505" width="3" height="5" fill="#cfe8ff" opacity="0.40"/>
+<rect x="1281" y="504" width="3" height="5" fill="#ffe9c9" opacity="0.35"/>
+<rect x="1292" y="511" width="3" height="5" fill="#ffd9a0" opacity="0.47"/>
+<rect x="1278" y="614" width="3" height="5" fill="#cfe8ff" opacity="0.47"/>
+<rect x="1341" y="416" width="62" height="244" fill="#5d7090"/>
+<rect x="1395" y="432" width="3" height="5" fill="#ffd9a0" opacity="0.37"/>
+<rect x="1347" y="511" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
+<rect x="1366" y="532" width="3" height="5" fill="#cfe8ff" opacity="0.70"/>
+<rect x="1385" y="518" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="1363" y="626" width="3" height="5" fill="#ffe9c9" opacity="0.58"/>
+<rect x="1357" y="567" width="3" height="5" fill="#ffe9c9" opacity="0.42"/>
+<rect x="1360" y="543" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="1355" y="482" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
+<rect x="1347" y="581" width="3" height="5" fill="#ffe9c9" opacity="0.37"/>
+<rect x="1356" y="551" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
+<rect x="1365" y="557" width="3" height="5" fill="#cfe8ff" opacity="0.62"/>
+<rect x="1359" y="522" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="1389" y="516" width="3" height="5" fill="#ffd9a0" opacity="0.57"/>
+<rect x="1363" y="461" width="3" height="5" fill="#ffd9a0" opacity="0.53"/>
+<rect x="1371" y="620" width="3" height="5" fill="#cfe8ff" opacity="0.56"/>
+<rect x="1385" y="580" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="1356" y="486" width="3" height="5" fill="#cfe8ff" opacity="0.65"/>
+<rect x="1393" y="458" width="3" height="5" fill="#ffe9c9" opacity="0.36"/>
+<rect x="1380" y="641" width="3" height="5" fill="#ffd9a0" opacity="0.74"/>
+<rect x="1378" y="624" width="3" height="5" fill="#ffd9a0" opacity="0.72"/>
+<rect x="1351" y="438" width="3" height="5" fill="#cfe8ff" opacity="0.74"/>
+<rect x="1407" y="531" width="63" height="129" fill="#5d7090"/>
+<rect x="1460" y="582" width="3" height="5" fill="#ffd9a0" opacity="0.61"/>
+<rect x="1462" y="614" width="3" height="5" fill="#cfe8ff" opacity="0.42"/>
+<rect x="1446" y="650" width="3" height="5" fill="#ffe9c9" opacity="0.51"/>
+<rect x="1414" y="600" width="3" height="5" fill="#ffd9a0" opacity="0.68"/>
+<rect x="1423" y="584" width="3" height="5" fill="#ffe9c9" opacity="0.53"/>
+<rect x="1411" y="590" width="3" height="5" fill="#cfe8ff" opacity="0.43"/>
+<rect x="1454" y="547" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
+<rect x="1433" y="550" width="3" height="5" fill="#ffd9a0" opacity="0.64"/>
+<rect x="1462" y="623" width="3" height="5" fill="#cfe8ff" opacity="0.39"/>
+<rect x="1433" y="550" width="3" height="5" fill="#ffe9c9" opacity="0.41"/>
+<rect x="1412" y="582" width="3" height="5" fill="#ffd9a0" opacity="0.56"/>
+<rect x="380" y="360" width="42" height="300" fill="#57688c"/><rect x="1018" y="330" width="54" height="330" fill="#54668c"/><line x1="1045" y1="330" x2="1045" y2="280" stroke="#54668c" stroke-width="4"/><line x1="1045" y1="280" x2="1062" y2="260" stroke="#54668c" stroke-width="4"/><rect x="730" y="420" width="34" height="240" fill="#5a6c92"/>
+<rect x="0" y="588" width="1440" height="86" fill="#d8ecff" opacity=".55"/>
+<path d="M0,760 Q300,690 640,760 T1440,730 L1440,900 L0,900 Z" fill="#8fce8f"/><path d="M0,820 Q360,740 760,820 T1440,800 L1440,900 L0,900 Z" fill="#6db96f"/><path d="M0,900 Q500,820 1000,900 L1440,900 Z" fill="#4e9a5a"/>
+<ellipse cx="240" cy="856" rx="150" ry="26" fill="#5da263"/>
+<ellipse cx="240" cy="850" rx="170" ry="34" fill="#8fc4ef" opacity=".97"/>
+<ellipse cx="285" cy="840" rx="26" ry="4" fill="#ffffff" opacity=".55"/>
+<ellipse cx="164" cy="857" rx="20" ry="4" fill="#ffffff" opacity=".55"/>
+<ellipse cx="174" cy="855" rx="17" ry="4" fill="#ffffff" opacity=".55"/>
+<ellipse cx="346" cy="845" rx="18" ry="4" fill="#ffffff" opacity=".55"/>
+<ellipse cx="114" cy="853" rx="10" ry="4" fill="#ffffff" opacity=".55"/>
+<ellipse cx="331" cy="853" rx="17" ry="4" fill="#ffffff" opacity=".55"/>
+<rect x="90" y="760" width="8" height="24" fill="#6b4a2f"/>
+<circle cx="94" cy="744" r="37" fill="#3f7f52"/>
+<circle cx="76" cy="754" r="24" fill="#356e46"/>
+<circle cx="112" cy="752" r="22" fill="#4a8f5c"/>
+<rect x="700" y="780" width="8" height="24" fill="#6b4a2f"/>
+<circle cx="704" cy="764" r="34" fill="#3f7f52"/>
+<circle cx="686" cy="774" r="22" fill="#356e46"/>
+<circle cx="722" cy="772" r="20" fill="#4a8f5c"/>
+<rect x="1010" y="800" width="8" height="24" fill="#6b4a2f"/>
+<circle cx="1014" cy="784" r="31" fill="#3f7f52"/>
+<circle cx="996" cy="794" r="20" fill="#356e46"/>
+<circle cx="1032" cy="792" r="18" fill="#4a8f5c"/>
+<rect x="1340" y="770" width="8" height="24" fill="#6b4a2f"/>
+<circle cx="1344" cy="754" r="39" fill="#3f7f52"/>
+<circle cx="1326" cy="764" r="25" fill="#356e46"/>
+<circle cx="1362" cy="762" r="23" fill="#4a8f5c"/>
+<rect x="470" y="800" width="8" height="24" fill="#6b4a2f"/>
+<circle cx="474" cy="784" r="29" fill="#3f7f52"/>
+<circle cx="456" cy="794" r="19" fill="#356e46"/>
+<circle cx="492" cy="792" r="17" fill="#4a8f5c"/>
+<rect x="1176" y="782" width="16" height="76" rx="4" fill="#d8452f"/><rect x="1242" y="782" width="16" height="76" rx="4" fill="#d8452f"/><rect x="1164" y="770" width="106" height="14" rx="6" fill="#d8452f"/><rect x="1172" y="792" width="90" height="9" rx="4" fill="#d8452f"/><rect x="1204" y="780" width="26" height="14" rx="3" fill="#d8452f"/>
+<path d="M195,241 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
+<path d="M712,289 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
+<path d="M265,267 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
+<path d="M223,306 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
+<path d="M871,260 q6,-5 12,0 q6,-5 12,0" stroke="#33475b" stroke-width="2.5" fill="none" opacity=".8"/>
+</svg></div>
+<h1>📚 入世使用说明书（日式动漫小人书版）</h1>
+<div class="flow"><svg xmlns="http://www.w3.org/2000/svg" width="1120" height="220" viewBox="0 0 1120 220">
+<rect x="4" y="4" width="1112" height="212" rx="20" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 9 9"><path d="M0,0 L8,3.5 L0,7 Z" fill="#ef8f5a"/></marker></defs>
+<rect x="18" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="62" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S0</text><text x="62" y="106" font-size="14" text-anchor="middle" fill="#33475b">放入书本</text>
+<line x1="107" y1="88" x2="116" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="118" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="162" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S1</text><text x="162" y="106" font-size="14" text-anchor="middle" fill="#33475b">读懂全书</text>
+<line x1="207" y1="88" x2="216" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="218" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="262" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S2</text><text x="262" y="106" font-size="14" text-anchor="middle" fill="#33475b">五路提取</text>
+<line x1="307" y1="88" x2="316" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="318" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="362" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S3</text><text x="362" y="106" font-size="14" text-anchor="middle" fill="#33475b">引文检查</text>
+<line x1="407" y1="88" x2="416" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="418" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="462" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S4</text><text x="462" y="106" font-size="14" text-anchor="middle" fill="#33475b">外部验证</text>
+<line x1="507" y1="88" x2="516" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="518" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="562" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S5</text><text x="562" y="106" font-size="14" text-anchor="middle" fill="#33475b">构造技能</text>
+<line x1="607" y1="88" x2="616" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="618" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="662" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S6</text><text x="662" y="106" font-size="14" text-anchor="middle" fill="#33475b">连线成图</text>
+<line x1="707" y1="88" x2="716" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="718" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="762" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S7</text><text x="762" y="106" font-size="14" text-anchor="middle" fill="#33475b">考题考试</text>
+<line x1="807" y1="88" x2="816" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="818" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="862" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S8</text><text x="862" y="106" font-size="14" text-anchor="middle" fill="#33475b">打包</text>
+<line x1="907" y1="88" x2="916" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="918" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="962" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S9</text><text x="962" y="106" font-size="14" text-anchor="middle" fill="#33475b">安检放行</text>
+<line x1="1007" y1="88" x2="1016" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="1018" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="1062" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S10</text><text x="1062" y="106" font-size="14" text-anchor="middle" fill="#33475b">进化</text>
+</svg></div>
+<div class="pages">
+<section class="page" id="cover"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="391" viewBox="0 0 660 391">
+<rect x="6" y="6" width="648" height="391-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">入世使用说明书</text><text x="604" y="66" font-size="38">📚</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把一本书，变成 一套能干的技能工具箱！</text>
+<text x="40" y="149" font-size="22" fill="#33475b">跟着本说明书一步一步走，</text>
+<text x="40" y="180" font-size="22" fill="#33475b">就像看小人书一样简单。</text>
+<rect x="40" y="193" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py docto</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">r</text>
+<rect x="40" y="275" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="300" font-size="18" fill="#1e6b43">看到全部 ✅，说明电脑准备好啦</text>
+<rect x="40" y="326" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="351" font-size="18" fill="#7a5b00">每张图都要照着做哦</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor">📋 复制命令</button></section>
+<section class="page" id="prep-python"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="420" viewBox="0 0 660 420">
+<rect x="6" y="6" width="648" height="420-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">准备 1：确认有 Python</text><text x="604" y="66" font-size="38">🐍</text>
+<text x="40" y="118" font-size="22" fill="#33475b">Python 是让入世跑起来的引擎。</text>
+<text x="40" y="149" font-size="22" fill="#33475b">① 按键盘【Win】键，输入 powershell</text>
+<text x="40" y="180" font-size="22" fill="#33475b">，回车</text>
+<text x="40" y="211" font-size="22" fill="#33475b">② 在黑框框里输入下面这行，回车</text>
+<rect x="40" y="224" width="580" height="45" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="251" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python --version</text>
+<rect x="40" y="279" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="304" font-size="18" fill="#1e6b43">看到 python 3.11 或更高，OK！</text>
+<rect x="40" y="330" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="355" font-size="18" fill="#a12424">提示找不到 python，去 python.org 下载并勾</text>
+<text x="58" y="380" font-size="18" fill="#a12424">选 Add to PATH</text><button class="copy" data-cmd="python --version">📋 复制命令</button></section>
+<section class="page" id="prep-codex"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="494" viewBox="0 0 660 494">
+<rect x="6" y="6" width="648" height="494-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">准备 2：把入世装进 Codex</text><text x="604" y="66" font-size="38">🤖</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把整个 rushi-skill 文件夹，放进技能的</text>
+<text x="40" y="149" font-size="22" fill="#33475b">家里：</text>
+<text x="40" y="180" font-size="22" fill="#33475b">（也可以直接对 Codex 说：帮我安装入世）</text>
+<rect x="40" y="193" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cl</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">i\skills&#x27; -Recurse -Force</text>
+<rect x="40" y="302" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="327" font-size="18" fill="#1e6b43">skills\rushi-skill\SKILL.md 存在</text>
+<text x="58" y="352" font-size="18" fill="#1e6b43">，OK！</text>
+<rect x="40" y="378" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="403" font-size="18" fill="#a12424">权限被拒绝，让家长或 Codex 帮你执行</text>
+<rect x="40" y="429" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="454" font-size="18" fill="#7a5b00">装好后，新开一个 Codex 对话才会生效</text><button class="copy" data-cmd="Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cli\skills&#x27; -Recurse -Force">📋 复制命令</button></section>
+<section class="page" id="prep-key"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="515" viewBox="0 0 660 515">
+<rect x="6" y="6" width="648" height="515-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">准备 3：给入世配一把钥匙</text><text x="604" y="66" font-size="38">🗝️</text>
+<text x="40" y="118" font-size="22" fill="#33475b">入世要请大模型帮忙，需要一把钥匙。</text>
+<text x="40" y="149" font-size="22" fill="#33475b">用 DeepSeek（推荐）就输入这 4 行：</text>
+<rect x="40" y="162" width="580" height="126" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUS</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">HI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI</text>
+<text x="56" y="270" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">_JSON_MODE=&#x27;1&#x27;</text>
+<rect x="40" y="298" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="323" font-size="18" fill="#1e6b43">没有报错 = 设置成功</text>
+<rect x="40" y="349" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="374" font-size="18" fill="#a12424">提示找不到 DEEPSEEK_API_KEY，先去 plat</text>
+<text x="58" y="399" font-size="18" fill="#a12424">form 申请钥匙并设置</text>
+<rect x="40" y="425" width="580" height="66" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="450" font-size="18" fill="#7a5b00">用 OpenAI 也可以：设 $env:OPENAI_API</text>
+<text x="58" y="475" font-size="18" fill="#7a5b00">_KEY=&#x27;你的钥匙&#x27;</text><button class="copy" data-cmd="$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUSHI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI_JSON_MODE=&#x27;1&#x27;">📋 复制命令</button></section>
+<section class="page" id="step-cd"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="302" viewBox="0 0 660 302">
+<rect x="6" y="6" width="648" height="302-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 1 步：走到项目家门口</text><text x="604" y="66" font-size="38">🚶</text>
+<text x="40" y="118" font-size="22" fill="#33475b">先让黑框框进入入世项目目录：</text>
+<rect x="40" y="131" width="580" height="45" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="158" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">cd D:\rushi-skill</text>
+<rect x="40" y="186" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="211" font-size="18" fill="#1e6b43">提示符变成 D:\rushi-skill 开头</text>
+<rect x="40" y="237" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="262" font-size="18" fill="#a12424">没有这个文件夹，先复制项目过来</text><button class="copy" data-cmd="cd D:\rushi-skill">📋 复制命令</button></section>
+<section class="page" id="step-doctor"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="329" viewBox="0 0 660 329">
+<rect x="6" y="6" width="648" height="329-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 2 步：给入世体检</text><text x="604" y="66" font-size="38">🩺</text>
+<text x="40" y="118" font-size="22" fill="#33475b">每次开工前先体检，确认一切正常：</text>
+<rect x="40" y="131" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="158" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py docto</text>
+<text x="56" y="185" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">r --project D:\rushi-skill</text>
+<rect x="40" y="213" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="238" font-size="18" fill="#1e6b43">看到全部 ✅（含 配置可读）</text>
+<rect x="40" y="264" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="289" font-size="18" fill="#a12424">有 ❌，看红字提示是哪一项，修好再继续</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill">📋 复制命令</button></section>
+<section class="page" id="step-init"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="329" viewBox="0 0 660 329">
+<rect x="6" y="6" width="648" height="329-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 3 步：建一个空项目</text><text x="604" y="66" font-size="38">🏗️</text>
+<text x="40" y="118" font-size="22" fill="#33475b">入世需要一个工作台，一条命令建好：</text>
+<rect x="40" y="131" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="158" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py init </text>
+<text x="56" y="185" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">--project D:\rushi-skill</text>
+<rect x="40" y="213" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="238" font-size="18" fill="#1e6b43">看到 项目已初始化：D:\rushi-skill</text>
+<rect x="40" y="264" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="289" font-size="18" fill="#a12424">提示路径错误，检查 --project 拼写</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py init --project D:\rushi-skill">📋 复制命令</button></section>
+<section class="page" id="step-ingest"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="496" viewBox="0 0 660 496">
+<rect x="6" y="6" width="648" height="496-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 4 步：把书放进工作台</text><text x="604" y="66" font-size="38">📥</text>
+<text x="40" y="118" font-size="22" fill="#33475b">准备一个纯文本文件（书名.txt），放进 D:\ </text>
+<text x="40" y="149" font-size="22" fill="#33475b">下，</text>
+<text x="40" y="180" font-size="22" fill="#33475b">然后告诉入世：这本书叫什么、作者是谁：</text>
+<rect x="40" y="193" width="580" height="126" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py inges</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">t --project D:\rushi-skill --slug mybook --so</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">urce D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; -</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">-year &quot;2026&quot; --kind book</text>
+<rect x="40" y="329" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="354" font-size="18" fill="#1e6b43">看到 S0 完成，books\mybook 出现</text>
+<rect x="40" y="380" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="405" font-size="18" fill="#a12424">源文件为空/不存在，检查 --source 路径</text>
+<rect x="40" y="431" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="456" font-size="18" fill="#7a5b00">slug 只能用小写字母和数字，比如 mybook</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py ingest --project D:\rushi-skill --slug mybook --source D:\我的书.txt --title &quot;我的书&quot; --author &quot;作者&quot; --year &quot;2026&quot; --kind book">📋 复制命令</button></section>
+<section class="page" id="step-s1"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="488" viewBox="0 0 660 488">
+<rect x="6" y="6" width="648" height="488-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 5 步：让入世先通读全书</text><text x="604" y="66" font-size="38">📖</text>
+<text x="40" y="118" font-size="22" fill="#33475b">入世会用 Adler 方法把整本书读懂，</text>
+<text x="40" y="149" font-size="22" fill="#33475b">然后写出一张《整书理解》地图：</text>
+<rect x="40" y="162" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S1 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider</text>
+<rect x="40" y="271" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="296" font-size="18" fill="#1e6b43">S1 -&gt; done，books\mybook\BOOK_O</text>
+<text x="58" y="321" font-size="18" fill="#1e6b43">VERVIEW.md 生成</text>
+<rect x="40" y="347" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="372" font-size="18" fill="#a12424">S1 -&gt; needs-provider：钥匙没配好；fai</text>
+<text x="58" y="397" font-size="18" fill="#a12424">led：输出不是合法 JSON（会自动重试一次）</text>
+<rect x="40" y="423" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="448" font-size="18" fill="#7a5b00">这一步要花十几秒到几分钟，耐心等</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S1 --project D:\rushi-skill --mode provider">📋 复制命令</button></section>
+<section class="page" id="step-s2"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="463" viewBox="0 0 660 463">
+<rect x="6" y="6" width="648" height="463-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 6 步：派 5 个小分队去找方法</text><text x="604" y="66" font-size="38">🔍</text>
+<text x="40" y="118" font-size="22" fill="#33475b">5 个提取器（框架/原则/案例/反例/术语）</text>
+<text x="40" y="149" font-size="22" fill="#33475b">同时从书里挑出最有用的方法：</text>
+<rect x="40" y="162" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S2 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider</text>
+<rect x="40" y="271" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="296" font-size="18" fill="#1e6b43">S2 -&gt; done，candidates 里有 5 个 j</text>
+<text x="58" y="321" font-size="18" fill="#1e6b43">son</text>
+<rect x="40" y="347" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="372" font-size="18" fill="#a12424">某一路 failed：正常会重试；连续失败就重跑一次 S2</text>
+<rect x="40" y="398" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="423" font-size="18" fill="#7a5b00">书很长时，每一路最多挑 20 条，引文 ≤80 字</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S2 --project D:\rushi-skill --mode provider">📋 复制命令</button></section>
+<section class="page" id="step-claims"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="521" viewBox="0 0 660 521">
+<rect x="6" y="6" width="648" height="521-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 7 步：把候选变成正式清单</text><text x="604" y="66" font-size="38">📝</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把 candidates 里最好的候选，写成 cl</text>
+<text x="40" y="149" font-size="22" fill="#33475b">aims.jsonl。</text>
+<text x="40" y="180" font-size="22" fill="#33475b">这一步由 Codex 智能体自动做；格式长这样：</text>
+<rect x="40" y="193" width="580" height="126" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;ki</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">nd&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}</text>
+<rect x="40" y="329" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="354" font-size="18" fill="#1e6b43">books\mybook\claims.jsonl 存在且每</text>
+<text x="58" y="379" font-size="18" fill="#1e6b43">行都是 JSON</text>
+<rect x="40" y="405" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="430" font-size="18" fill="#a12424">引文不是原话，后面 S3 会打回来</text>
+<rect x="40" y="456" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="481" font-size="18" fill="#7a5b00">source_quote 必须和书里一模一样，不能改写！</text><button class="copy" data-cmd="{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;kind&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}">📋 复制命令</button></section>
+<section class="page" id="step-s3"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="412" viewBox="0 0 660 412">
+<rect x="6" y="6" width="648" height="412-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 8 步：引文真假大检查</text><text x="604" y="66" font-size="38">🕵️</text>
+<text x="40" y="118" font-size="22" fill="#33475b">S3 会把每条引文拿去书里核对位置，</text>
+<text x="40" y="149" font-size="22" fill="#33475b">假话、拼接、改写的引文都会被揪出来：</text>
+<rect x="40" y="162" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S3 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider</text>
+<rect x="40" y="271" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="296" font-size="18" fill="#1e6b43">S3 -&gt; done，fidelity=100%</text>
+<rect x="40" y="322" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="347" font-size="18" fill="#a12424">有 unverified：把这条引文改回书里的原话，再重跑 </text>
+<text x="58" y="372" font-size="18" fill="#a12424">S3</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S3 --project D:\rushi-skill --mode provider">📋 复制命令</button></section>
+<section class="page" id="step-s4s5"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="569" viewBox="0 0 660 569">
+<rect x="6" y="6" width="648" height="569-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 9 步：外部验证 + 构造技能</text><text x="604" y="66" font-size="38">🧱</text>
+<text x="40" y="118" font-size="22" fill="#33475b">S4 检查方法在外面世界有没有佐证；</text>
+<text x="40" y="149" font-size="22" fill="#33475b">S5 把通过的方法组装成完整 SKILL.md：</text>
+<rect x="40" y="162" width="580" height="180" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S4 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider; python r</text>
+<text x="56" y="270" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ushi-skill\scripts\rushi-cli.py stage --build</text>
+<text x="56" y="297" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> D:\rushi-skill\books\mybook S5 --project D:\</text>
+<text x="56" y="324" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">rushi-skill --mode provider</text>
+<rect x="40" y="352" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="377" font-size="18" fill="#1e6b43">S4 -&gt; done 和 S5 -&gt; done，skills</text>
+<text x="58" y="402" font-size="18" fill="#1e6b43">\ 里有 SKILL.md</text>
+<rect x="40" y="428" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="453" font-size="18" fill="#a12424">S5 failed：失败原因在 s5-review 文件夹里</text>
+<text x="58" y="478" font-size="18" fill="#a12424">，修好重跑</text>
+<rect x="40" y="504" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="529" font-size="18" fill="#7a5b00">偶发失败正常：原样重跑一次，多数会通过</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S4 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S5 --project D:\rushi-skill --mode provider">📋 复制命令</button></section>
+<section class="page" id="step-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="562" viewBox="0 0 660 562">
+<rect x="6" y="6" width="648" height="562-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 10 步：给技能出考题</text><text x="604" y="66" font-size="38">🎯</text>
+<text x="40" y="118" font-size="22" fill="#33475b">每个技能要有 tests\trigger.json</text>
+<text x="40" y="149" font-size="22" fill="#33475b"> 考题：</text>
+<text x="40" y="180" font-size="22" fill="#33475b">3 道该触发 + 2 道不该触发（诱饵）+ 1 道</text>
+<text x="40" y="211" font-size="22" fill="#33475b">边界</text>
+<text x="40" y="242" font-size="22" fill="#33475b">智能体按 assets\templates\tri</text>
+<text x="40" y="273" font-size="22" fill="#33475b">gger.json.template 生成</text>
+<rect x="40" y="286" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="313" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py check</text>
+<text x="56" y="340" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook --projec</text>
+<text x="56" y="367" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">t D:\rushi-skill</text>
+<rect x="40" y="395" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="420" font-size="18" fill="#1e6b43">S5 构造校验: 通过</text>
+<rect x="40" y="446" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="471" font-size="18" fill="#a12424">提示缺 trigger.json 或缺某一段，补齐再继续</text>
+<rect x="40" y="497" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="522" font-size="18" fill="#7a5b00">诱饵里必须有 1 道是&#x27;该触发另一个技能&#x27;的场景</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py check --build D:\rushi-skill\books\mybook --project D:\rushi-skill">📋 复制命令</button></section>
+<section class="page" id="step-s6s7"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="549" viewBox="0 0 660 549">
+<rect x="6" y="6" width="648" height="549-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 11 步：连线 + 考试</text><text x="604" y="66" font-size="38">🧩</text>
+<text x="40" y="118" font-size="22" fill="#33475b">S6 把技能之间的关系画成地图（INDEX.md）</text>
+<text x="40" y="149" font-size="22" fill="#33475b">；</text>
+<text x="40" y="180" font-size="22" fill="#33475b">S7 用考题考试，诱饵错 1 道就 FAIL：</text>
+<rect x="40" y="193" width="580" height="180" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S6 --pro</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider; python r</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ushi-skill\scripts\rushi-cli.py stage --build</text>
+<text x="56" y="328" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> D:\rushi-skill\books\mybook S7 --project D:\</text>
+<text x="56" y="355" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">rushi-skill --mode provider</text>
+<rect x="40" y="383" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="408" font-size="18" fill="#1e6b43">S6 -&gt; done；S7 -&gt; done（通过率与诱饵结果</text>
+<text x="58" y="433" font-size="18" fill="#1e6b43">看 TEST_REPORT.md）</text>
+<rect x="40" y="459" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="484" font-size="18" fill="#a12424">S7 failed：看 TEST_REPORT.md 哪道题</text>
+<text x="58" y="509" font-size="18" fill="#a12424">答错，改 description 或考题</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S6 --project D:\rushi-skill --mode provider; python rushi-skill\scripts\rushi-cli.py stage --build D:\rushi-skill\books\mybook S7 --project D:\rushi-skill --mode provider">📋 复制命令</button></section>
+<section class="page" id="step-package"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="517" viewBox="0 0 660 517">
+<rect x="6" y="6" width="648" height="517-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 12 步：打包 + 过安检</text><text x="604" y="66" font-size="38">📦</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把技能装进一个漂亮盒子（pack），</text>
+<text x="40" y="149" font-size="22" fill="#33475b">然后过 S9 安检——缺一份证据都不放行：</text>
+<rect x="40" y="162" width="580" height="153" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py packa</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ge --build D:\rushi-skill\books\mybook --proj</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ect D:\rushi-skill --name my-pack --version 0</text>
+<text x="56" y="270" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">.1.0; python rushi-skill\scripts\rushi-cli.py</text>
+<text x="56" y="297" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> gate --pack D:\rushi-skill\packs\my-pack</text>
+<rect x="40" y="325" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="350" font-size="18" fill="#1e6b43">S8 打包成功 + S9 发布闸门: 通过</text>
+<rect x="40" y="376" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="401" font-size="18" fill="#a12424">闸门列出缺哪份证据（PROVENANCE/TEST_REPO</text>
+<text x="58" y="426" font-size="18" fill="#a12424">RT/GLOSSARY/INDEX），补好再打包</text>
+<rect x="40" y="452" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="477" font-size="18" fill="#7a5b00">TEST_REPORT 必须 PASS 才能打包</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py package --build D:\rushi-skill\books\mybook --project D:\rushi-skill --name my-pack --version 0.1.0; python rushi-skill\scripts\rushi-cli.py gate --pack D:\rushi-skill\packs\my-pack">📋 复制命令</button></section>
+<section class="page" id="step-install"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="463" viewBox="0 0 660 463">
+<rect x="6" y="6" width="648" height="463-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 13 步：安装进 Codex</text><text x="604" y="66" font-size="38">🚀</text>
+<text x="40" y="118" font-size="22" fill="#33475b">先 dry-run 预习一下会装到哪里，</text>
+<text x="40" y="149" font-size="22" fill="#33475b">确认无误再去掉 --dry-run 真装：</text>
+<rect x="40" y="162" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py insta</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ll --pack D:\rushi-skill\packs\my-pack --host</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> codex --scope user --dry-run</text>
+<rect x="40" y="271" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="296" font-size="18" fill="#1e6b43">列出 → 目标路径\skill 名（dry-run）</text>
+<rect x="40" y="322" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="347" font-size="18" fill="#a12424">拒绝安装到 pack 自身目录，换 --target 路径</text>
+<rect x="40" y="373" width="580" height="66" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="398" font-size="18" fill="#7a5b00">host 可以是 codex / claude / curs</text>
+<text x="58" y="423" font-size="18" fill="#7a5b00">or</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py install --pack D:\rushi-skill\packs\my-pack --host codex --scope user --dry-run">📋 复制命令</button></section>
+<section class="page" id="step-evolve"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="548" viewBox="0 0 660 548">
+<rect x="6" y="6" width="648" height="548-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 14 步：让技能越用越聪明</text><text x="604" y="66" font-size="38">🌱</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把使用记录（telemetry.jsonl）喂给入</text>
+<text x="40" y="149" font-size="22" fill="#33475b">世，</text>
+<text x="40" y="180" font-size="22" fill="#33475b">它会自动写出改进提案，等人类审批：</text>
+<rect x="40" y="193" width="580" height="153" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py evolv</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">e --project D:\rushi-skill --pack D:\rushi-sk</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ill\packs\my-pack --telemetry D:\rushi-skill\</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">telemetry.jsonl --out D:\rushi-skill\proposal</text>
+<text x="56" y="328" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">s</text>
+<rect x="40" y="356" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="381" font-size="18" fill="#1e6b43">S10 进化: 生成 N 条提案（待人类审批）</text>
+<rect x="40" y="407" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="432" font-size="18" fill="#a12424">未指定 --telemetry 且无遥测库：先准备 tele</text>
+<text x="58" y="457" font-size="18" fill="#a12424">metry.jsonl</text>
+<rect x="40" y="483" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="508" font-size="18" fill="#7a5b00">提案要人类审批后才改技能，不能自己乱改</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py evolve --project D:\rushi-skill --pack D:\rushi-skill\packs\my-pack --telemetry D:\rushi-skill\telemetry.jsonl --out D:\rushi-skill\proposals">📋 复制命令</button></section>
+<section class="page" id="help-errors"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="484" viewBox="0 0 660 484">
+<rect x="6" y="6" width="648" height="484-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">急救卡：出错别慌</text><text x="604" y="66" font-size="38">🚑</text>
+<text x="40" y="118" font-size="22" fill="#33475b">① 不认识命令 → 粘贴回原样，检查空格和引号</text>
+<text x="40" y="149" font-size="22" fill="#33475b">② 钥匙没配对 → 重新执行准备 3 的 4 行</text>
+<text x="40" y="180" font-size="22" fill="#33475b">③ S1/S2 显示 needs-provider</text>
+<text x="40" y="211" font-size="22" fill="#33475b"> → 钥匙没生效</text>
+<text x="40" y="242" font-size="22" fill="#33475b">④ 引文打回 → 打开书复制原句，别自己写</text>
+<text x="40" y="273" font-size="22" fill="#33475b">⑤ 还想不明白 → 把红字原样发给 Codex 问</text>
+<rect x="40" y="286" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="313" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py docto</text>
+<text x="56" y="340" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">r --project D:\rushi-skill</text>
+<rect x="40" y="368" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="393" font-size="18" fill="#1e6b43">红字消失 = 修复完成</text>
+<rect x="40" y="419" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="444" font-size="18" fill="#7a5b00">错误信息第一行最重要，先读它</text><button class="copy" data-cmd="python rushi-skill\scripts\rushi-cli.py doctor --project D:\rushi-skill">📋 复制命令</button></section>
+<section class="page" id="end"><svg xmlns="http://www.w3.org/2000/svg" width="660" height="391" viewBox="0 0 660 391">
+<rect x="6" y="6" width="648" height="391-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">恭喜！你学会了入世</text><text x="604" y="66" font-size="38">🎉</text>
+<text x="40" y="118" font-size="22" fill="#33475b">从一本书 → 一个证据齐全的技能包，</text>
+<text x="40" y="149" font-size="22" fill="#33475b">每一步都有检查、有证据、能进化。</text>
+<text x="40" y="180" font-size="22" fill="#33475b">现在，去新开一个 Codex 对话，对它说：</text>
+<rect x="40" y="193" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">使用入世 skill，把 D:\rushi-skill\books\mybook 蒸馏成可</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">发布的 skill 包</text>
+<rect x="40" y="275" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="300" font-size="18" fill="#1e6b43">它自己会跑完整个流程！</text>
+<rect x="40" y="326" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="351" font-size="18" fill="#7a5b00">记住：没文本不拆书，引文必须逐字</text><button class="copy" data-cmd="使用入世 skill，把 D:\rushi-skill\books\mybook 蒸馏成可发布的 skill 包">📋 复制命令</button></section>
+</div>
+<footer>本说明书中的每一条命令都按原样实测通过（2026-08-03，Python 3.14 + DeepSeek deepseek-chat，全新项目 mybook 全流程 S0→S10）。遇到问题先看「急救卡」，再问 Codex。</footer>
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var done = function(){ btn.textContent = '✅ 已复制'; setTimeout(function(){ btn.textContent = '📋 复制命令'; }, 1500); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(btn.dataset.cmd).then(done, function(){
+        var t = document.createElement('textarea');
+        t.value = btn.dataset.cmd; document.body.appendChild(t); t.select();
+        document.execCommand('copy'); t.remove(); done();
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: 单元测试（引擎核心）
+        run: |
+          PYTHONPATH=rushi-skill/scripts python -m unittest discover -s tests -v
+      - name: 最小可运行检查
+        run: python check.py
+      - name: 覆盖率门禁（≥80%）
+        run: |
+          python -m pip install coverage --quiet
+          PYTHONPATH=rushi-skill/scripts python -m coverage run --source=rushi -m unittest discover -s tests
+          python -m coverage report --fail-under=80 --include "rushi-skill/scripts/rushi/*"
+      - name: 端到端冒烟（示例包全流程）
+        run: |
+          python examples/generate_demo.py
+          python rushi-skill/scripts/rushi-cli.py verify --build examples/demo-pack --project .
+          python rushi-skill/scripts/rushi-cli.py check  --build examples/demo-pack --project .
+          python rushi-skill/scripts/rushi-cli.py link   --build examples/demo-pack --project . --title demo --author rushi --theme smoke
+          python rushi-skill/scripts/rushi-cli.py test   --build examples/demo-pack --project . --mode mock
+          python rushi-skill/scripts/rushi-cli.py package --build examples/demo-pack --project . --name demo-pack --version 0.1.0
+          python rushi-skill/scripts/rushi-cli.py gate   --pack packs/demo-pack
+      - name: 发布闸门失败即退出
+        run: |
+          python rushi-skill/scripts/rushi-cli.py gate --pack packs/demo-pack

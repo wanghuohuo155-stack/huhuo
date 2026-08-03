@@ -1,0 +1,12 @@
+{"skill_slug": "slow-gardener", "event": "invocations", "ts": "2026-07-01T08:00:00+00:00", "detail": "用户询问是否接新项目"}
+{"skill_slug": "slow-gardener", "event": "invocations", "ts": "2026-07-02T08:00:00+00:00", "detail": "FOMO 场景"}
+{"skill_slug": "slow-gardener", "event": "mis_trigger", "ts": "2026-07-03T08:00:00+00:00", "detail": "用户问晚饭吃什么被误触发"}
+{"skill_slug": "slow-gardener", "event": "invocations", "ts": "2026-07-04T08:00:00+00:00", "detail": "创业决策"}
+{"skill_slug": "slow-gardener", "event": "negative", "ts": "2026-07-05T08:00:00+00:00", "detail": "输出太慢，用户需要即时答案"}
+{"skill_slug": "slow-gardener", "event": "invocations", "ts": "2026-07-06T08:00:00+00:00", "detail": "职业选择"}
+{"skill_slug": "slow-gardener", "event": "mis_trigger", "ts": "2026-07-07T08:00:00+00:00", "detail": "用户问天气被误触发"}
+{"skill_slug": "slow-gardener", "event": "invocations", "ts": "2026-07-08T08:00:00+00:00", "detail": "购房决策"}
+{"skill_slug": "slow-gardener", "event": "positive", "ts": "2026-07-09T08:00:00+00:00", "detail": "帮助避免了冲动决策"}
+{"skill_slug": "slow-gardener", "event": "invocations", "ts": "2026-07-10T08:00:00+00:00", "detail": "是否跳槽"}
+{"skill_slug": "slow-gardener", "event": "negative", "ts": "2026-07-11T08:00:00+00:00", "detail": "步骤太机械"}
+{"skill_slug": "slow-gardener", "event": "negative", "ts": "2026-07-12T08:00:00+00:00", "detail": "与安全边际混淆"}

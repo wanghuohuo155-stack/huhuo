@@ -1,0 +1,50 @@
+{
+  "skill": "{{skill-slug}}",
+  "version": "0.1.0",
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "{{用户的典型话语 1}}",
+      "expected_behavior": "应激活 {{skill-slug}}，并 {{具体动作}}",
+      "notes": "正面场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "{{用户的典型话语 2}}",
+      "expected_behavior": "应激活 {{skill-slug}}",
+      "notes": "正面场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "{{用户的典型话语 3}}",
+      "expected_behavior": "应激活 {{skill-slug}}",
+      "notes": "正面场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "{{诱饵 1：看似相关但实际不该调用}}",
+      "expected_behavior": "不应激活本 skill",
+      "notes": "诱饵：非本 skill 场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "{{跨 skill 混淆诱饵：应触发兄弟 skill}}",
+      "expected_behavior": "不应激活本 skill，应激活 {{sibling-slug}}",
+      "notes": "跨 skill 混淆（硬性要求）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "{{边界模糊场景}}",
+      "expected_behavior": "{{应调用/不应调用，并说明边界理由}}",
+      "notes": "边界"
+    }
+  ]
+}
+

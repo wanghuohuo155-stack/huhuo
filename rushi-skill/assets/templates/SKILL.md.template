@@ -1,0 +1,100 @@
+---
+name: {{skill-slug}}
+description: |
+  {{何时调用 + 何时不调用 + 关键 trigger 词，≤300 字，中英双写关键信号}}
+version: 0.1.0
+source:
+  title: {{title}}
+  author: {{author}}
+  year: {{year}}
+  span_id: {{source_chapter/时间戳}}
+confidence: author-claim
+related:
+  - {slug: {{sibling}}, relation: composes-with}
+freshness:
+  checked_at: {{now}}
+  expires_at: {{now+365d}}
+  policy: recheck-by-expiry
+tags: [{{tag1}}, {{tag2}}]
+---
+
+# {{Skill Title}}
+
+## R — 原文（Reading）
+
+> {{逐字引用，≤150 字 / 英文 ≤100 词，必须可定位}}
+>
+> — {{author}}, {{chapter/时间戳}}
+
+---
+
+## I — 方法论骨架（Interpretation）
+
+{{用自己的话 5-15 行重写。没读过原文的人必须能懂。}}
+
+---
+
+## A1 — 书中的应用（Past Application）
+
+### 案例 1: {{案例名}}
+
+- **问题**: ...
+- **方法论的使用**: ...
+- **结论**: ...
+- **结果**: ...（数字必须可溯源）
+
+---
+
+## A2 — 触发场景（Future Trigger）★
+
+### 用户会在什么情境下需要？
+
+1. {{具体场景}}
+2. {{具体场景}}
+
+### 语言信号
+
+- "{{用户典型措辞}}" / "{{english trigger phrase}}"
+
+### 与相邻 skill 的区分
+
+- 与 `{{sibling}}` 的区别: ...
+
+---
+
+## E — 可执行步骤（Execution）
+
+1. **{{步骤}}**
+   - 完成标准: {{可判断标准}}
+   - 判停条件: 若 {{X}} 则跳到步骤 {{N}}
+
+---
+
+## B — 边界（Boundary）★
+
+### 不要在以下情况使用
+
+- {{反场景 1}}
+
+### 作者警告的失败模式
+
+- {{...}}
+
+### 作者盲点 / 时代局限
+
+- {{来自 S1 批判阶段}}
+
+---
+
+## 相关 skills
+
+- composes-with: {{sibling}}
+
+---
+
+## 审计信息
+
+- 验证: V1/V2/V3 通过 + 外部验证见 PROVENANCE.md
+- 测试: 见 TEST_REPORT.md
+- 版本: 0.1.0
+

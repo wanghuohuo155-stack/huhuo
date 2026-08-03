@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="515" viewBox="0 0 660 515">
+<rect x="6" y="6" width="648" height="515-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">准备 3：给入世配一把钥匙</text><text x="604" y="66" font-size="38">🗝️</text>
+<text x="40" y="118" font-size="22" fill="#33475b">入世要请大模型帮忙，需要一把钥匙。</text>
+<text x="40" y="149" font-size="22" fill="#33475b">用 DeepSeek（推荐）就输入这 4 行：</text>
+<rect x="40" y="162" width="580" height="126" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">$env:RUSHI_BASE_URL=&#x27;https://api.deepseek.com</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">&#x27;; $env:RUSHI_MODEL=&#x27;deepseek-chat&#x27;; $env:RUS</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">HI_API_KEY_ENV=&#x27;DEEPSEEK_API_KEY&#x27;; $env:RUSHI</text>
+<text x="56" y="270" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">_JSON_MODE=&#x27;1&#x27;</text>
+<rect x="40" y="298" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="323" font-size="18" fill="#1e6b43">没有报错 = 设置成功</text>
+<rect x="40" y="349" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="374" font-size="18" fill="#a12424">提示找不到 DEEPSEEK_API_KEY，先去 plat</text>
+<text x="58" y="399" font-size="18" fill="#a12424">form 申请钥匙并设置</text>
+<rect x="40" y="425" width="580" height="66" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="450" font-size="18" fill="#7a5b00">用 OpenAI 也可以：设 $env:OPENAI_API</text>
+<text x="58" y="475" font-size="18" fill="#7a5b00">_KEY=&#x27;你的钥匙&#x27;</text>

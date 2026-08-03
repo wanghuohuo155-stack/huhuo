@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "name": "{{pack-name}}",
+  "version": "0.1.0",
+  "source": {
+    "title": "{{title}}",
+    "author": "{{author}}",
+    "year": "{{year}}",
+    "kind": "{{kind}}",
+    "sha256": "{{sha256}}"
+  },
+  "confidence": "unverified",
+  "freshness": {
+    "packaged_at": "{{now}}",
+    "expires_at": "{{now+365d}}",
+    "policy": "recheck-by-expiry"
+  },
+  "skills": ["{{skill-slug}}"],
+  "artifacts": ["PROVENANCE.md", "TEST_REPORT.md", "GLOSSARY.md", "INDEX.md"],
+  "engine": "rushi"
+}
+

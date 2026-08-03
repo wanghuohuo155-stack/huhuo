@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rushi.dev/specs/skill.schema.json",
+  "title": "入世 SKILL.md frontmatter v2",
+  "description": "SKILL.md frontmatter 的校验模型（Markdown 正文六段由 rushi-builder 校验）",
+  "type": "object",
+  "required": ["name", "description", "version", "source", "confidence"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 63,
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 60,
+      "maxLength": 300
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "source": {
+      "type": "object",
+      "required": ["title", "author", "year", "span_id"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1},
+        "author": {"type": "string"},
+        "year": {"type": "string"},
+        "span_id": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["author-claim", "empirically-supported", "unverified"]
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "relation"],
+        "properties": {
+          "slug": {"type": "string"},
+          "relation": {
+            "type": "string",
+            "enum": ["depends-on", "contrasts-with", "composes-with", ""]
+          },
+          "direction": {"type": "string", "enum": ["forward", "backward"]},
+          "weight": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["checked_at", "expires_at", "policy"],
+      "properties": {
+        "checked_at": {"type": "string"},
+        "expires_at": {"type": "string"},
+        "policy": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}
+

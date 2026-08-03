@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="484" viewBox="0 0 660 484">
+<rect x="6" y="6" width="648" height="484-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">急救卡：出错别慌</text><text x="604" y="66" font-size="38">🚑</text>
+<text x="40" y="118" font-size="22" fill="#33475b">① 不认识命令 → 粘贴回原样，检查空格和引号</text>
+<text x="40" y="149" font-size="22" fill="#33475b">② 钥匙没配对 → 重新执行准备 3 的 4 行</text>
+<text x="40" y="180" font-size="22" fill="#33475b">③ S1/S2 显示 needs-provider</text>
+<text x="40" y="211" font-size="22" fill="#33475b"> → 钥匙没生效</text>
+<text x="40" y="242" font-size="22" fill="#33475b">④ 引文打回 → 打开书复制原句，别自己写</text>
+<text x="40" y="273" font-size="22" fill="#33475b">⑤ 还想不明白 → 把红字原样发给 Codex 问</text>
+<rect x="40" y="286" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="313" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py docto</text>
+<text x="56" y="340" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">r --project D:\rushi-skill</text>
+<rect x="40" y="368" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="393" font-size="18" fill="#1e6b43">红字消失 = 修复完成</text>
+<rect x="40" y="419" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="444" font-size="18" fill="#7a5b00">错误信息第一行最重要，先读它</text>

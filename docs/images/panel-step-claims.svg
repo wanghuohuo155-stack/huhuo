@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="521" viewBox="0 0 660 521">
+<rect x="6" y="6" width="648" height="521-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 7 步：把候选变成正式清单</text><text x="604" y="66" font-size="38">📝</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把 candidates 里最好的候选，写成 cl</text>
+<text x="40" y="149" font-size="22" fill="#33475b">aims.jsonl。</text>
+<text x="40" y="180" font-size="22" fill="#33475b">这一步由 Codex 智能体自动做；格式长这样：</text>
+<rect x="40" y="193" width="580" height="126" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">{&quot;claim_id&quot;:&quot;f01&quot;,&quot;skill_slug&quot;:&quot;my-skill&quot;,&quot;ki</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">nd&quot;:&quot;framework&quot;,&quot;title&quot;:&quot;标题&quot;,&quot;source_chapter&quot;</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">:&quot;章节&quot;,&quot;source_quote&quot;:&quot;书里一字不差的句子&quot;,&quot;summary&quot;:&quot;自</text>
+<text x="56" y="301" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">己的话&quot;,&quot;tags&quot;:[&quot;tag&quot;]}</text>
+<rect x="40" y="329" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="354" font-size="18" fill="#1e6b43">books\mybook\claims.jsonl 存在且每</text>
+<text x="58" y="379" font-size="18" fill="#1e6b43">行都是 JSON</text>
+<rect x="40" y="405" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="430" font-size="18" fill="#a12424">引文不是原话，后面 S3 会打回来</text>
+<rect x="40" y="456" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="481" font-size="18" fill="#7a5b00">source_quote 必须和书里一模一样，不能改写！</text>

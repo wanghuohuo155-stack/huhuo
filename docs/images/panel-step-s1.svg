@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="488" viewBox="0 0 660 488">
+<rect x="6" y="6" width="648" height="488-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 5 步：让入世先通读全书</text><text x="604" y="66" font-size="38">📖</text>
+<text x="40" y="118" font-size="22" fill="#33475b">入世会用 Adler 方法把整本书读懂，</text>
+<text x="40" y="149" font-size="22" fill="#33475b">然后写出一张《整书理解》地图：</text>
+<rect x="40" y="162" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py stage</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook S1 --pro</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ject D:\rushi-skill --mode provider</text>
+<rect x="40" y="271" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="296" font-size="18" fill="#1e6b43">S1 -&gt; done，books\mybook\BOOK_O</text>
+<text x="58" y="321" font-size="18" fill="#1e6b43">VERVIEW.md 生成</text>
+<rect x="40" y="347" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="372" font-size="18" fill="#a12424">S1 -&gt; needs-provider：钥匙没配好；fai</text>
+<text x="58" y="397" font-size="18" fill="#a12424">led：输出不是合法 JSON（会自动重试一次）</text>
+<rect x="40" y="423" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="448" font-size="18" fill="#7a5b00">这一步要花十几秒到几分钟，耐心等</text>

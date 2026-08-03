@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="329" viewBox="0 0 660 329">
+<rect x="6" y="6" width="648" height="329-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 2 步：给入世体检</text><text x="604" y="66" font-size="38">🩺</text>
+<text x="40" y="118" font-size="22" fill="#33475b">每次开工前先体检，确认一切正常：</text>
+<rect x="40" y="131" width="580" height="72" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="158" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py docto</text>
+<text x="56" y="185" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">r --project D:\rushi-skill</text>
+<rect x="40" y="213" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="238" font-size="18" fill="#1e6b43">看到全部 ✅（含 配置可读）</text>
+<rect x="40" y="264" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="289" font-size="18" fill="#a12424">有 ❌，看红字提示是哪一项，修好再继续</text>

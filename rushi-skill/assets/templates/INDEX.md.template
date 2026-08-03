@@ -1,0 +1,20 @@
+# {{title}} — Skill Index
+
+> 由 rushi-linker 生成 | 作者: {{author}} | 主旨: {{theme}}
+
+共产出 **{{n}}** 个 skills。
+
+## Skill 列表
+
+- [`{{slug}}`](./skills/{{slug}}/SKILL.md) — {{description 首行}}
+
+## 引用图（mermaid）
+
+```mermaid
+graph LR
+    {{a}} ===> {{b}}
+```
+
+## 推荐学习顺序
+
+1. `{{最基础的 skill}}`

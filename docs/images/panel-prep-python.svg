@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="420" viewBox="0 0 660 420">
+<rect x="6" y="6" width="648" height="420-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">准备 1：确认有 Python</text><text x="604" y="66" font-size="38">🐍</text>
+<text x="40" y="118" font-size="22" fill="#33475b">Python 是让入世跑起来的引擎。</text>
+<text x="40" y="149" font-size="22" fill="#33475b">① 按键盘【Win】键，输入 powershell</text>
+<text x="40" y="180" font-size="22" fill="#33475b">，回车</text>
+<text x="40" y="211" font-size="22" fill="#33475b">② 在黑框框里输入下面这行，回车</text>
+<rect x="40" y="224" width="580" height="45" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="251" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python --version</text>
+<rect x="40" y="279" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="304" font-size="18" fill="#1e6b43">看到 python 3.11 或更高，OK！</text>
+<rect x="40" y="330" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="355" font-size="18" fill="#a12424">提示找不到 python，去 python.org 下载并勾</text>
+<text x="58" y="380" font-size="18" fill="#a12424">选 Add to PATH</text>

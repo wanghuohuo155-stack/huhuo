@@ -1,0 +1,17 @@
+# PROVENANCE.md — 证据链
+
+> 由 rushi-verifier 确定性生成。每条 claim 的引文必须能在源文本中定位，
+> 数字必须带出处。任何未通过项不得进入发布包。
+
+## 统计
+
+| 状态 | 数量 |
+|---|---|
+| verified | {{n}} |
+
+## 明细
+
+| claim_id | skill | 状态 | 定位 | 问题 |
+|---|---|---|---|---|
+| {{claim_id}} | {{slug}} | verified | {{span}} | - |
+

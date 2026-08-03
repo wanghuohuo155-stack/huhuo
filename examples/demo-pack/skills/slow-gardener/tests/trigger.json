@@ -1,0 +1,63 @@
+{
+  "skill": "slow-gardener",
+  "version": "0.1.0",
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我该不该接这个新项目？列了一堆好处但还是没底",
+      "expected_behavior": "应激活 slow-gardener，先列出最坏情况",
+      "notes": "决策纠结"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "拿不定主意要不要辞职创业",
+      "expected_behavior": "应激活 slow-gardener",
+      "notes": "拿不定主意"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "大家都在冲这个赛道，我是不是也该冲",
+      "expected_behavior": "应激活 slow-gardener，检查 FOMO",
+      "notes": "FOMO"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下这个 API 的参数",
+      "expected_behavior": "不应激活本 skill，这是纯信息查询",
+      "notes": "诱饵：信息查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司的护城河强不强",
+      "expected_behavior": "不应激活本 skill，应激活 economic-moat 类竞争分析 skill",
+      "notes": "跨 skill 混淆诱饵"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "今天天气怎么样",
+      "expected_behavior": "不应激活本 skill，这是日常信息查询",
+      "notes": "诱饵：遥测误触发场景"
+    },
+    {
+      "id": "should-not-trigger-04",
+      "type": "should_not_trigger",
+      "prompt": "晚饭吃什么好",
+      "expected_behavior": "不应激活本 skill，这是日常琐事",
+      "notes": "诱饵：遥测误触发场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "今天晚饭吃什么好",
+      "expected_behavior": "不应调用（日常琐事，虽字面是决策）",
+      "notes": "边界：区分严肃决策和日常选择"
+    }
+  ]
+}

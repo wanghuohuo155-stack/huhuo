@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="517" viewBox="0 0 660 517">
+<rect x="6" y="6" width="648" height="517-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 12 步：打包 + 过安检</text><text x="604" y="66" font-size="38">📦</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把技能装进一个漂亮盒子（pack），</text>
+<text x="40" y="149" font-size="22" fill="#33475b">然后过 S9 安检——缺一份证据都不放行：</text>
+<rect x="40" y="162" width="580" height="153" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="189" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py packa</text>
+<text x="56" y="216" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ge --build D:\rushi-skill\books\mybook --proj</text>
+<text x="56" y="243" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">ect D:\rushi-skill --name my-pack --version 0</text>
+<text x="56" y="270" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">.1.0; python rushi-skill\scripts\rushi-cli.py</text>
+<text x="56" y="297" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> gate --pack D:\rushi-skill\packs\my-pack</text>
+<rect x="40" y="325" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="350" font-size="18" fill="#1e6b43">S8 打包成功 + S9 发布闸门: 通过</text>
+<rect x="40" y="376" width="580" height="66" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="401" font-size="18" fill="#a12424">闸门列出缺哪份证据（PROVENANCE/TEST_REPO</text>
+<text x="58" y="426" font-size="18" fill="#a12424">RT/GLOSSARY/INDEX），补好再打包</text>
+<rect x="40" y="452" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="477" font-size="18" fill="#7a5b00">TEST_REPORT 必须 PASS 才能打包</text>

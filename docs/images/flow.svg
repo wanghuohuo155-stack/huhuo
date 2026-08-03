@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="220" viewBox="0 0 1120 220">
+<rect x="4" y="4" width="1112" height="212" rx="20" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 9 9"><path d="M0,0 L8,3.5 L0,7 Z" fill="#ef8f5a"/></marker></defs>
+<rect x="18" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="62" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S0</text><text x="62" y="106" font-size="14" text-anchor="middle" fill="#33475b">放入书本</text>
+<line x1="107" y1="88" x2="116" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="118" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="162" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S1</text><text x="162" y="106" font-size="14" text-anchor="middle" fill="#33475b">读懂全书</text>
+<line x1="207" y1="88" x2="216" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="218" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="262" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S2</text><text x="262" y="106" font-size="14" text-anchor="middle" fill="#33475b">五路提取</text>
+<line x1="307" y1="88" x2="316" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="318" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="362" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S3</text><text x="362" y="106" font-size="14" text-anchor="middle" fill="#33475b">引文检查</text>
+<line x1="407" y1="88" x2="416" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="418" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="462" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S4</text><text x="462" y="106" font-size="14" text-anchor="middle" fill="#33475b">外部验证</text>
+<line x1="507" y1="88" x2="516" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="518" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="562" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S5</text><text x="562" y="106" font-size="14" text-anchor="middle" fill="#33475b">构造技能</text>
+<line x1="607" y1="88" x2="616" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="618" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="662" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S6</text><text x="662" y="106" font-size="14" text-anchor="middle" fill="#33475b">连线成图</text>
+<line x1="707" y1="88" x2="716" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="718" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="762" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S7</text><text x="762" y="106" font-size="14" text-anchor="middle" fill="#33475b">考题考试</text>
+<line x1="807" y1="88" x2="816" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="818" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="862" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S8</text><text x="862" y="106" font-size="14" text-anchor="middle" fill="#33475b">打包</text>
+<line x1="907" y1="88" x2="916" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="918" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="962" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S9</text><text x="962" y="106" font-size="14" text-anchor="middle" fill="#33475b">安检放行</text>
+<line x1="1007" y1="88" x2="1016" y2="88" stroke="#ef8f5a" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="1018" y="60" width="88" height="56" rx="14" fill="#ffffff" stroke="#8fb9e8" stroke-width="3"/><text x="1062" y="86" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b4a78">S10</text><text x="1062" y="106" font-size="14" text-anchor="middle" fill="#33475b">进化</text>
+</svg>

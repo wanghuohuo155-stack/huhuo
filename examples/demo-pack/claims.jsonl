@@ -1,0 +1,5 @@
+{"claim_id": "f01", "skill_slug": "slow-gardener", "kind": "framework", "title": "先问最坏情况", "source_chapter": "第一节", "source_quote": "面对任何重要决定，先问自己：什么情况下我会彻底失败？", "summary": "决策前先列出失败方式，划掉可通过准备避免的，剩下的才是真风险。", "tags": ["decision", "risk"]}
+{"claim_id": "p01", "skill_slug": "slow-gardener", "kind": "principle", "title": "每天只做一个决定", "source_chapter": "第一节", "source_quote": "每天只做一个决定。", "summary": "限制决策数量，避免决策疲劳耗尽执行资源。", "tags": ["decision", "focus"]}
+{"claim_id": "c01", "skill_slug": "slow-gardener", "kind": "case", "title": "雨季移植的失败", "source_chapter": "第二节", "source_quote": "赶时间不是策略，是没策略。", "summary": "跳过墒情检查导致根球烂掉，说明赶时间替代了决策流程。", "tags": ["case", "failure"]}
+{"claim_id": "x01", "skill_slug": "slow-gardener", "kind": "counter-example", "title": "傍晚做决定", "source_chapter": "第二节", "source_quote": "傍晚做的决定往往带着一天的疲惫和情绪。", "summary": "疲劳与情绪是决策质量的头号杀手。", "tags": ["bias", "warning"]}
+{"claim_id": "g01", "skill_slug": "slow-gardener", "kind": "term", "title": "慢决定", "source_chapter": "第三节", "source_quote": "它不是拖延，拖延是害怕行动，慢决定是等待条件。", "summary": "在信息完整前不行动，行动后不反复。", "tags": ["term"]}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="562" viewBox="0 0 660 562">
+<rect x="6" y="6" width="648" height="562-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">第 10 步：给技能出考题</text><text x="604" y="66" font-size="38">🎯</text>
+<text x="40" y="118" font-size="22" fill="#33475b">每个技能要有 tests\trigger.json</text>
+<text x="40" y="149" font-size="22" fill="#33475b"> 考题：</text>
+<text x="40" y="180" font-size="22" fill="#33475b">3 道该触发 + 2 道不该触发（诱饵）+ 1 道</text>
+<text x="40" y="211" font-size="22" fill="#33475b">边界</text>
+<text x="40" y="242" font-size="22" fill="#33475b">智能体按 assets\templates\tri</text>
+<text x="40" y="273" font-size="22" fill="#33475b">gger.json.template 生成</text>
+<rect x="40" y="286" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="313" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">python rushi-skill\scripts\rushi-cli.py check</text>
+<text x="56" y="340" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace"> --build D:\rushi-skill\books\mybook --projec</text>
+<text x="56" y="367" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">t D:\rushi-skill</text>
+<rect x="40" y="395" width="580" height="41" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="420" font-size="18" fill="#1e6b43">S5 构造校验: 通过</text>
+<rect x="40" y="446" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="471" font-size="18" fill="#a12424">提示缺 trigger.json 或缺某一段，补齐再继续</text>
+<rect x="40" y="497" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="522" font-size="18" fill="#7a5b00">诱饵里必须有 1 道是&#x27;该触发另一个技能&#x27;的场景</text>

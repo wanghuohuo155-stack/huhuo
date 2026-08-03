@@ -1,0 +1,47 @@
+{
+  "model": "deepseek-chat",
+  "stages": {
+    "S1": {
+      "ok": true,
+      "checks": {
+        "一句话主旨": true,
+        "结构/骨架(≥3 个二级标题)": true,
+        "批判(局限/盲点/不足/反对)": true,
+        "术语(≥5 条)": true,
+        "应用潜力": true
+      },
+      "pass_rate": 1.0
+    },
+    "S2": {
+      "ok": true,
+      "extractor_errors": [],
+      "candidates_total": 25,
+      "structured_count": 25,
+      "candidates_with_quote": 25,
+      "candidates_verified": 25,
+      "quote_verified_rate": 1.0,
+      "structure_rate": 1.0,
+      "fixture_recall": 0.8,
+      "fixture_recall_n": 4
+    },
+    "S4": {
+      "ok": true,
+      "format_pass": 5,
+      "total": 5,
+      "format_pass_rate": 1.0,
+      "mislabel_count": 0
+    },
+    "S5": {
+      "ok": true,
+      "construct_pass": 5,
+      "construct_pass_rate": 1.0,
+      "quote_verified_pass": 5,
+      "failures": []
+    }
+  },
+  "calls": {
+    "total": 16,
+    "ok": 16,
+    "failed": 0
+  }
+}

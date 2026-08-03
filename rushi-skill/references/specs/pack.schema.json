@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rushi.dev/specs/pack.schema.json",
+  "title": "入世 pack.json v1.0",
+  "type": "object",
+  "required": ["schema_version", "name", "version", "source", "confidence", "freshness", "skills", "artifacts"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0"},
+    "name": {"type": "string", "minLength": 1, "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "source": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"},
+        "author": {"type": "string"},
+        "year": {"type": "string"},
+        "kind": {"type": "string"},
+        "sha256": {"type": "string", "minLength": 64, "maxLength": 64}
+      }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["author-claim", "empirically-supported", "unverified"]
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["packaged_at", "expires_at", "policy"],
+      "properties": {
+        "packaged_at": {"type": "string"},
+        "expires_at": {"type": "string"},
+        "policy": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "skills": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 4
+    },
+    "engine": {"type": "string", "const": "rushi"}
+  },
+  "additionalProperties": false
+}
+

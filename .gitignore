@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.rushi/
+packs/
+proposals/
+*.log
+.coverage
+htmlcov/
+books/
+docs/screenshots/

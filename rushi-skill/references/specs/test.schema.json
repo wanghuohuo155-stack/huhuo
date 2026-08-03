@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rushi.dev/specs/test.schema.json",
+  "title": "入世 trigger.json v1.0",
+  "type": "object",
+  "required": ["skill", "version", "test_cases"],
+  "properties": {
+    "skill": {"type": "string"},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "test_cases": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "prompt", "expected_behavior"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {
+            "type": "string",
+            "enum": ["should_trigger", "should_not_trigger", "edge_case"]
+          },
+          "prompt": {"type": "string", "minLength": 4},
+          "expected_behavior": {"type": "string", "minLength": 4},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "minimum_pass_rate": {"type": "number", "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": false
+}

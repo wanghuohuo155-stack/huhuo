@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="494" viewBox="0 0 660 494">
+<rect x="6" y="6" width="648" height="494-12" rx="26" fill="#eaf6ff" stroke="#8fb9e8" stroke-width="5"/>
+<rect x="24" y="26" width="612" height="56" rx="16" fill="#ffd166" stroke="#8fb9e8" stroke-width="4"/><text x="40" y="63" font-size="30" font-weight="bold" fill="#2b4a78">准备 2：把入世装进 Codex</text><text x="604" y="66" font-size="38">🤖</text>
+<text x="40" y="118" font-size="22" fill="#33475b">把整个 rushi-skill 文件夹，放进技能的</text>
+<text x="40" y="149" font-size="22" fill="#33475b">家里：</text>
+<text x="40" y="180" font-size="22" fill="#33475b">（也可以直接对 Codex 说：帮我安装入世）</text>
+<rect x="40" y="193" width="580" height="99" rx="12" fill="#1f3a5f" stroke="#8fb9e8" stroke-width="3"/>
+<text x="56" y="220" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">Copy-Item -LiteralPath &#x27;D:\rushi-skill\rushi-</text>
+<text x="56" y="247" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">skill&#x27; -Destination &#x27;C:\Users\wangh\.codex-cl</text>
+<text x="56" y="274" font-size="19" fill="#e8f4ff" font-family="Consolas,monospace">i\skills&#x27; -Recurse -Force</text>
+<rect x="40" y="302" width="580" height="66" rx="18" fill="#d9f2e0" stroke="#4caf7d" stroke-width="3"/>
+<text x="58" y="327" font-size="18" fill="#1e6b43">skills\rushi-skill\SKILL.md 存在</text>
+<text x="58" y="352" font-size="18" fill="#1e6b43">，OK！</text>
+<rect x="40" y="378" width="580" height="41" rx="18" fill="#ffe0e0" stroke="#ef6c6c" stroke-width="3"/>
+<text x="58" y="403" font-size="18" fill="#a12424">权限被拒绝，让家长或 Codex 帮你执行</text>
+<rect x="40" y="429" width="580" height="41" rx="18" fill="#fff3d6" stroke="#e8b84b" stroke-width="3"/>
+<text x="58" y="454" font-size="18" fill="#7a5b00">装好后，新开一个 Codex 对话才会生效</text>
