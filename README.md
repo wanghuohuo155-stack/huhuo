@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/wanghuohuo155-stack/huhuo/actions"><img src="https://img.shields.io/github/actions/workflow/status/wanghuohuo155-stack/huhuo/ci.yml?branch=main&label=CI" alt="CI"></a>
+  <a href="https://github.com/wanghuohuo155-stack/rushi-skill/actions"><img src="https://img.shields.io/github/actions/workflow/status/wanghuohuo155-stack/rushi-skill/ci.yml?branch=main&label=CI" alt="CI"></a>
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/Tests-125%20passed-2ea44f" alt="125 tests passed">
   <img src="https://img.shields.io/badge/Coverage-90%25-2ea44f" alt="coverage 90%">
@@ -61,8 +61,8 @@ export RUSHI_JSON_MODE='1'
 ### 2. 克隆并自检
 
 ```bash
-git clone https://github.com/wanghuohuo155-stack/huhuo.git
-cd huhuo
+git clone https://github.com/wanghuohuo155-stack/rushi-skill.git
+cd rushi-skill
 python rushi-skill/scripts/rushi-cli.py doctor   # 全部 ✅ 即环境就绪
 ```
 
@@ -124,7 +124,7 @@ python rushi-skill/scripts/rushi-cli.py install --pack packs/demo-pack --host co
 
 - 📖 [使用说明-花拳绣腿.html](docs/使用说明-花拳绣腿.html)（小人书式图文教程，浏览器直接打开）
 - 🎨 [使用说明.html](docs/使用说明.html)（《你的名字》日式动漫版）
-- 🌐 [在线渲染版](https://wanghuohuo155-stack.github.io/huhuo/)（GitHub Pages）
+- 🌐 [在线渲染版](https://wanghuohuo155-stack.github.io/rushi-skill/)（GitHub Pages）
 - 📐 [PLAN.md](docs/PLAN.md)（终极目标、行动与落地方案）
 - 📝 [CHANGELOG.md](CHANGELOG.md)（版本变更记录）
 
@@ -139,7 +139,7 @@ python rushi-skill/scripts/rushi-cli.py install --pack packs/demo-pack --host co
 ## 项目结构
 
 ```text
-huhuo/
+rushi-skill/
 ├── README.md                  # 本文件
 ├── CHANGELOG.md               # 版本变更
 ├── LICENSE                    # AGPL-3.0
